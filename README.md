@@ -1,36 +1,42 @@
-# go-mc26
+# go-mc26 — Minecraft 26.3
 
-A Go library for Minecraft: Java Edition 26.x — the network protocol, game data and world
-formats as Go types, generated from Mojang's unobfuscated server jars.
+A Go library for Minecraft: Java Edition 26.3 (protocol 777, data version
+5023, Java 25) — the network protocol, game data and world formats as
+Go types, generated from Mojang's unobfuscated server jar.
 
-go-mc26 is another approach to a Minecraft library, not a fork: packets, registries, data
-components, block states, items, entities, biomes and translations are produced by generators
-from JSON extracted straight from the jar, and every Minecraft version is its own branch built
-from that data. The bot and the server framework use the generated types only, so a new
-Minecraft version means "extract, generate, build — and the compiler points at what changed".
+This branch is a build: generated, templated or copied, never edited by hand.
+Generated from `mc26-data v0.263.0` by `mc26 190a89967ae4`; the same facts are in
+`data/version` (`version.Name`, `version.ProtocolVersion`, `version.DataSource`,
+`version.Generator`). The sources, generators and build live in
+[mc26](https://github.com/mj41/mc26); every Minecraft version is its own branch of this
+repository and releases are tags (`v0.<YYN>.<patch>`).
 
-It was built with Claude Opus and Claude Fable. It carries code from
-[Tnze/go-mc](https://github.com/Tnze/go-mc) (MIT); see `LICENSE` here and the `COPIED`
-manifest in [go-mc26-gen](../go-mc26-gen).
+```
+go get github.com/mj41/go-mc26@mc-26.3
+```
 
-## Versions
+## Packages
 
-- One branch per Minecraft version: `mc-26.1`, `mc-26.2`, … `main` holds only this README.
-- Releases are tags `v0.<YYN>.<patch>`: `v0.262.0` is Minecraft 26.2.
-  `go get github.com/mj41/go-mc26@v0.262.0`
+| package | what |
+|---|---|
+| `protocol/{handshake,status,login,configuration,play}` | one struct per packet with `PacketID`, `ReadFrom`, `WriteTo`; `protocol/types` holds the shared wire types and enums |
+| `data/packetid`, `data/registryid`, `data/item`, `data/entity`, `data/soundid`, `data/lang`, `data/version` | packet ids, every registry, items, entities, sounds, translations, version constants |
+| `level`, `level/block`, `level/biome`, `level/component` | chunks and palettes, blocks and block states, biomes, item data components |
+| `nbt`, `nbt/dynbt`, `save`, `save/region` | NBT, dynamic NBT, level.dat and player data, region files |
+| `net`, `net/packet`, `net/queue` | the connection, packet framing and field types, RCON |
+| `management` | the server management protocol (JSON-RPC over a WebSocket): a typed client generated from the server's own API document, with its notifications |
+| `chat`, `chat/sign` | text components, translations, signed chat |
+| `yggdrasil/user` | a player's profile properties and public key, as they travel in packets |
+
+A client (the bot), a server framework, the account flows (Mojang session server, Microsoft
+login, offline uuids) and the examples are in [go-mc26-kit](https://github.com/mj41/go-mc26-kit),
+a module of its own on top of this one that builds against every supported version of it.
+
+## Notes
+
+- Built with Claude Opus and Claude Fable. Carries code from
+  [Tnze/go-mc](https://github.com/Tnze/go-mc) (MIT); `COPIED` lists the origin of every
+  hand-written file, `LICENSE` keeps both copyright lines.
+- No API compatibility promise (major version 0): every Minecraft version is generated and may
+  change shape. Nothing before Minecraft 26.1.
 - The three newest Minecraft versions receive fixes; older branches are frozen, their tags stay.
-- No API compatibility promise (major version 0): every version is generated and may change shape.
-- Nothing before Minecraft 26.1.
-
-| branch | Minecraft | protocol | latest tag |
-|---|---|---|---|
-| `mc-26.2` | 26.2 | 776 | — |
-| `mc-26.1` | 26.1 | 775 | — |
-
-## Repositories
-
-- **go-mc26** — this library (generated, templated or copied; never edited by hand).
-- **[go-mc26-gen](../go-mc26-gen)** — the generators, templates, framework sources and the `build` command.
-- **[go-mc26-examples](../go-mc26-examples)** — examples and bots built on this library.
-- **[mc26-data](../mc26-data)** / **[mc26-data-pre](../mc26-data-pre)** — the extracted JSON per Minecraft version.
-- **[mc26-data-gen](../mc26-data-gen)** — the Java extractors that read the jar.
