@@ -1335,7 +1335,7 @@ func (p SetTestBlock) WriteTo(w io.Writer) (int64, error) {
 // SignUpdate is serverbound/minecraft:sign_update (0x3E), Java ServerboundSignUpdatePacket.
 type SignUpdate struct {
 	Pos   pk.Position
-	Lines pk.String
+	Lines types.Array[pk.String, *pk.String, [4]struct{}]
 	Slot  types.SignTextSlot
 }
 

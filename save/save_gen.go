@@ -305,9 +305,11 @@ type Allay struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -359,6 +361,7 @@ type AreaEffectCloud struct {
 	RadiusOnUse         float32          `json:"RadiusOnUse,omitempty" nbt:"RadiusOnUse,omitempty"`               // default 0.0
 	RadiusPerTick       float32          `json:"RadiusPerTick,omitempty" nbt:"RadiusPerTick,omitempty"`           // default 0.0
 	Radius              float32          `json:"Radius,omitempty" nbt:"Radius,omitempty"`                         // default 3.0
+	Owner               nbt.RawMessage   `json:"Owner,omitempty" nbt:"Owner,omitempty"`
 	CustomParticle      *ParticleTypes   `json:"custom_particle,omitempty" nbt:"custom_particle,omitempty"`
 	PotionContents      *PotionContents  `json:"potion_contents,omitempty" nbt:"potion_contents,omitempty"`
 	PotionDurationScale float32          `json:"potion_duration_scale,omitempty" nbt:"potion_duration_scale,omitempty"` // default 1.0
@@ -398,9 +401,11 @@ type Armadillo struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -418,6 +423,7 @@ type Armadillo struct {
 	ForcedAge                           int32                     `json:"ForcedAge,omitempty" nbt:"ForcedAge,omitempty"`                   // default 0
 	AgeLocked                           bool                      `json:"AgeLocked,omitempty" nbt:"AgeLocked,omitempty"`                   // default false
 	InLove                              int32                     `json:"InLove,omitempty" nbt:"InLove,omitempty"`                         // default 0
+	LoveCause                           nbt.RawMessage            `json:"LoveCause,omitempty" nbt:"LoveCause,omitempty"`
 	State                               ArmadilloState            `json:"state,omitempty" nbt:"state,omitempty"`
 	ScuteTime                           int32                     `json:"scute_time,omitempty" nbt:"scute_time,omitempty"`
 	ID                                  string                    `json:"id" nbt:"id"`
@@ -456,9 +462,11 @@ type ArmorStand struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -506,6 +514,7 @@ type Arrow struct {
 	Data              nbt.RawMessage                       `json:"data,omitempty" nbt:"data,omitempty"`
 	Tags              []string                             `json:"Tags,omitempty" nbt:"Tags,omitempty"`
 	Team              string                               `json:"Team,omitempty" nbt:"Team,omitempty"`
+	Owner             nbt.RawMessage                       `json:"Owner,omitempty" nbt:"Owner,omitempty"`
 	LeftOwner         bool                                 `json:"LeftOwner,omitempty" nbt:"LeftOwner,omitempty"`     // default false
 	HasBeenShot       bool                                 `json:"HasBeenShot,omitempty" nbt:"HasBeenShot,omitempty"` // default false
 	CanBreak          []BlockPredicate                     `json:"can_break,omitempty" nbt:"can_break,omitempty"`
@@ -570,9 +579,11 @@ type Axolotl struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -590,6 +601,7 @@ type Axolotl struct {
 	ForcedAge                           int32                     `json:"ForcedAge,omitempty" nbt:"ForcedAge,omitempty"`                   // default 0
 	AgeLocked                           bool                      `json:"AgeLocked,omitempty" nbt:"AgeLocked,omitempty"`                   // default false
 	InLove                              int32                     `json:"InLove,omitempty" nbt:"InLove,omitempty"`                         // default 0
+	LoveCause                           nbt.RawMessage            `json:"LoveCause,omitempty" nbt:"LoveCause,omitempty"`
 	Variant                             int32                     `json:"Variant,omitempty" nbt:"Variant,omitempty"`
 	FromBucket                          bool                      `json:"FromBucket,omitempty" nbt:"FromBucket,omitempty"` // default false
 	ID                                  string                    `json:"id" nbt:"id"`
@@ -628,9 +640,11 @@ type Bat struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -681,9 +695,11 @@ type Bee struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -693,14 +709,15 @@ type Bee struct {
 	Leash                               nbt.RawMessage            `json:"leash,omitempty" nbt:"leash,omitempty"`             // either field or INT_ARRAY
 	HomeRadius                          int32                     `json:"home_radius,omitempty" nbt:"home_radius,omitempty"` // default -1
 	HomePos                             []int32                   `json:"home_pos,omitempty" nbt:"home_pos,omitempty"`
-	LeftHanded                          bool                      `json:"LeftHanded,omitempty" nbt:"LeftHanded,omitempty"`                                 // default false
-	DeathLootTable                      string                    `json:"DeathLootTable,omitempty" nbt:"DeathLootTable,omitempty"`                         // id in minecraft:loot_table
-	DeathLootTableSeed                  int64                     `json:"DeathLootTableSeed,omitempty" nbt:"DeathLootTableSeed,omitempty"`                 // default 0
-	NoAI                                bool                      `json:"NoAI,omitempty" nbt:"NoAI,omitempty"`                                             // default false
-	Age                                 int32                     `json:"Age,omitempty" nbt:"Age,omitempty"`                                               // default 0
-	ForcedAge                           int32                     `json:"ForcedAge,omitempty" nbt:"ForcedAge,omitempty"`                                   // default 0
-	AgeLocked                           bool                      `json:"AgeLocked,omitempty" nbt:"AgeLocked,omitempty"`                                   // default false
-	InLove                              int32                     `json:"InLove,omitempty" nbt:"InLove,omitempty"`                                         // default 0
+	LeftHanded                          bool                      `json:"LeftHanded,omitempty" nbt:"LeftHanded,omitempty"`                 // default false
+	DeathLootTable                      string                    `json:"DeathLootTable,omitempty" nbt:"DeathLootTable,omitempty"`         // id in minecraft:loot_table
+	DeathLootTableSeed                  int64                     `json:"DeathLootTableSeed,omitempty" nbt:"DeathLootTableSeed,omitempty"` // default 0
+	NoAI                                bool                      `json:"NoAI,omitempty" nbt:"NoAI,omitempty"`                             // default false
+	Age                                 int32                     `json:"Age,omitempty" nbt:"Age,omitempty"`                               // default 0
+	ForcedAge                           int32                     `json:"ForcedAge,omitempty" nbt:"ForcedAge,omitempty"`                   // default 0
+	AgeLocked                           bool                      `json:"AgeLocked,omitempty" nbt:"AgeLocked,omitempty"`                   // default false
+	InLove                              int32                     `json:"InLove,omitempty" nbt:"InLove,omitempty"`                         // default 0
+	LoveCause                           nbt.RawMessage            `json:"LoveCause,omitempty" nbt:"LoveCause,omitempty"`
 	HasNectar                           bool                      `json:"HasNectar,omitempty" nbt:"HasNectar,omitempty"`                                   // default false
 	HasStung                            bool                      `json:"HasStung,omitempty" nbt:"HasStung,omitempty"`                                     // default false
 	TicksSincePollination               int32                     `json:"TicksSincePollination,omitempty" nbt:"TicksSincePollination,omitempty"`           // default 0
@@ -710,8 +727,8 @@ type Bee struct {
 	FlowerPos                           []int32                   `json:"flower_pos,omitempty" nbt:"flower_pos,omitempty"`
 	AngerEndTime                        int64                     `json:"anger_end_time,omitempty" nbt:"anger_end_time,omitempty"`
 	AngerTime                           int32                     `json:"AngerTime,omitempty" nbt:"AngerTime,omitempty"`
-	ID                                  string                    `json:"id" nbt:"id"`
 	AngryAt                             nbt.RawMessage            `json:"angry_at,omitempty" nbt:"angry_at,omitempty"`
+	ID                                  string                    `json:"id" nbt:"id"`
 	Passengers                          []nbt.RawMessage          `json:"Passengers,omitempty" nbt:"Passengers,omitempty"`
 }
 
@@ -753,9 +770,11 @@ type Blaze struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -861,9 +880,11 @@ type Bogged struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -919,9 +940,11 @@ type Breeze struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -962,6 +985,7 @@ type BreezeWindCharge struct {
 	Data              nbt.RawMessage   `json:"data,omitempty" nbt:"data,omitempty"`
 	Tags              []string         `json:"Tags,omitempty" nbt:"Tags,omitempty"`
 	Team              string           `json:"Team,omitempty" nbt:"Team,omitempty"`
+	Owner             nbt.RawMessage   `json:"Owner,omitempty" nbt:"Owner,omitempty"`
 	LeftOwner         bool             `json:"LeftOwner,omitempty" nbt:"LeftOwner,omitempty"`     // default false
 	HasBeenShot       bool             `json:"HasBeenShot,omitempty" nbt:"HasBeenShot,omitempty"` // default false
 	CanBreak          []BlockPredicate `json:"can_break,omitempty" nbt:"can_break,omitempty"`
@@ -1008,9 +1032,11 @@ type Camel struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -1028,11 +1054,13 @@ type Camel struct {
 	ForcedAge                           int32                     `json:"ForcedAge,omitempty" nbt:"ForcedAge,omitempty"`                   // default 0
 	AgeLocked                           bool                      `json:"AgeLocked,omitempty" nbt:"AgeLocked,omitempty"`                   // default false
 	InLove                              int32                     `json:"InLove,omitempty" nbt:"InLove,omitempty"`                         // default 0
-	EatingHaystack                      bool                      `json:"EatingHaystack,omitempty" nbt:"EatingHaystack,omitempty"`         // default false
-	Bred                                bool                      `json:"Bred,omitempty" nbt:"Bred,omitempty"`                             // default false
-	Temper                              int32                     `json:"Temper,omitempty" nbt:"Temper,omitempty"`                         // default 0
-	Tame                                bool                      `json:"Tame,omitempty" nbt:"Tame,omitempty"`                             // default false
-	LastPoseTick                        int64                     `json:"LastPoseTick,omitempty" nbt:"LastPoseTick,omitempty"`             // default 0
+	LoveCause                           nbt.RawMessage            `json:"LoveCause,omitempty" nbt:"LoveCause,omitempty"`
+	EatingHaystack                      bool                      `json:"EatingHaystack,omitempty" nbt:"EatingHaystack,omitempty"` // default false
+	Bred                                bool                      `json:"Bred,omitempty" nbt:"Bred,omitempty"`                     // default false
+	Temper                              int32                     `json:"Temper,omitempty" nbt:"Temper,omitempty"`                 // default 0
+	Tame                                bool                      `json:"Tame,omitempty" nbt:"Tame,omitempty"`                     // default false
+	Owner                               []int32                   `json:"Owner,omitempty" nbt:"Owner,omitempty"`
+	LastPoseTick                        int64                     `json:"LastPoseTick,omitempty" nbt:"LastPoseTick,omitempty"` // default 0
 	ID                                  string                    `json:"id" nbt:"id"`
 	Passengers                          []nbt.RawMessage          `json:"Passengers,omitempty" nbt:"Passengers,omitempty"`
 }
@@ -1069,9 +1097,11 @@ type CamelHusk struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -1089,11 +1119,13 @@ type CamelHusk struct {
 	ForcedAge                           int32                     `json:"ForcedAge,omitempty" nbt:"ForcedAge,omitempty"`                   // default 0
 	AgeLocked                           bool                      `json:"AgeLocked,omitempty" nbt:"AgeLocked,omitempty"`                   // default false
 	InLove                              int32                     `json:"InLove,omitempty" nbt:"InLove,omitempty"`                         // default 0
-	EatingHaystack                      bool                      `json:"EatingHaystack,omitempty" nbt:"EatingHaystack,omitempty"`         // default false
-	Bred                                bool                      `json:"Bred,omitempty" nbt:"Bred,omitempty"`                             // default false
-	Temper                              int32                     `json:"Temper,omitempty" nbt:"Temper,omitempty"`                         // default 0
-	Tame                                bool                      `json:"Tame,omitempty" nbt:"Tame,omitempty"`                             // default false
-	LastPoseTick                        int64                     `json:"LastPoseTick,omitempty" nbt:"LastPoseTick,omitempty"`             // default 0
+	LoveCause                           nbt.RawMessage            `json:"LoveCause,omitempty" nbt:"LoveCause,omitempty"`
+	EatingHaystack                      bool                      `json:"EatingHaystack,omitempty" nbt:"EatingHaystack,omitempty"` // default false
+	Bred                                bool                      `json:"Bred,omitempty" nbt:"Bred,omitempty"`                     // default false
+	Temper                              int32                     `json:"Temper,omitempty" nbt:"Temper,omitempty"`                 // default 0
+	Tame                                bool                      `json:"Tame,omitempty" nbt:"Tame,omitempty"`                     // default false
+	Owner                               []int32                   `json:"Owner,omitempty" nbt:"Owner,omitempty"`
+	LastPoseTick                        int64                     `json:"LastPoseTick,omitempty" nbt:"LastPoseTick,omitempty"` // default 0
 	ID                                  string                    `json:"id" nbt:"id"`
 	Passengers                          []nbt.RawMessage          `json:"Passengers,omitempty" nbt:"Passengers,omitempty"`
 }
@@ -1130,9 +1162,11 @@ type Cat struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -1150,7 +1184,9 @@ type Cat struct {
 	ForcedAge                           int32                     `json:"ForcedAge,omitempty" nbt:"ForcedAge,omitempty"`                   // default 0
 	AgeLocked                           bool                      `json:"AgeLocked,omitempty" nbt:"AgeLocked,omitempty"`                   // default false
 	InLove                              int32                     `json:"InLove,omitempty" nbt:"InLove,omitempty"`                         // default 0
-	Sitting                             bool                      `json:"Sitting,omitempty" nbt:"Sitting,omitempty"`                       // default false
+	LoveCause                           nbt.RawMessage            `json:"LoveCause,omitempty" nbt:"LoveCause,omitempty"`
+	Owner                               []int32                   `json:"Owner,omitempty" nbt:"Owner,omitempty"`
+	Sitting                             bool                      `json:"Sitting,omitempty" nbt:"Sitting,omitempty"` // default false
 	Variant                             string                    `json:"variant,omitempty" nbt:"variant,omitempty"`
 	SoundVariant                        nbt.RawMessage            `json:"sound_variant,omitempty" nbt:"sound_variant,omitempty"`
 	CollarColor                         int8                      `json:"CollarColor,omitempty" nbt:"CollarColor,omitempty"`
@@ -1190,9 +1226,11 @@ type CaveSpider struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -1304,9 +1342,11 @@ type Chicken struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -1324,7 +1364,8 @@ type Chicken struct {
 	ForcedAge                           int32                     `json:"ForcedAge,omitempty" nbt:"ForcedAge,omitempty"`                   // default 0
 	AgeLocked                           bool                      `json:"AgeLocked,omitempty" nbt:"AgeLocked,omitempty"`                   // default false
 	InLove                              int32                     `json:"InLove,omitempty" nbt:"InLove,omitempty"`                         // default 0
-	IsChickenJockey                     bool                      `json:"IsChickenJockey,omitempty" nbt:"IsChickenJockey,omitempty"`       // default false
+	LoveCause                           nbt.RawMessage            `json:"LoveCause,omitempty" nbt:"LoveCause,omitempty"`
+	IsChickenJockey                     bool                      `json:"IsChickenJockey,omitempty" nbt:"IsChickenJockey,omitempty"` // default false
 	EggLayTime                          int32                     `json:"EggLayTime,omitempty" nbt:"EggLayTime,omitempty"`
 	Variant                             string                    `json:"variant,omitempty" nbt:"variant,omitempty"`
 	SoundVariant                        nbt.RawMessage            `json:"sound_variant,omitempty" nbt:"sound_variant,omitempty"`
@@ -1364,9 +1405,11 @@ type Cod struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -1417,9 +1460,11 @@ type CopperGolem struct {
 	FallFlying                          bool                         `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                      `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked                 `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage               `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                        `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                        `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage    `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage               `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                        `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage    `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon                `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                        `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                    `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -1471,9 +1516,11 @@ type Cow struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -1491,6 +1538,7 @@ type Cow struct {
 	ForcedAge                           int32                     `json:"ForcedAge,omitempty" nbt:"ForcedAge,omitempty"`                   // default 0
 	AgeLocked                           bool                      `json:"AgeLocked,omitempty" nbt:"AgeLocked,omitempty"`                   // default false
 	InLove                              int32                     `json:"InLove,omitempty" nbt:"InLove,omitempty"`                         // default 0
+	LoveCause                           nbt.RawMessage            `json:"LoveCause,omitempty" nbt:"LoveCause,omitempty"`
 	Variant                             string                    `json:"variant,omitempty" nbt:"variant,omitempty"`
 	SoundVariant                        nbt.RawMessage            `json:"sound_variant,omitempty" nbt:"sound_variant,omitempty"`
 	ID                                  string                    `json:"id" nbt:"id"`
@@ -1529,9 +1577,11 @@ type Creaking struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -1581,9 +1631,11 @@ type Creeper struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -1762,9 +1814,12 @@ type DisplayTextDisplay struct {
 	Height                float32                     `json:"height,omitempty" nbt:"height,omitempty"`                           // default 0.0
 	GlowColorOverride     int32                       `json:"glow_color_override,omitempty" nbt:"glow_color_override,omitempty"` // default -1
 	Brightness            *Brightness                 `json:"brightness,omitempty" nbt:"brightness,omitempty"`
-	LineWidth             int32                       `json:"line_width,omitempty" nbt:"line_width,omitempty"`     // default 200
-	TextOpacity           int8                        `json:"text_opacity,omitempty" nbt:"text_opacity,omitempty"` // default -1
-	Background            int32                       `json:"background,omitempty" nbt:"background,omitempty"`     // default 1073741824
+	LineWidth             int32                       `json:"line_width,omitempty" nbt:"line_width,omitempty"`                 // default 200
+	TextOpacity           int8                        `json:"text_opacity,omitempty" nbt:"text_opacity,omitempty"`             // default -1
+	Background            int32                       `json:"background,omitempty" nbt:"background,omitempty"`                 // default 1073741824
+	Shadow                bool                        `json:"shadow,omitempty" nbt:"shadow,omitempty"`                         // default false
+	SeeThrough            bool                        `json:"see_through,omitempty" nbt:"see_through,omitempty"`               // default false
+	DefaultBackground     bool                        `json:"default_background,omitempty" nbt:"default_background,omitempty"` // default false
 	Alignment             DisplayTextDisplayAlign     `json:"alignment,omitempty" nbt:"alignment,omitempty"`
 	Text                  *chat.Message               `json:"text,omitempty" nbt:"text,omitempty"`
 	ID                    string                      `json:"id" nbt:"id"`
@@ -1803,9 +1858,11 @@ type Dolphin struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -1860,9 +1917,11 @@ type Donkey struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -1880,11 +1939,13 @@ type Donkey struct {
 	ForcedAge                           int32                     `json:"ForcedAge,omitempty" nbt:"ForcedAge,omitempty"`                   // default 0
 	AgeLocked                           bool                      `json:"AgeLocked,omitempty" nbt:"AgeLocked,omitempty"`                   // default false
 	InLove                              int32                     `json:"InLove,omitempty" nbt:"InLove,omitempty"`                         // default 0
-	EatingHaystack                      bool                      `json:"EatingHaystack,omitempty" nbt:"EatingHaystack,omitempty"`         // default false
-	Bred                                bool                      `json:"Bred,omitempty" nbt:"Bred,omitempty"`                             // default false
-	Temper                              int32                     `json:"Temper,omitempty" nbt:"Temper,omitempty"`                         // default 0
-	Tame                                bool                      `json:"Tame,omitempty" nbt:"Tame,omitempty"`                             // default false
-	ChestedHorse                        bool                      `json:"ChestedHorse,omitempty" nbt:"ChestedHorse,omitempty"`             // default false
+	LoveCause                           nbt.RawMessage            `json:"LoveCause,omitempty" nbt:"LoveCause,omitempty"`
+	EatingHaystack                      bool                      `json:"EatingHaystack,omitempty" nbt:"EatingHaystack,omitempty"` // default false
+	Bred                                bool                      `json:"Bred,omitempty" nbt:"Bred,omitempty"`                     // default false
+	Temper                              int32                     `json:"Temper,omitempty" nbt:"Temper,omitempty"`                 // default 0
+	Tame                                bool                      `json:"Tame,omitempty" nbt:"Tame,omitempty"`                     // default false
+	Owner                               []int32                   `json:"Owner,omitempty" nbt:"Owner,omitempty"`
+	ChestedHorse                        bool                      `json:"ChestedHorse,omitempty" nbt:"ChestedHorse,omitempty"` // default false
 	Items                               []ItemStackWithSlot       `json:"Items,omitempty" nbt:"Items,omitempty"`
 	ID                                  string                    `json:"id" nbt:"id"`
 	Passengers                          []nbt.RawMessage          `json:"Passengers,omitempty" nbt:"Passengers,omitempty"`
@@ -1913,6 +1974,7 @@ type DragonFireball struct {
 	Data              nbt.RawMessage   `json:"data,omitempty" nbt:"data,omitempty"`
 	Tags              []string         `json:"Tags,omitempty" nbt:"Tags,omitempty"`
 	Team              string           `json:"Team,omitempty" nbt:"Team,omitempty"`
+	Owner             nbt.RawMessage   `json:"Owner,omitempty" nbt:"Owner,omitempty"`
 	LeftOwner         bool             `json:"LeftOwner,omitempty" nbt:"LeftOwner,omitempty"`     // default false
 	HasBeenShot       bool             `json:"HasBeenShot,omitempty" nbt:"HasBeenShot,omitempty"` // default false
 	CanBreak          []BlockPredicate `json:"can_break,omitempty" nbt:"can_break,omitempty"`
@@ -1953,9 +2015,11 @@ type Drowned struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -2007,9 +2071,11 @@ type ElderGuardian struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -2088,9 +2154,11 @@ type EnderDragon struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -2143,9 +2211,11 @@ type Enderman struct {
 	FallFlying                          bool                                 `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                              `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked                         `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage                       `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                                `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                                `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage            `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage                       `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                                `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage            `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon                        `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                                `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                            `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -2162,8 +2232,8 @@ type Enderman struct {
 	CarriedBlockState                   *registry.Either[string, BlockState] `json:"carriedBlockState,omitempty" nbt:"carriedBlockState,omitempty"`   // either registry or struct BlockState
 	AngerEndTime                        int64                                `json:"anger_end_time,omitempty" nbt:"anger_end_time,omitempty"`
 	AngerTime                           int32                                `json:"AngerTime,omitempty" nbt:"AngerTime,omitempty"`
-	ID                                  string                               `json:"id" nbt:"id"`
 	AngryAt                             nbt.RawMessage                       `json:"angry_at,omitempty" nbt:"angry_at,omitempty"`
+	ID                                  string                               `json:"id" nbt:"id"`
 	Passengers                          []nbt.RawMessage                     `json:"Passengers,omitempty" nbt:"Passengers,omitempty"`
 }
 
@@ -2199,9 +2269,11 @@ type Endermite struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -2292,9 +2364,11 @@ type Evoker struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -2343,6 +2417,7 @@ type EvokerFangs struct {
 	Tags              []string         `json:"Tags,omitempty" nbt:"Tags,omitempty"`
 	Team              string           `json:"Team,omitempty" nbt:"Team,omitempty"`
 	Warmup            int32            `json:"Warmup,omitempty" nbt:"Warmup,omitempty"` // default 0
+	Owner             nbt.RawMessage   `json:"Owner,omitempty" nbt:"Owner,omitempty"`
 	ID                string           `json:"id" nbt:"id"`
 	Passengers        []nbt.RawMessage `json:"Passengers,omitempty" nbt:"Passengers,omitempty"`
 }
@@ -2471,6 +2546,7 @@ type FireworkRocketEntity struct {
 	Data              nbt.RawMessage   `json:"data,omitempty" nbt:"data,omitempty"`
 	Tags              []string         `json:"Tags,omitempty" nbt:"Tags,omitempty"`
 	Team              string           `json:"Team,omitempty" nbt:"Team,omitempty"`
+	Owner             nbt.RawMessage   `json:"Owner,omitempty" nbt:"Owner,omitempty"`
 	LeftOwner         bool             `json:"LeftOwner,omitempty" nbt:"LeftOwner,omitempty"`     // default false
 	HasBeenShot       bool             `json:"HasBeenShot,omitempty" nbt:"HasBeenShot,omitempty"` // default false
 	CanBreak          []BlockPredicate `json:"can_break,omitempty" nbt:"can_break,omitempty"`
@@ -2556,9 +2632,11 @@ type Fox struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -2576,6 +2654,7 @@ type Fox struct {
 	ForcedAge                           int32                     `json:"ForcedAge,omitempty" nbt:"ForcedAge,omitempty"`                   // default 0
 	AgeLocked                           bool                      `json:"AgeLocked,omitempty" nbt:"AgeLocked,omitempty"`                   // default false
 	InLove                              int32                     `json:"InLove,omitempty" nbt:"InLove,omitempty"`                         // default 0
+	LoveCause                           nbt.RawMessage            `json:"LoveCause,omitempty" nbt:"LoveCause,omitempty"`
 	Trusted                             [][]int32                 `json:"Trusted,omitempty" nbt:"Trusted,omitempty"`
 	Sleeping                            bool                      `json:"Sleeping,omitempty" nbt:"Sleeping,omitempty"` // default false
 	Type                                FoxVariant                `json:"Type,omitempty" nbt:"Type,omitempty"`
@@ -2617,9 +2696,11 @@ type Frog struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -2637,6 +2718,7 @@ type Frog struct {
 	ForcedAge                           int32                     `json:"ForcedAge,omitempty" nbt:"ForcedAge,omitempty"`                   // default 0
 	AgeLocked                           bool                      `json:"AgeLocked,omitempty" nbt:"AgeLocked,omitempty"`                   // default false
 	InLove                              int32                     `json:"InLove,omitempty" nbt:"InLove,omitempty"`                         // default 0
+	LoveCause                           nbt.RawMessage            `json:"LoveCause,omitempty" nbt:"LoveCause,omitempty"`
 	Variant                             string                    `json:"variant,omitempty" nbt:"variant,omitempty"`
 	ID                                  string                    `json:"id" nbt:"id"`
 	Passengers                          []nbt.RawMessage          `json:"Passengers,omitempty" nbt:"Passengers,omitempty"`
@@ -2681,9 +2763,11 @@ type Ghast struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -2734,9 +2818,11 @@ type Giant struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -2826,9 +2912,11 @@ type GlowSquid struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -2882,9 +2970,11 @@ type Goat struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -2902,9 +2992,10 @@ type Goat struct {
 	ForcedAge                           int32                     `json:"ForcedAge,omitempty" nbt:"ForcedAge,omitempty"`                   // default 0
 	AgeLocked                           bool                      `json:"AgeLocked,omitempty" nbt:"AgeLocked,omitempty"`                   // default false
 	InLove                              int32                     `json:"InLove,omitempty" nbt:"InLove,omitempty"`                         // default 0
-	IsScreamingGoat                     bool                      `json:"IsScreamingGoat,omitempty" nbt:"IsScreamingGoat,omitempty"`       // default false
-	HasLeftHorn                         bool                      `json:"HasLeftHorn,omitempty" nbt:"HasLeftHorn,omitempty"`               // default true
-	HasRightHorn                        bool                      `json:"HasRightHorn,omitempty" nbt:"HasRightHorn,omitempty"`             // default true
+	LoveCause                           nbt.RawMessage            `json:"LoveCause,omitempty" nbt:"LoveCause,omitempty"`
+	IsScreamingGoat                     bool                      `json:"IsScreamingGoat,omitempty" nbt:"IsScreamingGoat,omitempty"` // default false
+	HasLeftHorn                         bool                      `json:"HasLeftHorn,omitempty" nbt:"HasLeftHorn,omitempty"`         // default true
+	HasRightHorn                        bool                      `json:"HasRightHorn,omitempty" nbt:"HasRightHorn,omitempty"`       // default true
 	ID                                  string                    `json:"id" nbt:"id"`
 	Passengers                          []nbt.RawMessage          `json:"Passengers,omitempty" nbt:"Passengers,omitempty"`
 }
@@ -2948,9 +3039,11 @@ type Guardian struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -3000,9 +3093,11 @@ type HappyGhast struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -3020,7 +3115,8 @@ type HappyGhast struct {
 	ForcedAge                           int32                     `json:"ForcedAge,omitempty" nbt:"ForcedAge,omitempty"`                   // default 0
 	AgeLocked                           bool                      `json:"AgeLocked,omitempty" nbt:"AgeLocked,omitempty"`                   // default false
 	InLove                              int32                     `json:"InLove,omitempty" nbt:"InLove,omitempty"`                         // default 0
-	StillTimeout                        int32                     `json:"still_timeout,omitempty" nbt:"still_timeout,omitempty"`           // default 0
+	LoveCause                           nbt.RawMessage            `json:"LoveCause,omitempty" nbt:"LoveCause,omitempty"`
+	StillTimeout                        int32                     `json:"still_timeout,omitempty" nbt:"still_timeout,omitempty"` // default 0
 	ID                                  string                    `json:"id" nbt:"id"`
 	Passengers                          []nbt.RawMessage          `json:"Passengers,omitempty" nbt:"Passengers,omitempty"`
 }
@@ -3057,9 +3153,11 @@ type Hoglin struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -3069,14 +3167,15 @@ type Hoglin struct {
 	Leash                               nbt.RawMessage            `json:"leash,omitempty" nbt:"leash,omitempty"`             // either field or INT_ARRAY
 	HomeRadius                          int32                     `json:"home_radius,omitempty" nbt:"home_radius,omitempty"` // default -1
 	HomePos                             []int32                   `json:"home_pos,omitempty" nbt:"home_pos,omitempty"`
-	LeftHanded                          bool                      `json:"LeftHanded,omitempty" nbt:"LeftHanded,omitempty"`                           // default false
-	DeathLootTable                      string                    `json:"DeathLootTable,omitempty" nbt:"DeathLootTable,omitempty"`                   // id in minecraft:loot_table
-	DeathLootTableSeed                  int64                     `json:"DeathLootTableSeed,omitempty" nbt:"DeathLootTableSeed,omitempty"`           // default 0
-	NoAI                                bool                      `json:"NoAI,omitempty" nbt:"NoAI,omitempty"`                                       // default false
-	Age                                 int32                     `json:"Age,omitempty" nbt:"Age,omitempty"`                                         // default 0
-	ForcedAge                           int32                     `json:"ForcedAge,omitempty" nbt:"ForcedAge,omitempty"`                             // default 0
-	AgeLocked                           bool                      `json:"AgeLocked,omitempty" nbt:"AgeLocked,omitempty"`                             // default false
-	InLove                              int32                     `json:"InLove,omitempty" nbt:"InLove,omitempty"`                                   // default 0
+	LeftHanded                          bool                      `json:"LeftHanded,omitempty" nbt:"LeftHanded,omitempty"`                 // default false
+	DeathLootTable                      string                    `json:"DeathLootTable,omitempty" nbt:"DeathLootTable,omitempty"`         // id in minecraft:loot_table
+	DeathLootTableSeed                  int64                     `json:"DeathLootTableSeed,omitempty" nbt:"DeathLootTableSeed,omitempty"` // default 0
+	NoAI                                bool                      `json:"NoAI,omitempty" nbt:"NoAI,omitempty"`                             // default false
+	Age                                 int32                     `json:"Age,omitempty" nbt:"Age,omitempty"`                               // default 0
+	ForcedAge                           int32                     `json:"ForcedAge,omitempty" nbt:"ForcedAge,omitempty"`                   // default 0
+	AgeLocked                           bool                      `json:"AgeLocked,omitempty" nbt:"AgeLocked,omitempty"`                   // default false
+	InLove                              int32                     `json:"InLove,omitempty" nbt:"InLove,omitempty"`                         // default 0
+	LoveCause                           nbt.RawMessage            `json:"LoveCause,omitempty" nbt:"LoveCause,omitempty"`
 	IsImmuneToZombification             bool                      `json:"IsImmuneToZombification,omitempty" nbt:"IsImmuneToZombification,omitempty"` // default false
 	TimeInOverworld                     int32                     `json:"TimeInOverworld,omitempty" nbt:"TimeInOverworld,omitempty"`                 // default 0
 	CannotBeHunted                      bool                      `json:"CannotBeHunted,omitempty" nbt:"CannotBeHunted,omitempty"`                   // default false
@@ -3116,9 +3215,11 @@ type Horse struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -3136,11 +3237,13 @@ type Horse struct {
 	ForcedAge                           int32                     `json:"ForcedAge,omitempty" nbt:"ForcedAge,omitempty"`                   // default 0
 	AgeLocked                           bool                      `json:"AgeLocked,omitempty" nbt:"AgeLocked,omitempty"`                   // default false
 	InLove                              int32                     `json:"InLove,omitempty" nbt:"InLove,omitempty"`                         // default 0
-	EatingHaystack                      bool                      `json:"EatingHaystack,omitempty" nbt:"EatingHaystack,omitempty"`         // default false
-	Bred                                bool                      `json:"Bred,omitempty" nbt:"Bred,omitempty"`                             // default false
-	Temper                              int32                     `json:"Temper,omitempty" nbt:"Temper,omitempty"`                         // default 0
-	Tame                                bool                      `json:"Tame,omitempty" nbt:"Tame,omitempty"`                             // default false
-	Variant                             int32                     `json:"Variant,omitempty" nbt:"Variant,omitempty"`                       // default 0
+	LoveCause                           nbt.RawMessage            `json:"LoveCause,omitempty" nbt:"LoveCause,omitempty"`
+	EatingHaystack                      bool                      `json:"EatingHaystack,omitempty" nbt:"EatingHaystack,omitempty"` // default false
+	Bred                                bool                      `json:"Bred,omitempty" nbt:"Bred,omitempty"`                     // default false
+	Temper                              int32                     `json:"Temper,omitempty" nbt:"Temper,omitempty"`                 // default 0
+	Tame                                bool                      `json:"Tame,omitempty" nbt:"Tame,omitempty"`                     // default false
+	Owner                               []int32                   `json:"Owner,omitempty" nbt:"Owner,omitempty"`
+	Variant                             int32                     `json:"Variant,omitempty" nbt:"Variant,omitempty"` // default 0
 	ID                                  string                    `json:"id" nbt:"id"`
 	Passengers                          []nbt.RawMessage          `json:"Passengers,omitempty" nbt:"Passengers,omitempty"`
 }
@@ -3177,9 +3280,11 @@ type Husk struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -3231,9 +3336,11 @@ type Illusioner struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -3328,9 +3435,11 @@ type IronGolem struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -3347,8 +3456,8 @@ type IronGolem struct {
 	PlayerCreated                       bool                      `json:"PlayerCreated,omitempty" nbt:"PlayerCreated,omitempty"`           // default false
 	AngerEndTime                        int64                     `json:"anger_end_time,omitempty" nbt:"anger_end_time,omitempty"`
 	AngerTime                           int32                     `json:"AngerTime,omitempty" nbt:"AngerTime,omitempty"`
-	ID                                  string                    `json:"id" nbt:"id"`
 	AngryAt                             nbt.RawMessage            `json:"angry_at,omitempty" nbt:"angry_at,omitempty"`
+	ID                                  string                    `json:"id" nbt:"id"`
 	Passengers                          []nbt.RawMessage          `json:"Passengers,omitempty" nbt:"Passengers,omitempty"`
 }
 
@@ -3379,6 +3488,7 @@ type ItemEntity struct {
 	Age               int16            `json:"Age,omitempty" nbt:"Age,omitempty"`                 // default 0
 	PickupDelay       int16            `json:"PickupDelay,omitempty" nbt:"PickupDelay,omitempty"` // default 0
 	Owner             []int32          `json:"Owner,omitempty" nbt:"Owner,omitempty"`
+	Thrower           nbt.RawMessage   `json:"Thrower,omitempty" nbt:"Thrower,omitempty"`
 	Item              nbt.RawMessage   `json:"Item,omitempty" nbt:"Item,omitempty"` // recursive ItemStack
 	ID                string           `json:"id" nbt:"id"`
 	Passengers        []nbt.RawMessage `json:"Passengers,omitempty" nbt:"Passengers,omitempty"`
@@ -3454,6 +3564,7 @@ type LargeFireball struct {
 	Data              nbt.RawMessage   `json:"data,omitempty" nbt:"data,omitempty"`
 	Tags              []string         `json:"Tags,omitempty" nbt:"Tags,omitempty"`
 	Team              string           `json:"Team,omitempty" nbt:"Team,omitempty"`
+	Owner             nbt.RawMessage   `json:"Owner,omitempty" nbt:"Owner,omitempty"`
 	LeftOwner         bool             `json:"LeftOwner,omitempty" nbt:"LeftOwner,omitempty"`     // default false
 	HasBeenShot       bool             `json:"HasBeenShot,omitempty" nbt:"HasBeenShot,omitempty"` // default false
 	CanBreak          []BlockPredicate `json:"can_break,omitempty" nbt:"can_break,omitempty"`
@@ -3576,9 +3687,11 @@ type Llama struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -3596,11 +3709,13 @@ type Llama struct {
 	ForcedAge                           int32                     `json:"ForcedAge,omitempty" nbt:"ForcedAge,omitempty"`                   // default 0
 	AgeLocked                           bool                      `json:"AgeLocked,omitempty" nbt:"AgeLocked,omitempty"`                   // default false
 	InLove                              int32                     `json:"InLove,omitempty" nbt:"InLove,omitempty"`                         // default 0
-	EatingHaystack                      bool                      `json:"EatingHaystack,omitempty" nbt:"EatingHaystack,omitempty"`         // default false
-	Bred                                bool                      `json:"Bred,omitempty" nbt:"Bred,omitempty"`                             // default false
-	Temper                              int32                     `json:"Temper,omitempty" nbt:"Temper,omitempty"`                         // default 0
-	Tame                                bool                      `json:"Tame,omitempty" nbt:"Tame,omitempty"`                             // default false
-	ChestedHorse                        bool                      `json:"ChestedHorse,omitempty" nbt:"ChestedHorse,omitempty"`             // default false
+	LoveCause                           nbt.RawMessage            `json:"LoveCause,omitempty" nbt:"LoveCause,omitempty"`
+	EatingHaystack                      bool                      `json:"EatingHaystack,omitempty" nbt:"EatingHaystack,omitempty"` // default false
+	Bred                                bool                      `json:"Bred,omitempty" nbt:"Bred,omitempty"`                     // default false
+	Temper                              int32                     `json:"Temper,omitempty" nbt:"Temper,omitempty"`                 // default 0
+	Tame                                bool                      `json:"Tame,omitempty" nbt:"Tame,omitempty"`                     // default false
+	Owner                               []int32                   `json:"Owner,omitempty" nbt:"Owner,omitempty"`
+	ChestedHorse                        bool                      `json:"ChestedHorse,omitempty" nbt:"ChestedHorse,omitempty"` // default false
 	Items                               []ItemStackWithSlot       `json:"Items,omitempty" nbt:"Items,omitempty"`
 	Variant                             int32                     `json:"Variant,omitempty" nbt:"Variant,omitempty"`
 	ID                                  string                    `json:"id" nbt:"id"`
@@ -3630,6 +3745,7 @@ type LlamaSpit struct {
 	Data              nbt.RawMessage   `json:"data,omitempty" nbt:"data,omitempty"`
 	Tags              []string         `json:"Tags,omitempty" nbt:"Tags,omitempty"`
 	Team              string           `json:"Team,omitempty" nbt:"Team,omitempty"`
+	Owner             nbt.RawMessage   `json:"Owner,omitempty" nbt:"Owner,omitempty"`
 	LeftOwner         bool             `json:"LeftOwner,omitempty" nbt:"LeftOwner,omitempty"`     // default false
 	HasBeenShot       bool             `json:"HasBeenShot,omitempty" nbt:"HasBeenShot,omitempty"` // default false
 	CanBreak          []BlockPredicate `json:"can_break,omitempty" nbt:"can_break,omitempty"`
@@ -3670,9 +3786,11 @@ type MagmaCube struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -3726,9 +3844,11 @@ type Mannequin struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -3863,12 +3983,12 @@ type MinecartCommandBlock struct {
 	FlippedRotation     bool                                 `json:"FlippedRotation,omitempty" nbt:"FlippedRotation,omitempty"` // default false
 	HasTicked           bool                                 `json:"HasTicked,omitempty" nbt:"HasTicked,omitempty"`             // default false
 	Command             string                               `json:"Command,omitempty" nbt:"Command,omitempty"`
-	SuccessCount        int32                                `json:"SuccessCount,omitempty" nbt:"SuccessCount,omitempty"`               // default 0
-	TrackOutput         bool                                 `json:"TrackOutput,omitempty" nbt:"TrackOutput,omitempty"`                 // default true
+	SuccessCount        int32                                `json:"SuccessCount,omitempty" nbt:"SuccessCount,omitempty"` // default 0
+	TrackOutput         bool                                 `json:"TrackOutput,omitempty" nbt:"TrackOutput,omitempty"`   // default true
+	LastOutput          *chat.Message                        `json:"LastOutput,omitempty" nbt:"LastOutput,omitempty"`
 	UpdateLastExecution bool                                 `json:"UpdateLastExecution,omitempty" nbt:"UpdateLastExecution,omitempty"` // default true
 	LastExecution       int64                                `json:"LastExecution,omitempty" nbt:"LastExecution,omitempty"`             // default -1
 	ID                  string                               `json:"id" nbt:"id"`
-	LastOutput          *chat.Message                        `json:"LastOutput,omitempty" nbt:"LastOutput,omitempty"`
 	Passengers          []nbt.RawMessage                     `json:"Passengers,omitempty" nbt:"Passengers,omitempty"`
 }
 
@@ -4053,9 +4173,11 @@ type Mule struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -4073,11 +4195,13 @@ type Mule struct {
 	ForcedAge                           int32                     `json:"ForcedAge,omitempty" nbt:"ForcedAge,omitempty"`                   // default 0
 	AgeLocked                           bool                      `json:"AgeLocked,omitempty" nbt:"AgeLocked,omitempty"`                   // default false
 	InLove                              int32                     `json:"InLove,omitempty" nbt:"InLove,omitempty"`                         // default 0
-	EatingHaystack                      bool                      `json:"EatingHaystack,omitempty" nbt:"EatingHaystack,omitempty"`         // default false
-	Bred                                bool                      `json:"Bred,omitempty" nbt:"Bred,omitempty"`                             // default false
-	Temper                              int32                     `json:"Temper,omitempty" nbt:"Temper,omitempty"`                         // default 0
-	Tame                                bool                      `json:"Tame,omitempty" nbt:"Tame,omitempty"`                             // default false
-	ChestedHorse                        bool                      `json:"ChestedHorse,omitempty" nbt:"ChestedHorse,omitempty"`             // default false
+	LoveCause                           nbt.RawMessage            `json:"LoveCause,omitempty" nbt:"LoveCause,omitempty"`
+	EatingHaystack                      bool                      `json:"EatingHaystack,omitempty" nbt:"EatingHaystack,omitempty"` // default false
+	Bred                                bool                      `json:"Bred,omitempty" nbt:"Bred,omitempty"`                     // default false
+	Temper                              int32                     `json:"Temper,omitempty" nbt:"Temper,omitempty"`                 // default 0
+	Tame                                bool                      `json:"Tame,omitempty" nbt:"Tame,omitempty"`                     // default false
+	Owner                               []int32                   `json:"Owner,omitempty" nbt:"Owner,omitempty"`
+	ChestedHorse                        bool                      `json:"ChestedHorse,omitempty" nbt:"ChestedHorse,omitempty"` // default false
 	Items                               []ItemStackWithSlot       `json:"Items,omitempty" nbt:"Items,omitempty"`
 	ID                                  string                    `json:"id" nbt:"id"`
 	Passengers                          []nbt.RawMessage          `json:"Passengers,omitempty" nbt:"Passengers,omitempty"`
@@ -4115,9 +4239,11 @@ type MushroomCow struct {
 	FallFlying                          bool                         `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                      `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked                 `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage               `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                        `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                        `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage    `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage               `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                        `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage    `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon                `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                        `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                    `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -4135,6 +4261,7 @@ type MushroomCow struct {
 	ForcedAge                           int32                        `json:"ForcedAge,omitempty" nbt:"ForcedAge,omitempty"`                   // default 0
 	AgeLocked                           bool                         `json:"AgeLocked,omitempty" nbt:"AgeLocked,omitempty"`                   // default false
 	InLove                              int32                        `json:"InLove,omitempty" nbt:"InLove,omitempty"`                         // default 0
+	LoveCause                           nbt.RawMessage               `json:"LoveCause,omitempty" nbt:"LoveCause,omitempty"`
 	Type                                MushroomCowVariant           `json:"Type,omitempty" nbt:"Type,omitempty"`
 	StewEffects                         []SuspiciousStewEffectsEntry `json:"stew_effects,omitempty" nbt:"stew_effects,omitempty"`
 	ID                                  string                       `json:"id" nbt:"id"`
@@ -4173,9 +4300,11 @@ type Nautilus struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -4193,7 +4322,9 @@ type Nautilus struct {
 	ForcedAge                           int32                     `json:"ForcedAge,omitempty" nbt:"ForcedAge,omitempty"`                   // default 0
 	AgeLocked                           bool                      `json:"AgeLocked,omitempty" nbt:"AgeLocked,omitempty"`                   // default false
 	InLove                              int32                     `json:"InLove,omitempty" nbt:"InLove,omitempty"`                         // default 0
-	Sitting                             bool                      `json:"Sitting,omitempty" nbt:"Sitting,omitempty"`                       // default false
+	LoveCause                           nbt.RawMessage            `json:"LoveCause,omitempty" nbt:"LoveCause,omitempty"`
+	Owner                               []int32                   `json:"Owner,omitempty" nbt:"Owner,omitempty"`
+	Sitting                             bool                      `json:"Sitting,omitempty" nbt:"Sitting,omitempty"` // default false
 	ID                                  string                    `json:"id" nbt:"id"`
 	Passengers                          []nbt.RawMessage          `json:"Passengers,omitempty" nbt:"Passengers,omitempty"`
 }
@@ -4230,9 +4361,11 @@ type Ocelot struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -4250,7 +4383,8 @@ type Ocelot struct {
 	ForcedAge                           int32                     `json:"ForcedAge,omitempty" nbt:"ForcedAge,omitempty"`                   // default 0
 	AgeLocked                           bool                      `json:"AgeLocked,omitempty" nbt:"AgeLocked,omitempty"`                   // default false
 	InLove                              int32                     `json:"InLove,omitempty" nbt:"InLove,omitempty"`                         // default 0
-	Trusting                            bool                      `json:"Trusting,omitempty" nbt:"Trusting,omitempty"`                     // default false
+	LoveCause                           nbt.RawMessage            `json:"LoveCause,omitempty" nbt:"LoveCause,omitempty"`
+	Trusting                            bool                      `json:"Trusting,omitempty" nbt:"Trusting,omitempty"` // default false
 	ID                                  string                    `json:"id" nbt:"id"`
 	Passengers                          []nbt.RawMessage          `json:"Passengers,omitempty" nbt:"Passengers,omitempty"`
 }
@@ -4352,9 +4486,11 @@ type Panda struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -4372,6 +4508,7 @@ type Panda struct {
 	ForcedAge                           int32                     `json:"ForcedAge,omitempty" nbt:"ForcedAge,omitempty"`                   // default 0
 	AgeLocked                           bool                      `json:"AgeLocked,omitempty" nbt:"AgeLocked,omitempty"`                   // default false
 	InLove                              int32                     `json:"InLove,omitempty" nbt:"InLove,omitempty"`                         // default 0
+	LoveCause                           nbt.RawMessage            `json:"LoveCause,omitempty" nbt:"LoveCause,omitempty"`
 	MainGene                            PandaGene                 `json:"MainGene,omitempty" nbt:"MainGene,omitempty"`
 	HiddenGene                          PandaGene                 `json:"HiddenGene,omitempty" nbt:"HiddenGene,omitempty"`
 	ID                                  string                    `json:"id" nbt:"id"`
@@ -4410,9 +4547,11 @@ type Parched struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -4462,9 +4601,11 @@ type Parrot struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -4482,7 +4623,9 @@ type Parrot struct {
 	ForcedAge                           int32                     `json:"ForcedAge,omitempty" nbt:"ForcedAge,omitempty"`                   // default 0
 	AgeLocked                           bool                      `json:"AgeLocked,omitempty" nbt:"AgeLocked,omitempty"`                   // default false
 	InLove                              int32                     `json:"InLove,omitempty" nbt:"InLove,omitempty"`                         // default 0
-	Sitting                             bool                      `json:"Sitting,omitempty" nbt:"Sitting,omitempty"`                       // default false
+	LoveCause                           nbt.RawMessage            `json:"LoveCause,omitempty" nbt:"LoveCause,omitempty"`
+	Owner                               []int32                   `json:"Owner,omitempty" nbt:"Owner,omitempty"`
+	Sitting                             bool                      `json:"Sitting,omitempty" nbt:"Sitting,omitempty"` // default false
 	Variant                             int32                     `json:"Variant,omitempty" nbt:"Variant,omitempty"`
 	ID                                  string                    `json:"id" nbt:"id"`
 	Passengers                          []nbt.RawMessage          `json:"Passengers,omitempty" nbt:"Passengers,omitempty"`
@@ -4520,9 +4663,11 @@ type Phantom struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -4574,9 +4719,11 @@ type Pig struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -4594,6 +4741,7 @@ type Pig struct {
 	ForcedAge                           int32                     `json:"ForcedAge,omitempty" nbt:"ForcedAge,omitempty"`                   // default 0
 	AgeLocked                           bool                      `json:"AgeLocked,omitempty" nbt:"AgeLocked,omitempty"`                   // default false
 	InLove                              int32                     `json:"InLove,omitempty" nbt:"InLove,omitempty"`                         // default 0
+	LoveCause                           nbt.RawMessage            `json:"LoveCause,omitempty" nbt:"LoveCause,omitempty"`
 	Variant                             string                    `json:"variant,omitempty" nbt:"variant,omitempty"`
 	SoundVariant                        nbt.RawMessage            `json:"sound_variant,omitempty" nbt:"sound_variant,omitempty"`
 	ID                                  string                    `json:"id" nbt:"id"`
@@ -4632,9 +4780,11 @@ type Piglin struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -4689,9 +4839,11 @@ type PiglinBrute struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -4743,9 +4895,11 @@ type Pillager struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -4802,9 +4956,11 @@ type Player struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -4868,9 +5024,11 @@ type PolarBear struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -4888,10 +5046,11 @@ type PolarBear struct {
 	ForcedAge                           int32                     `json:"ForcedAge,omitempty" nbt:"ForcedAge,omitempty"`                   // default 0
 	AgeLocked                           bool                      `json:"AgeLocked,omitempty" nbt:"AgeLocked,omitempty"`                   // default false
 	InLove                              int32                     `json:"InLove,omitempty" nbt:"InLove,omitempty"`                         // default 0
+	LoveCause                           nbt.RawMessage            `json:"LoveCause,omitempty" nbt:"LoveCause,omitempty"`
 	AngerEndTime                        int64                     `json:"anger_end_time,omitempty" nbt:"anger_end_time,omitempty"`
 	AngerTime                           int32                     `json:"AngerTime,omitempty" nbt:"AngerTime,omitempty"`
-	ID                                  string                    `json:"id" nbt:"id"`
 	AngryAt                             nbt.RawMessage            `json:"angry_at,omitempty" nbt:"angry_at,omitempty"`
+	ID                                  string                    `json:"id" nbt:"id"`
 	Passengers                          []nbt.RawMessage          `json:"Passengers,omitempty" nbt:"Passengers,omitempty"`
 }
 
@@ -4958,6 +5117,7 @@ type PrimedTnt struct {
 	Fuse              int16                                `json:"fuse,omitempty" nbt:"fuse,omitempty"`                       // default 80
 	BlockState        *registry.Either[string, BlockState] `json:"block_state,omitempty" nbt:"block_state,omitempty"`         // either registry or struct BlockState
 	ExplosionPower    float32                              `json:"explosion_power,omitempty" nbt:"explosion_power,omitempty"` // default 4.0
+	Owner             nbt.RawMessage                       `json:"owner,omitempty" nbt:"owner,omitempty"`
 	ID                string                               `json:"id" nbt:"id"`
 	Passengers        []nbt.RawMessage                     `json:"Passengers,omitempty" nbt:"Passengers,omitempty"`
 }
@@ -4994,9 +5154,11 @@ type Pufferfish struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -5048,9 +5210,11 @@ type Rabbit struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -5068,6 +5232,7 @@ type Rabbit struct {
 	ForcedAge                           int32                     `json:"ForcedAge,omitempty" nbt:"ForcedAge,omitempty"`                   // default 0
 	AgeLocked                           bool                      `json:"AgeLocked,omitempty" nbt:"AgeLocked,omitempty"`                   // default false
 	InLove                              int32                     `json:"InLove,omitempty" nbt:"InLove,omitempty"`                         // default 0
+	LoveCause                           nbt.RawMessage            `json:"LoveCause,omitempty" nbt:"LoveCause,omitempty"`
 	RabbitType                          int32                     `json:"RabbitType,omitempty" nbt:"RabbitType,omitempty"`
 	MoreCarrotTicks                     int32                     `json:"MoreCarrotTicks,omitempty" nbt:"MoreCarrotTicks,omitempty"` // default 0
 	ID                                  string                    `json:"id" nbt:"id"`
@@ -5134,9 +5299,11 @@ type Ravager struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -5225,9 +5392,11 @@ type Salmon struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -5319,9 +5488,11 @@ type ServerPlayer struct {
 	FallFlying                          bool                       `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                    `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked               `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage             `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                      `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                      `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage  `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage             `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                      `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage  `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon              `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                      `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                  `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -5348,12 +5519,12 @@ type ServerPlayer struct {
 	Respawn                             *ServerPlayerRespawnConfig `json:"respawn,omitempty" nbt:"respawn,omitempty"`
 	SpawnExtraParticlesOnFall           bool                       `json:"spawn_extra_particles_on_fall,omitempty" nbt:"spawn_extra_particles_on_fall,omitempty"` // default false
 	RaidOmenPosition                    []int32                    `json:"raid_omen_position,omitempty" nbt:"raid_omen_position,omitempty"`
+	PlayerGameType                      int32                      `json:"playerGameType,omitempty" nbt:"playerGameType,omitempty"`
+	PreviousPlayerGameType              int32                      `json:"previousPlayerGameType,omitempty" nbt:"previousPlayerGameType,omitempty"`
 	PostEffects                         nbt.RawMessage             `json:"post_effects,omitempty" nbt:"post_effects,omitempty"`
 	ShoulderEntityLeft                  nbt.RawMessage             `json:"ShoulderEntityLeft,omitempty" nbt:"ShoulderEntityLeft,omitempty"`
 	ShoulderEntityRight                 nbt.RawMessage             `json:"ShoulderEntityRight,omitempty" nbt:"ShoulderEntityRight,omitempty"`
 	DataVersion                         int32                      `json:"DataVersion" nbt:"DataVersion"`
-	PlayerGameType                      int32                      `json:"playerGameType" nbt:"playerGameType"`
-	PreviousPlayerGameType              int32                      `json:"previousPlayerGameType,omitempty" nbt:"previousPlayerGameType,omitempty"`
 	RootVehicle                         nbt.RawMessage             `json:"RootVehicle,omitempty" nbt:"RootVehicle,omitempty"`
 	Dimension                           string                     `json:"Dimension" nbt:"Dimension"`
 	EnderPearls                         []nbt.RawMessage           `json:"ender_pearls,omitempty" nbt:"ender_pearls,omitempty"`
@@ -5405,9 +5576,11 @@ type Sheep struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -5425,7 +5598,8 @@ type Sheep struct {
 	ForcedAge                           int32                     `json:"ForcedAge,omitempty" nbt:"ForcedAge,omitempty"`                   // default 0
 	AgeLocked                           bool                      `json:"AgeLocked,omitempty" nbt:"AgeLocked,omitempty"`                   // default false
 	InLove                              int32                     `json:"InLove,omitempty" nbt:"InLove,omitempty"`                         // default 0
-	Sheared                             bool                      `json:"Sheared,omitempty" nbt:"Sheared,omitempty"`                       // default false
+	LoveCause                           nbt.RawMessage            `json:"LoveCause,omitempty" nbt:"LoveCause,omitempty"`
+	Sheared                             bool                      `json:"Sheared,omitempty" nbt:"Sheared,omitempty"` // default false
 	Color                               int8                      `json:"Color,omitempty" nbt:"Color,omitempty"`
 	ID                                  string                    `json:"id" nbt:"id"`
 	Passengers                          []nbt.RawMessage          `json:"Passengers,omitempty" nbt:"Passengers,omitempty"`
@@ -5463,9 +5637,11 @@ type Shulker struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -5509,6 +5685,7 @@ type ShulkerBullet struct {
 	Data              nbt.RawMessage   `json:"data,omitempty" nbt:"data,omitempty"`
 	Tags              []string         `json:"Tags,omitempty" nbt:"Tags,omitempty"`
 	Team              string           `json:"Team,omitempty" nbt:"Team,omitempty"`
+	Owner             nbt.RawMessage   `json:"Owner,omitempty" nbt:"Owner,omitempty"`
 	LeftOwner         bool             `json:"LeftOwner,omitempty" nbt:"LeftOwner,omitempty"`     // default false
 	HasBeenShot       bool             `json:"HasBeenShot,omitempty" nbt:"HasBeenShot,omitempty"` // default false
 	CanBreak          []BlockPredicate `json:"can_break,omitempty" nbt:"can_break,omitempty"`
@@ -5517,8 +5694,8 @@ type ShulkerBullet struct {
 	TYD               float64          `json:"TYD,omitempty" nbt:"TYD,omitempty"`     // default 0.0
 	TZD               float64          `json:"TZD,omitempty" nbt:"TZD,omitempty"`     // default 0.0
 	Dir               int8             `json:"Dir,omitempty" nbt:"Dir,omitempty"`
+	Target            nbt.RawMessage   `json:"Target,omitempty" nbt:"Target,omitempty"`
 	ID                string           `json:"id" nbt:"id"`
-	Target            []int32          `json:"Target" nbt:"Target"`
 	Passengers        []nbt.RawMessage `json:"Passengers,omitempty" nbt:"Passengers,omitempty"`
 }
 
@@ -5554,9 +5731,11 @@ type Silverfish struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -5606,9 +5785,11 @@ type Skeleton struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -5658,9 +5839,11 @@ type SkeletonHorse struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -5678,12 +5861,14 @@ type SkeletonHorse struct {
 	ForcedAge                           int32                     `json:"ForcedAge,omitempty" nbt:"ForcedAge,omitempty"`                   // default 0
 	AgeLocked                           bool                      `json:"AgeLocked,omitempty" nbt:"AgeLocked,omitempty"`                   // default false
 	InLove                              int32                     `json:"InLove,omitempty" nbt:"InLove,omitempty"`                         // default 0
-	EatingHaystack                      bool                      `json:"EatingHaystack,omitempty" nbt:"EatingHaystack,omitempty"`         // default false
-	Bred                                bool                      `json:"Bred,omitempty" nbt:"Bred,omitempty"`                             // default false
-	Temper                              int32                     `json:"Temper,omitempty" nbt:"Temper,omitempty"`                         // default 0
-	Tame                                bool                      `json:"Tame,omitempty" nbt:"Tame,omitempty"`                             // default false
-	SkeletonTrap                        bool                      `json:"SkeletonTrap,omitempty" nbt:"SkeletonTrap,omitempty"`             // default false
-	SkeletonTrapTime                    int32                     `json:"SkeletonTrapTime,omitempty" nbt:"SkeletonTrapTime,omitempty"`     // default 0
+	LoveCause                           nbt.RawMessage            `json:"LoveCause,omitempty" nbt:"LoveCause,omitempty"`
+	EatingHaystack                      bool                      `json:"EatingHaystack,omitempty" nbt:"EatingHaystack,omitempty"` // default false
+	Bred                                bool                      `json:"Bred,omitempty" nbt:"Bred,omitempty"`                     // default false
+	Temper                              int32                     `json:"Temper,omitempty" nbt:"Temper,omitempty"`                 // default 0
+	Tame                                bool                      `json:"Tame,omitempty" nbt:"Tame,omitempty"`                     // default false
+	Owner                               []int32                   `json:"Owner,omitempty" nbt:"Owner,omitempty"`
+	SkeletonTrap                        bool                      `json:"SkeletonTrap,omitempty" nbt:"SkeletonTrap,omitempty"`         // default false
+	SkeletonTrapTime                    int32                     `json:"SkeletonTrapTime,omitempty" nbt:"SkeletonTrapTime,omitempty"` // default 0
 	ID                                  string                    `json:"id" nbt:"id"`
 	Passengers                          []nbt.RawMessage          `json:"Passengers,omitempty" nbt:"Passengers,omitempty"`
 }
@@ -5721,9 +5906,11 @@ type Slime struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -5768,6 +5955,7 @@ type SmallFireball struct {
 	Data              nbt.RawMessage   `json:"data,omitempty" nbt:"data,omitempty"`
 	Tags              []string         `json:"Tags,omitempty" nbt:"Tags,omitempty"`
 	Team              string           `json:"Team,omitempty" nbt:"Team,omitempty"`
+	Owner             nbt.RawMessage   `json:"Owner,omitempty" nbt:"Owner,omitempty"`
 	LeftOwner         bool             `json:"LeftOwner,omitempty" nbt:"LeftOwner,omitempty"`     // default false
 	HasBeenShot       bool             `json:"HasBeenShot,omitempty" nbt:"HasBeenShot,omitempty"` // default false
 	CanBreak          []BlockPredicate `json:"can_break,omitempty" nbt:"can_break,omitempty"`
@@ -5809,9 +5997,11 @@ type Sniffer struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -5829,6 +6019,7 @@ type Sniffer struct {
 	ForcedAge                           int32                     `json:"ForcedAge,omitempty" nbt:"ForcedAge,omitempty"`                   // default 0
 	AgeLocked                           bool                      `json:"AgeLocked,omitempty" nbt:"AgeLocked,omitempty"`                   // default false
 	InLove                              int32                     `json:"InLove,omitempty" nbt:"InLove,omitempty"`                         // default 0
+	LoveCause                           nbt.RawMessage            `json:"LoveCause,omitempty" nbt:"LoveCause,omitempty"`
 	ID                                  string                    `json:"id" nbt:"id"`
 	Passengers                          []nbt.RawMessage          `json:"Passengers,omitempty" nbt:"Passengers,omitempty"`
 }
@@ -5865,9 +6056,11 @@ type SnowGolem struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -5909,6 +6102,7 @@ type Snowball struct {
 	Data              nbt.RawMessage   `json:"data,omitempty" nbt:"data,omitempty"`
 	Tags              []string         `json:"Tags,omitempty" nbt:"Tags,omitempty"`
 	Team              string           `json:"Team,omitempty" nbt:"Team,omitempty"`
+	Owner             nbt.RawMessage   `json:"Owner,omitempty" nbt:"Owner,omitempty"`
 	LeftOwner         bool             `json:"LeftOwner,omitempty" nbt:"LeftOwner,omitempty"`     // default false
 	HasBeenShot       bool             `json:"HasBeenShot,omitempty" nbt:"HasBeenShot,omitempty"` // default false
 	CanBreak          []BlockPredicate `json:"can_break,omitempty" nbt:"can_break,omitempty"`
@@ -5953,6 +6147,7 @@ type SpectralArrow struct {
 	Data              nbt.RawMessage                       `json:"data,omitempty" nbt:"data,omitempty"`
 	Tags              []string                             `json:"Tags,omitempty" nbt:"Tags,omitempty"`
 	Team              string                               `json:"Team,omitempty" nbt:"Team,omitempty"`
+	Owner             nbt.RawMessage                       `json:"Owner,omitempty" nbt:"Owner,omitempty"`
 	LeftOwner         bool                                 `json:"LeftOwner,omitempty" nbt:"LeftOwner,omitempty"`     // default false
 	HasBeenShot       bool                                 `json:"HasBeenShot,omitempty" nbt:"HasBeenShot,omitempty"` // default false
 	CanBreak          []BlockPredicate                     `json:"can_break,omitempty" nbt:"can_break,omitempty"`
@@ -6004,9 +6199,11 @@ type Spider struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -6056,9 +6253,11 @@ type Squid struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -6117,9 +6316,11 @@ type Stray struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -6169,9 +6370,11 @@ type Strider struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -6189,6 +6392,7 @@ type Strider struct {
 	ForcedAge                           int32                     `json:"ForcedAge,omitempty" nbt:"ForcedAge,omitempty"`                   // default 0
 	AgeLocked                           bool                      `json:"AgeLocked,omitempty" nbt:"AgeLocked,omitempty"`                   // default false
 	InLove                              int32                     `json:"InLove,omitempty" nbt:"InLove,omitempty"`                         // default 0
+	LoveCause                           nbt.RawMessage            `json:"LoveCause,omitempty" nbt:"LoveCause,omitempty"`
 	ID                                  string                    `json:"id" nbt:"id"`
 	Passengers                          []nbt.RawMessage          `json:"Passengers,omitempty" nbt:"Passengers,omitempty"`
 }
@@ -6229,9 +6433,11 @@ type SulfurCube struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -6291,9 +6497,11 @@ type Tadpole struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -6337,6 +6545,7 @@ type ThrownEgg struct {
 	Data              nbt.RawMessage   `json:"data,omitempty" nbt:"data,omitempty"`
 	Tags              []string         `json:"Tags,omitempty" nbt:"Tags,omitempty"`
 	Team              string           `json:"Team,omitempty" nbt:"Team,omitempty"`
+	Owner             nbt.RawMessage   `json:"Owner,omitempty" nbt:"Owner,omitempty"`
 	LeftOwner         bool             `json:"LeftOwner,omitempty" nbt:"LeftOwner,omitempty"`     // default false
 	HasBeenShot       bool             `json:"HasBeenShot,omitempty" nbt:"HasBeenShot,omitempty"` // default false
 	CanBreak          []BlockPredicate `json:"can_break,omitempty" nbt:"can_break,omitempty"`
@@ -6368,6 +6577,7 @@ type ThrownEnderpearl struct {
 	Data              nbt.RawMessage   `json:"data,omitempty" nbt:"data,omitempty"`
 	Tags              []string         `json:"Tags,omitempty" nbt:"Tags,omitempty"`
 	Team              string           `json:"Team,omitempty" nbt:"Team,omitempty"`
+	Owner             nbt.RawMessage   `json:"Owner,omitempty" nbt:"Owner,omitempty"`
 	LeftOwner         bool             `json:"LeftOwner,omitempty" nbt:"LeftOwner,omitempty"`     // default false
 	HasBeenShot       bool             `json:"HasBeenShot,omitempty" nbt:"HasBeenShot,omitempty"` // default false
 	CanBreak          []BlockPredicate `json:"can_break,omitempty" nbt:"can_break,omitempty"`
@@ -6399,6 +6609,7 @@ type ThrownExperienceBottle struct {
 	Data              nbt.RawMessage   `json:"data,omitempty" nbt:"data,omitempty"`
 	Tags              []string         `json:"Tags,omitempty" nbt:"Tags,omitempty"`
 	Team              string           `json:"Team,omitempty" nbt:"Team,omitempty"`
+	Owner             nbt.RawMessage   `json:"Owner,omitempty" nbt:"Owner,omitempty"`
 	LeftOwner         bool             `json:"LeftOwner,omitempty" nbt:"LeftOwner,omitempty"`     // default false
 	HasBeenShot       bool             `json:"HasBeenShot,omitempty" nbt:"HasBeenShot,omitempty"` // default false
 	CanBreak          []BlockPredicate `json:"can_break,omitempty" nbt:"can_break,omitempty"`
@@ -6430,6 +6641,7 @@ type ThrownLingeringPotion struct {
 	Data              nbt.RawMessage   `json:"data,omitempty" nbt:"data,omitempty"`
 	Tags              []string         `json:"Tags,omitempty" nbt:"Tags,omitempty"`
 	Team              string           `json:"Team,omitempty" nbt:"Team,omitempty"`
+	Owner             nbt.RawMessage   `json:"Owner,omitempty" nbt:"Owner,omitempty"`
 	LeftOwner         bool             `json:"LeftOwner,omitempty" nbt:"LeftOwner,omitempty"`     // default false
 	HasBeenShot       bool             `json:"HasBeenShot,omitempty" nbt:"HasBeenShot,omitempty"` // default false
 	CanBreak          []BlockPredicate `json:"can_break,omitempty" nbt:"can_break,omitempty"`
@@ -6461,6 +6673,7 @@ type ThrownSplashPotion struct {
 	Data              nbt.RawMessage   `json:"data,omitempty" nbt:"data,omitempty"`
 	Tags              []string         `json:"Tags,omitempty" nbt:"Tags,omitempty"`
 	Team              string           `json:"Team,omitempty" nbt:"Team,omitempty"`
+	Owner             nbt.RawMessage   `json:"Owner,omitempty" nbt:"Owner,omitempty"`
 	LeftOwner         bool             `json:"LeftOwner,omitempty" nbt:"LeftOwner,omitempty"`     // default false
 	HasBeenShot       bool             `json:"HasBeenShot,omitempty" nbt:"HasBeenShot,omitempty"` // default false
 	CanBreak          []BlockPredicate `json:"can_break,omitempty" nbt:"can_break,omitempty"`
@@ -6492,6 +6705,7 @@ type ThrownTrident struct {
 	Data              nbt.RawMessage                       `json:"data,omitempty" nbt:"data,omitempty"`
 	Tags              []string                             `json:"Tags,omitempty" nbt:"Tags,omitempty"`
 	Team              string                               `json:"Team,omitempty" nbt:"Team,omitempty"`
+	Owner             nbt.RawMessage                       `json:"Owner,omitempty" nbt:"Owner,omitempty"`
 	LeftOwner         bool                                 `json:"LeftOwner,omitempty" nbt:"LeftOwner,omitempty"`     // default false
 	HasBeenShot       bool                                 `json:"HasBeenShot,omitempty" nbt:"HasBeenShot,omitempty"` // default false
 	CanBreak          []BlockPredicate                     `json:"can_break,omitempty" nbt:"can_break,omitempty"`
@@ -6544,9 +6758,11 @@ type TraderLlama struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -6564,11 +6780,13 @@ type TraderLlama struct {
 	ForcedAge                           int32                     `json:"ForcedAge,omitempty" nbt:"ForcedAge,omitempty"`                   // default 0
 	AgeLocked                           bool                      `json:"AgeLocked,omitempty" nbt:"AgeLocked,omitempty"`                   // default false
 	InLove                              int32                     `json:"InLove,omitempty" nbt:"InLove,omitempty"`                         // default 0
-	EatingHaystack                      bool                      `json:"EatingHaystack,omitempty" nbt:"EatingHaystack,omitempty"`         // default false
-	Bred                                bool                      `json:"Bred,omitempty" nbt:"Bred,omitempty"`                             // default false
-	Temper                              int32                     `json:"Temper,omitempty" nbt:"Temper,omitempty"`                         // default 0
-	Tame                                bool                      `json:"Tame,omitempty" nbt:"Tame,omitempty"`                             // default false
-	ChestedHorse                        bool                      `json:"ChestedHorse,omitempty" nbt:"ChestedHorse,omitempty"`             // default false
+	LoveCause                           nbt.RawMessage            `json:"LoveCause,omitempty" nbt:"LoveCause,omitempty"`
+	EatingHaystack                      bool                      `json:"EatingHaystack,omitempty" nbt:"EatingHaystack,omitempty"` // default false
+	Bred                                bool                      `json:"Bred,omitempty" nbt:"Bred,omitempty"`                     // default false
+	Temper                              int32                     `json:"Temper,omitempty" nbt:"Temper,omitempty"`                 // default 0
+	Tame                                bool                      `json:"Tame,omitempty" nbt:"Tame,omitempty"`                     // default false
+	Owner                               []int32                   `json:"Owner,omitempty" nbt:"Owner,omitempty"`
+	ChestedHorse                        bool                      `json:"ChestedHorse,omitempty" nbt:"ChestedHorse,omitempty"` // default false
 	Items                               []ItemStackWithSlot       `json:"Items,omitempty" nbt:"Items,omitempty"`
 	Variant                             int32                     `json:"Variant,omitempty" nbt:"Variant,omitempty"`
 	DespawnDelay                        int32                     `json:"DespawnDelay,omitempty" nbt:"DespawnDelay,omitempty"` // default 47999
@@ -6616,9 +6834,11 @@ type TropicalFish struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -6671,9 +6891,11 @@ type Turtle struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -6690,7 +6912,8 @@ type Turtle struct {
 	ForcedAge                           int32                     `json:"ForcedAge,omitempty" nbt:"ForcedAge,omitempty"`                   // default 0
 	AgeLocked                           bool                      `json:"AgeLocked,omitempty" nbt:"AgeLocked,omitempty"`                   // default false
 	InLove                              int32                     `json:"InLove,omitempty" nbt:"InLove,omitempty"`                         // default 0
-	HasEgg                              bool                      `json:"has_egg,omitempty" nbt:"has_egg,omitempty"`                       // default false
+	LoveCause                           nbt.RawMessage            `json:"LoveCause,omitempty" nbt:"LoveCause,omitempty"`
+	HasEgg                              bool                      `json:"has_egg,omitempty" nbt:"has_egg,omitempty"` // default false
 	ID                                  string                    `json:"id" nbt:"id"`
 	Passengers                          []nbt.RawMessage          `json:"Passengers,omitempty" nbt:"Passengers,omitempty"`
 }
@@ -6727,9 +6950,11 @@ type Vex struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -6745,6 +6970,7 @@ type Vex struct {
 	NoAI                                bool                      `json:"NoAI,omitempty" nbt:"NoAI,omitempty"`                             // default false
 	BoundPos                            []int32                   `json:"bound_pos,omitempty" nbt:"bound_pos,omitempty"`
 	LifeTicks                           int32                     `json:"life_ticks,omitempty" nbt:"life_ticks,omitempty"`
+	Owner                               nbt.RawMessage            `json:"owner,omitempty" nbt:"owner,omitempty"`
 	ID                                  string                    `json:"id" nbt:"id"`
 	Passengers                          []nbt.RawMessage          `json:"Passengers,omitempty" nbt:"Passengers,omitempty"`
 }
@@ -6803,9 +7029,11 @@ type Villager struct {
 	FallFlying                          bool                         `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                      `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked                 `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage               `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                        `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                        `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage    `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage               `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                        `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage    `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon                `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                        `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                    `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -6875,9 +7103,11 @@ type Vindicator struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -6934,9 +7164,11 @@ type WanderingTrader struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -6993,9 +7225,11 @@ type Warden struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -7057,6 +7291,7 @@ type WindCharge struct {
 	Data              nbt.RawMessage   `json:"data,omitempty" nbt:"data,omitempty"`
 	Tags              []string         `json:"Tags,omitempty" nbt:"Tags,omitempty"`
 	Team              string           `json:"Team,omitempty" nbt:"Team,omitempty"`
+	Owner             nbt.RawMessage   `json:"Owner,omitempty" nbt:"Owner,omitempty"`
 	LeftOwner         bool             `json:"LeftOwner,omitempty" nbt:"LeftOwner,omitempty"`     // default false
 	HasBeenShot       bool             `json:"HasBeenShot,omitempty" nbt:"HasBeenShot,omitempty"` // default false
 	CanBreak          []BlockPredicate `json:"can_break,omitempty" nbt:"can_break,omitempty"`
@@ -7097,9 +7332,11 @@ type Witch struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -7155,9 +7392,11 @@ type WitherBoss struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -7208,9 +7447,11 @@ type WitherSkeleton struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -7251,6 +7492,7 @@ type WitherSkull struct {
 	Data              nbt.RawMessage   `json:"data,omitempty" nbt:"data,omitempty"`
 	Tags              []string         `json:"Tags,omitempty" nbt:"Tags,omitempty"`
 	Team              string           `json:"Team,omitempty" nbt:"Team,omitempty"`
+	Owner             nbt.RawMessage   `json:"Owner,omitempty" nbt:"Owner,omitempty"`
 	LeftOwner         bool             `json:"LeftOwner,omitempty" nbt:"LeftOwner,omitempty"`     // default false
 	HasBeenShot       bool             `json:"HasBeenShot,omitempty" nbt:"HasBeenShot,omitempty"` // default false
 	CanBreak          []BlockPredicate `json:"can_break,omitempty" nbt:"can_break,omitempty"`
@@ -7292,9 +7534,11 @@ type Wolf struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -7312,14 +7556,16 @@ type Wolf struct {
 	ForcedAge                           int32                     `json:"ForcedAge,omitempty" nbt:"ForcedAge,omitempty"`                   // default 0
 	AgeLocked                           bool                      `json:"AgeLocked,omitempty" nbt:"AgeLocked,omitempty"`                   // default false
 	InLove                              int32                     `json:"InLove,omitempty" nbt:"InLove,omitempty"`                         // default 0
-	Sitting                             bool                      `json:"Sitting,omitempty" nbt:"Sitting,omitempty"`                       // default false
+	LoveCause                           nbt.RawMessage            `json:"LoveCause,omitempty" nbt:"LoveCause,omitempty"`
+	Owner                               []int32                   `json:"Owner,omitempty" nbt:"Owner,omitempty"`
+	Sitting                             bool                      `json:"Sitting,omitempty" nbt:"Sitting,omitempty"` // default false
 	Variant                             string                    `json:"variant,omitempty" nbt:"variant,omitempty"`
 	CollarColor                         int8                      `json:"CollarColor,omitempty" nbt:"CollarColor,omitempty"`
 	AngerEndTime                        int64                     `json:"anger_end_time,omitempty" nbt:"anger_end_time,omitempty"`
 	AngerTime                           int32                     `json:"AngerTime,omitempty" nbt:"AngerTime,omitempty"`
+	AngryAt                             nbt.RawMessage            `json:"angry_at,omitempty" nbt:"angry_at,omitempty"`
 	SoundVariant                        nbt.RawMessage            `json:"sound_variant,omitempty" nbt:"sound_variant,omitempty"`
 	ID                                  string                    `json:"id" nbt:"id"`
-	AngryAt                             nbt.RawMessage            `json:"angry_at,omitempty" nbt:"angry_at,omitempty"`
 	Passengers                          []nbt.RawMessage          `json:"Passengers,omitempty" nbt:"Passengers,omitempty"`
 }
 
@@ -7374,9 +7620,11 @@ type Zoglin struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -7427,9 +7675,11 @@ type Zombie struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -7481,9 +7731,11 @@ type ZombieHorse struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -7501,10 +7753,12 @@ type ZombieHorse struct {
 	ForcedAge                           int32                     `json:"ForcedAge,omitempty" nbt:"ForcedAge,omitempty"`                   // default 0
 	AgeLocked                           bool                      `json:"AgeLocked,omitempty" nbt:"AgeLocked,omitempty"`                   // default false
 	InLove                              int32                     `json:"InLove,omitempty" nbt:"InLove,omitempty"`                         // default 0
-	EatingHaystack                      bool                      `json:"EatingHaystack,omitempty" nbt:"EatingHaystack,omitempty"`         // default false
-	Bred                                bool                      `json:"Bred,omitempty" nbt:"Bred,omitempty"`                             // default false
-	Temper                              int32                     `json:"Temper,omitempty" nbt:"Temper,omitempty"`                         // default 0
-	Tame                                bool                      `json:"Tame,omitempty" nbt:"Tame,omitempty"`                             // default false
+	LoveCause                           nbt.RawMessage            `json:"LoveCause,omitempty" nbt:"LoveCause,omitempty"`
+	EatingHaystack                      bool                      `json:"EatingHaystack,omitempty" nbt:"EatingHaystack,omitempty"` // default false
+	Bred                                bool                      `json:"Bred,omitempty" nbt:"Bred,omitempty"`                     // default false
+	Temper                              int32                     `json:"Temper,omitempty" nbt:"Temper,omitempty"`                 // default 0
+	Tame                                bool                      `json:"Tame,omitempty" nbt:"Tame,omitempty"`                     // default false
+	Owner                               []int32                   `json:"Owner,omitempty" nbt:"Owner,omitempty"`
 	ID                                  string                    `json:"id" nbt:"id"`
 	Passengers                          []nbt.RawMessage          `json:"Passengers,omitempty" nbt:"Passengers,omitempty"`
 }
@@ -7541,9 +7795,11 @@ type ZombieNautilus struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -7561,7 +7817,9 @@ type ZombieNautilus struct {
 	ForcedAge                           int32                     `json:"ForcedAge,omitempty" nbt:"ForcedAge,omitempty"`                   // default 0
 	AgeLocked                           bool                      `json:"AgeLocked,omitempty" nbt:"AgeLocked,omitempty"`                   // default false
 	InLove                              int32                     `json:"InLove,omitempty" nbt:"InLove,omitempty"`                         // default 0
-	Sitting                             bool                      `json:"Sitting,omitempty" nbt:"Sitting,omitempty"`                       // default false
+	LoveCause                           nbt.RawMessage            `json:"LoveCause,omitempty" nbt:"LoveCause,omitempty"`
+	Owner                               []int32                   `json:"Owner,omitempty" nbt:"Owner,omitempty"`
+	Sitting                             bool                      `json:"Sitting,omitempty" nbt:"Sitting,omitempty"` // default false
 	Variant                             string                    `json:"variant,omitempty" nbt:"variant,omitempty"`
 	ID                                  string                    `json:"id" nbt:"id"`
 	Passengers                          []nbt.RawMessage          `json:"Passengers,omitempty" nbt:"Passengers,omitempty"`
@@ -7599,9 +7857,11 @@ type ZombieVillager struct {
 	FallFlying                          bool                         `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                      `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked                 `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage               `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                        `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                        `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage    `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage               `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                        `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage    `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon                `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                        `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                    `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -7660,9 +7920,11 @@ type ZombifiedPiglin struct {
 	FallFlying                          bool                      `json:"FallFlying,omitempty" nbt:"FallFlying,omitempty"` // default false
 	SleepingPos                         []int32                   `json:"sleeping_pos,omitempty" nbt:"sleeping_pos,omitempty"`
 	Brain                               *BrainPacked              `json:"Brain,omitempty" nbt:"Brain,omitempty"`
+	LastHurtByPlayer                    nbt.RawMessage            `json:"last_hurt_by_player,omitempty" nbt:"last_hurt_by_player,omitempty"`
 	LastHurtByPlayerMemoryTime          int32                     `json:"last_hurt_by_player_memory_time,omitempty" nbt:"last_hurt_by_player_memory_time,omitempty"` // default 0
-	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"`       // default 0
-	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                             // recursive ItemStack
+	LastHurtByMob                       nbt.RawMessage            `json:"last_hurt_by_mob,omitempty" nbt:"last_hurt_by_mob,omitempty"`
+	TicksSinceLastHurtByMob             int32                     `json:"ticks_since_last_hurt_by_mob,omitempty" nbt:"ticks_since_last_hurt_by_mob,omitempty"` // default 0
+	Equipment                           map[string]nbt.RawMessage `json:"equipment,omitempty" nbt:"equipment,omitempty"`                                       // recursive ItemStack
 	LocatorBarIcon                      *WaypointIcon             `json:"locator_bar_icon,omitempty" nbt:"locator_bar_icon,omitempty"`
 	CurrentImpulseContextResetGraceTime int32                     `json:"current_impulse_context_reset_grace_time,omitempty" nbt:"current_impulse_context_reset_grace_time,omitempty"` // default 0
 	CurrentExplosionImpactPos           []float64                 `json:"current_explosion_impact_pos,omitempty" nbt:"current_explosion_impact_pos,omitempty"`
@@ -7680,8 +7942,8 @@ type ZombifiedPiglin struct {
 	CanBreakDoors                       bool                      `json:"CanBreakDoors,omitempty" nbt:"CanBreakDoors,omitempty"`           // default false
 	AngerEndTime                        int64                     `json:"anger_end_time,omitempty" nbt:"anger_end_time,omitempty"`
 	AngerTime                           int32                     `json:"AngerTime,omitempty" nbt:"AngerTime,omitempty"`
-	ID                                  string                    `json:"id" nbt:"id"`
 	AngryAt                             nbt.RawMessage            `json:"angry_at,omitempty" nbt:"angry_at,omitempty"`
+	ID                                  string                    `json:"id" nbt:"id"`
 	Passengers                          []nbt.RawMessage          `json:"Passengers,omitempty" nbt:"Passengers,omitempty"`
 }
 

@@ -1340,7 +1340,7 @@ func (p MerchantOffers) WriteTo(w io.Writer) (int64, error) {
 
 // MoveEntityPos is clientbound/minecraft:move_entity_pos (0x36), Java ClientboundMoveEntityPacket$Pos.
 type MoveEntityPos struct {
-	ID                       pk.VarInt
+	EntityID                 pk.VarInt
 	Flags                    types.MoveEntityPosPacked
 	VecDeltaSteppedDeltaStep types.Counted[types.VecDeltaSteppedDeltaStep, *types.VecDeltaSteppedDeltaStep] // as many entries as Flags.StepCount says
 	VecDeltaLinear           types.VecDeltaLinear
@@ -1353,7 +1353,7 @@ func (MoveEntityPos) PacketID() packetid.ClientboundPacketID {
 
 func (p *MoveEntityPos) ReadFrom(r io.Reader) (n int64, err error) {
 	var m int64
-	m, err = pk.Tuple{&p.ID, &p.Flags}.ReadFrom(r)
+	m, err = pk.Tuple{&p.EntityID, &p.Flags}.ReadFrom(r)
 	n += m
 	if err != nil {
 		return n, err
@@ -1377,7 +1377,7 @@ func (p *MoveEntityPos) ReadFrom(r io.Reader) (n int64, err error) {
 
 func (p MoveEntityPos) WriteTo(w io.Writer) (n int64, err error) {
 	var m int64
-	m, err = pk.Tuple{p.ID, p.Flags}.WriteTo(w)
+	m, err = pk.Tuple{p.EntityID, p.Flags}.WriteTo(w)
 	n += m
 	if err != nil {
 		return n, err
@@ -1401,7 +1401,7 @@ func (p MoveEntityPos) WriteTo(w io.Writer) (n int64, err error) {
 
 // MoveEntityPosRot is clientbound/minecraft:move_entity_pos_rot (0x37), Java ClientboundMoveEntityPacket$PosRot.
 type MoveEntityPosRot struct {
-	ID                       pk.VarInt
+	EntityID                 pk.VarInt
 	Flags                    types.MoveEntityPosRotPacked
 	VecDeltaSteppedDeltaStep types.Counted[types.VecDeltaSteppedDeltaStep, *types.VecDeltaSteppedDeltaStep] // as many entries as Flags.StepCount says
 	VecDeltaLinear           types.VecDeltaLinear
@@ -1416,7 +1416,7 @@ func (MoveEntityPosRot) PacketID() packetid.ClientboundPacketID {
 
 func (p *MoveEntityPosRot) ReadFrom(r io.Reader) (n int64, err error) {
 	var m int64
-	m, err = pk.Tuple{&p.ID, &p.Flags}.ReadFrom(r)
+	m, err = pk.Tuple{&p.EntityID, &p.Flags}.ReadFrom(r)
 	n += m
 	if err != nil {
 		return n, err
@@ -1445,7 +1445,7 @@ func (p *MoveEntityPosRot) ReadFrom(r io.Reader) (n int64, err error) {
 
 func (p MoveEntityPosRot) WriteTo(w io.Writer) (n int64, err error) {
 	var m int64
-	m, err = pk.Tuple{p.ID, p.Flags}.WriteTo(w)
+	m, err = pk.Tuple{p.EntityID, p.Flags}.WriteTo(w)
 	n += m
 	if err != nil {
 		return n, err
@@ -1493,7 +1493,7 @@ func (p MoveMinecart) WriteTo(w io.Writer) (int64, error) {
 
 // MoveEntityRot is clientbound/minecraft:move_entity_rot (0x39), Java ClientboundMoveEntityPacket$Rot.
 type MoveEntityRot struct {
-	ID       pk.VarInt
+	EntityID pk.VarInt
 	OnGround pk.Boolean
 	YRot     pk.Byte
 	XRot     pk.Byte
@@ -1505,11 +1505,11 @@ func (MoveEntityRot) PacketID() packetid.ClientboundPacketID {
 }
 
 func (p *MoveEntityRot) ReadFrom(r io.Reader) (int64, error) {
-	return pk.Tuple{&p.ID, &p.OnGround, &p.YRot, &p.XRot}.ReadFrom(r)
+	return pk.Tuple{&p.EntityID, &p.OnGround, &p.YRot, &p.XRot}.ReadFrom(r)
 }
 
 func (p MoveEntityRot) WriteTo(w io.Writer) (int64, error) {
-	return pk.Tuple{p.ID, p.OnGround, p.YRot, p.XRot}.WriteTo(w)
+	return pk.Tuple{p.EntityID, p.OnGround, p.YRot, p.XRot}.WriteTo(w)
 }
 
 // ClientboundMoveVehicle is clientbound/minecraft:move_vehicle (0x3A), Java ClientboundMoveVehiclePacket.

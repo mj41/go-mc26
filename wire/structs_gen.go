@@ -72,21 +72,21 @@ func (v LevelChunkPacketDataBlockEntityInfo) WriteTo(w io.Writer) (int64, error)
 
 // BlockHitResult is Java BlockHitResult.
 type BlockHitResult struct {
-	Pos            pk.Position
-	Direction      Direction
-	Location       pk.Float
-	X              pk.Float
-	Z              pk.Float
-	Inside         pk.Boolean
-	WorldBorderHit pk.Boolean
+	Pos         pk.Position
+	Face        Direction
+	ClickX      pk.Float
+	ClickY      pk.Float
+	ClickZ      pk.Float
+	Inside      pk.Boolean
+	WorldBorder pk.Boolean
 }
 
 func (v *BlockHitResult) ReadFrom(r io.Reader) (int64, error) {
-	return pk.Tuple{&v.Pos, &v.Direction, &v.Location, &v.X, &v.Z, &v.Inside, &v.WorldBorderHit}.ReadFrom(r)
+	return pk.Tuple{&v.Pos, &v.Face, &v.ClickX, &v.ClickY, &v.ClickZ, &v.Inside, &v.WorldBorder}.ReadFrom(r)
 }
 
 func (v BlockHitResult) WriteTo(w io.Writer) (int64, error) {
-	return pk.Tuple{v.Pos, v.Direction, v.Location, v.X, v.Z, v.Inside, v.WorldBorderHit}.WriteTo(w)
+	return pk.Tuple{v.Pos, v.Face, v.ClickX, v.ClickY, v.ClickZ, v.Inside, v.WorldBorder}.WriteTo(w)
 }
 
 // Vector3f is Java Vector3f.

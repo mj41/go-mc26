@@ -4,13 +4,14 @@ package component
 import (
 	"github.com/mj41/go-mc26/chat"
 	pk "github.com/mj41/go-mc26/net/packet"
+	"github.com/mj41/go-mc26/wire"
 	"io"
 )
 
 // SignTextFront is the data component minecraft:sign_text_front (Java SignText).
 type SignTextFront struct {
-	Messages                         chat.Message
-	FilteredMessagesForSerialization pk.Option[chat.Message, *chat.Message]
+	Messages                         wire.Array[chat.Message, *chat.Message, [4]struct{}]
+	FilteredMessagesForSerialization pk.Option[wire.Array[chat.Message, *chat.Message, [4]struct{}], *wire.Array[chat.Message, *chat.Message, [4]struct{}]]
 	Color                            DyeColor
 	HasGlowingText                   pk.Boolean
 }

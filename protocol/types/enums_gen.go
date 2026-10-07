@@ -24,6 +24,16 @@ func (e AdvancementType) WriteTo(w io.Writer) (int64, error)   { return pk.VarIn
 // Count is the number of constants (EnumSet[AdvancementType] needs it for its bit set size).
 func (AdvancementType) Count() int { return 3 }
 
+var advancementTypeNames = [...]string{"task", "challenge", "goal"}
+
+// Name is the name the constant's codec writes, "" for a number out of range.
+func (e AdvancementType) Name() string {
+	if e < 0 || int(e) >= len(advancementTypeNames) {
+		return ""
+	}
+	return advancementTypeNames[e]
+}
+
 // ArmadilloArmadilloState is Java Armadillo$ArmadilloState, sent as a VarInt ordinal.
 type ArmadilloArmadilloState pk.VarInt
 
@@ -41,6 +51,16 @@ func (e ArmadilloArmadilloState) WriteTo(w io.Writer) (int64, error) { return pk
 
 // Count is the number of constants (EnumSet[ArmadilloArmadilloState] needs it for its bit set size).
 func (ArmadilloArmadilloState) Count() int { return 4 }
+
+var armadilloArmadilloStateNames = [...]string{"idle", "rolling", "scared", "unrolling"}
+
+// Name is the name the constant's codec writes, "" for a number out of range.
+func (e ArmadilloArmadilloState) Name() string {
+	if e < 0 || int(e) >= len(armadilloArmadilloStateNames) {
+		return ""
+	}
+	return armadilloArmadilloStateNames[e]
+}
 
 // AttributeModifierOperation is Java AttributeModifier$Operation, sent as a VarInt ordinal.
 type AttributeModifierOperation pk.VarInt
@@ -60,6 +80,16 @@ func (e AttributeModifierOperation) WriteTo(w io.Writer) (int64, error) {
 
 // Count is the number of constants (EnumSet[AttributeModifierOperation] needs it for its bit set size).
 func (AttributeModifierOperation) Count() int { return 3 }
+
+var attributeModifierOperationNames = [...]string{"add_value", "add_multiplied_base", "add_multiplied_total"}
+
+// Name is the name the constant's codec writes, "" for a number out of range.
+func (e AttributeModifierOperation) Name() string {
+	if e < 0 || int(e) >= len(attributeModifierOperationNames) {
+		return ""
+	}
+	return attributeModifierOperationNames[e]
+}
 
 // BossEventBossBarColor is Java BossEvent$BossBarColor, sent as a VarInt ordinal.
 type BossEventBossBarColor pk.VarInt
@@ -82,6 +112,16 @@ func (e BossEventBossBarColor) WriteTo(w io.Writer) (int64, error) { return pk.V
 // Count is the number of constants (EnumSet[BossEventBossBarColor] needs it for its bit set size).
 func (BossEventBossBarColor) Count() int { return 7 }
 
+var bossEventBossBarColorNames = [...]string{"pink", "blue", "red", "green", "yellow", "purple", "white"}
+
+// Name is the name the constant's codec writes, "" for a number out of range.
+func (e BossEventBossBarColor) Name() string {
+	if e < 0 || int(e) >= len(bossEventBossBarColorNames) {
+		return ""
+	}
+	return bossEventBossBarColorNames[e]
+}
+
 // BossEventBossBarOverlay is Java BossEvent$BossBarOverlay, sent as a VarInt ordinal.
 type BossEventBossBarOverlay pk.VarInt
 
@@ -100,6 +140,16 @@ func (e BossEventBossBarOverlay) WriteTo(w io.Writer) (int64, error) { return pk
 
 // Count is the number of constants (EnumSet[BossEventBossBarOverlay] needs it for its bit set size).
 func (BossEventBossBarOverlay) Count() int { return 5 }
+
+var bossEventBossBarOverlayNames = [...]string{"progress", "notched_6", "notched_10", "notched_12", "notched_20"}
+
+// Name is the name the constant's codec writes, "" for a number out of range.
+func (e BossEventBossBarOverlay) Name() string {
+	if e < 0 || int(e) >= len(bossEventBossBarOverlayNames) {
+		return ""
+	}
+	return bossEventBossBarOverlayNames[e]
+}
 
 // BossEventOperationType is Java ClientboundBossEventPacket$OperationType, sent as a VarInt ordinal.
 type BossEventOperationType pk.VarInt
@@ -221,6 +271,16 @@ func (e CopperGolemState) WriteTo(w io.Writer) (int64, error)   { return pk.VarI
 // Count is the number of constants (EnumSet[CopperGolemState] needs it for its bit set size).
 func (CopperGolemState) Count() int { return 5 }
 
+var copperGolemStateNames = [...]string{"idle", "getting_item", "getting_no_item", "dropping_item", "dropping_no_item"}
+
+// Name is the name the constant's codec writes, "" for a number out of range.
+func (e CopperGolemState) Name() string {
+	if e < 0 || int(e) >= len(copperGolemStateNames) {
+		return ""
+	}
+	return copperGolemStateNames[e]
+}
+
 // CustomChatCompletionsAction is Java ClientboundCustomChatCompletionsPacket$Action, sent as a VarInt ordinal.
 type CustomChatCompletionsAction pk.VarInt
 
@@ -275,6 +335,16 @@ func (e Difficulty) WriteTo(w io.Writer) (int64, error)   { return pk.VarInt(e).
 // Count is the number of constants (EnumSet[Difficulty] needs it for its bit set size).
 func (Difficulty) Count() int { return 4 }
 
+var difficultyNames = [...]string{"peaceful", "easy", "normal", "hard"}
+
+// Name is the name the constant's codec writes, "" for a number out of range.
+func (e Difficulty) Name() string {
+	if e < 0 || int(e) >= len(difficultyNames) {
+		return ""
+	}
+	return difficultyNames[e]
+}
+
 // DisplaySlot is Java DisplaySlot, sent as a VarInt ordinal.
 type DisplaySlot pk.VarInt
 
@@ -306,6 +376,16 @@ func (e DisplaySlot) WriteTo(w io.Writer) (int64, error)   { return pk.VarInt(e)
 // Count is the number of constants (EnumSet[DisplaySlot] needs it for its bit set size).
 func (DisplaySlot) Count() int { return 19 }
 
+var displaySlotNames = [...]string{"list", "sidebar", "below_name", "sidebar.team.black", "sidebar.team.dark_blue", "sidebar.team.dark_green", "sidebar.team.dark_aqua", "sidebar.team.dark_red", "sidebar.team.dark_purple", "sidebar.team.gold", "sidebar.team.gray", "sidebar.team.dark_gray", "sidebar.team.blue", "sidebar.team.green", "sidebar.team.aqua", "sidebar.team.red", "sidebar.team.light_purple", "sidebar.team.yellow", "sidebar.team.white"}
+
+// Name is the name the constant's codec writes, "" for a number out of range.
+func (e DisplaySlot) Name() string {
+	if e < 0 || int(e) >= len(displaySlotNames) {
+		return ""
+	}
+	return displaySlotNames[e]
+}
+
 // DyeColor is Java DyeColor, sent as a VarInt ordinal.
 type DyeColor pk.VarInt
 
@@ -333,6 +413,16 @@ func (e DyeColor) WriteTo(w io.Writer) (int64, error)   { return pk.VarInt(e).Wr
 
 // Count is the number of constants (EnumSet[DyeColor] needs it for its bit set size).
 func (DyeColor) Count() int { return 16 }
+
+var dyeColorNames = [...]string{"white", "orange", "magenta", "light_blue", "yellow", "lime", "pink", "gray", "light_gray", "cyan", "purple", "blue", "brown", "green", "red", "black"}
+
+// Name is the name the constant's codec writes, "" for a number out of range.
+func (e DyeColor) Name() string {
+	if e < 0 || int(e) >= len(dyeColorNames) {
+		return ""
+	}
+	return dyeColorNames[e]
+}
 
 // EntityAnchorArgumentAnchor is Java EntityAnchorArgument$Anchor, sent as a VarInt ordinal.
 type EntityAnchorArgumentAnchor pk.VarInt
@@ -383,6 +473,16 @@ func (e GameType) WriteTo(w io.Writer) (int64, error)   { return pk.VarInt(e).Wr
 // Count is the number of constants (EnumSet[GameType] needs it for its bit set size).
 func (GameType) Count() int { return 4 }
 
+var gameTypeNames = [...]string{"survival", "creative", "adventure", "spectator"}
+
+// Name is the name the constant's codec writes, "" for a number out of range.
+func (e GameType) Name() string {
+	if e < 0 || int(e) >= len(gameTypeNames) {
+		return ""
+	}
+	return gameTypeNames[e]
+}
+
 // HeightmapTypes is Java Heightmap$Types, sent as a VarInt ordinal.
 type HeightmapTypes pk.VarInt
 
@@ -401,6 +501,16 @@ func (e HeightmapTypes) WriteTo(w io.Writer) (int64, error)   { return pk.VarInt
 // Count is the number of constants (EnumSet[HeightmapTypes] needs it for its bit set size).
 func (HeightmapTypes) Count() int { return 6 }
 
+var heightmapTypesNames = [...]string{"WORLD_SURFACE_WG", "WORLD_SURFACE", "OCEAN_FLOOR_WG", "OCEAN_FLOOR", "MOTION_BLOCKING", "MOTION_BLOCKING_NO_LEAVES"}
+
+// Name is the name the constant's codec writes, "" for a number out of range.
+func (e HeightmapTypes) Name() string {
+	if e < 0 || int(e) >= len(heightmapTypesNames) {
+		return ""
+	}
+	return heightmapTypesNames[e]
+}
+
 // HumanoidArm is Java HumanoidArm, sent as a VarInt ordinal.
 type HumanoidArm pk.VarInt
 
@@ -414,6 +524,16 @@ func (e HumanoidArm) WriteTo(w io.Writer) (int64, error)   { return pk.VarInt(e)
 
 // Count is the number of constants (EnumSet[HumanoidArm] needs it for its bit set size).
 func (HumanoidArm) Count() int { return 2 }
+
+var humanoidArmNames = [...]string{"left", "right"}
+
+// Name is the name the constant's codec writes, "" for a number out of range.
+func (e HumanoidArm) Name() string {
+	if e < 0 || int(e) >= len(humanoidArmNames) {
+		return ""
+	}
+	return humanoidArmNames[e]
+}
 
 // InteractionHand is Java InteractionHand, sent as a VarInt ordinal.
 type InteractionHand pk.VarInt
@@ -478,6 +598,16 @@ func (e Mirror) WriteTo(w io.Writer) (int64, error)   { return pk.VarInt(e).Writ
 // Count is the number of constants (EnumSet[Mirror] needs it for its bit set size).
 func (Mirror) Count() int { return 3 }
 
+var mirrorNames = [...]string{"none", "left_right", "front_back"}
+
+// Name is the name the constant's codec writes, "" for a number out of range.
+func (e Mirror) Name() string {
+	if e < 0 || int(e) >= len(mirrorNames) {
+		return ""
+	}
+	return mirrorNames[e]
+}
+
 // ObjectiveCriteriaRenderType is Java ObjectiveCriteria$RenderType, sent as a VarInt ordinal.
 type ObjectiveCriteriaRenderType pk.VarInt
 
@@ -495,6 +625,16 @@ func (e ObjectiveCriteriaRenderType) WriteTo(w io.Writer) (int64, error) {
 
 // Count is the number of constants (EnumSet[ObjectiveCriteriaRenderType] needs it for its bit set size).
 func (ObjectiveCriteriaRenderType) Count() int { return 2 }
+
+var objectiveCriteriaRenderTypeNames = [...]string{"integer", "hearts"}
+
+// Name is the name the constant's codec writes, "" for a number out of range.
+func (e ObjectiveCriteriaRenderType) Name() string {
+	if e < 0 || int(e) >= len(objectiveCriteriaRenderTypeNames) {
+		return ""
+	}
+	return objectiveCriteriaRenderTypeNames[e]
+}
 
 // ParticleStatus is Java ParticleStatus, sent as a VarInt ordinal.
 type ParticleStatus pk.VarInt
@@ -644,6 +784,16 @@ func (e Pose) WriteTo(w io.Writer) (int64, error)   { return pk.VarInt(e).WriteT
 // Count is the number of constants (EnumSet[Pose] needs it for its bit set size).
 func (Pose) Count() int { return 18 }
 
+var poseNames = [...]string{"standing", "fall_flying", "sleeping", "swimming", "spin_attack", "crouching", "long_jumping", "dying", "croaking", "using_tongue", "sitting", "roaring", "sniffing", "emerging", "digging", "sliding", "shooting", "inhaling"}
+
+// Name is the name the constant's codec writes, "" for a number out of range.
+func (e Pose) Name() string {
+	if e < 0 || int(e) >= len(poseNames) {
+		return ""
+	}
+	return poseNames[e]
+}
+
 // PositionPathType is Java PositionPath$Type, sent as a VarInt ordinal.
 type PositionPathType pk.VarInt
 
@@ -724,6 +874,16 @@ func (e Rotation) WriteTo(w io.Writer) (int64, error)   { return pk.VarInt(e).Wr
 
 // Count is the number of constants (EnumSet[Rotation] needs it for its bit set size).
 func (Rotation) Count() int { return 4 }
+
+var rotationNames = [...]string{"none", "clockwise_90", "180", "counterclockwise_90"}
+
+// Name is the name the constant's codec writes, "" for a number out of range.
+func (e Rotation) Name() string {
+	if e < 0 || int(e) >= len(rotationNames) {
+		return ""
+	}
+	return rotationNames[e]
+}
 
 // SeenAdvancementsAction is Java ServerboundSeenAdvancementsPacket$Action, sent as a VarInt ordinal.
 type SeenAdvancementsAction pk.VarInt
@@ -876,6 +1036,16 @@ func (e StructureMode) WriteTo(w io.Writer) (int64, error)   { return pk.VarInt(
 // Count is the number of constants (EnumSet[StructureMode] needs it for its bit set size).
 func (StructureMode) Count() int { return 4 }
 
+var structureModeNames = [...]string{"save", "load", "corner", "data"}
+
+// Name is the name the constant's codec writes, "" for a number out of range.
+func (e StructureMode) Name() string {
+	if e < 0 || int(e) >= len(structureModeNames) {
+		return ""
+	}
+	return structureModeNames[e]
+}
+
 // SwingAnimationType is Java SwingAnimationType, sent as a VarInt ordinal.
 type SwingAnimationType pk.VarInt
 
@@ -890,6 +1060,16 @@ func (e SwingAnimationType) WriteTo(w io.Writer) (int64, error)   { return pk.Va
 
 // Count is the number of constants (EnumSet[SwingAnimationType] needs it for its bit set size).
 func (SwingAnimationType) Count() int { return 3 }
+
+var swingAnimationTypeNames = [...]string{"none", "whack", "stab"}
+
+// Name is the name the constant's codec writes, "" for a number out of range.
+func (e SwingAnimationType) Name() string {
+	if e < 0 || int(e) >= len(swingAnimationTypeNames) {
+		return ""
+	}
+	return swingAnimationTypeNames[e]
+}
 
 // TeamCollisionRule is Java Team$CollisionRule, sent as a VarInt ordinal.
 type TeamCollisionRule pk.VarInt
@@ -906,6 +1086,16 @@ func (e TeamCollisionRule) WriteTo(w io.Writer) (int64, error)   { return pk.Var
 
 // Count is the number of constants (EnumSet[TeamCollisionRule] needs it for its bit set size).
 func (TeamCollisionRule) Count() int { return 4 }
+
+var teamCollisionRuleNames = [...]string{"always", "never", "pushOtherTeams", "pushOwnTeam"}
+
+// Name is the name the constant's codec writes, "" for a number out of range.
+func (e TeamCollisionRule) Name() string {
+	if e < 0 || int(e) >= len(teamCollisionRuleNames) {
+		return ""
+	}
+	return teamCollisionRuleNames[e]
+}
 
 // TeamColor is Java TeamColor, sent as a VarInt ordinal.
 type TeamColor pk.VarInt
@@ -935,6 +1125,16 @@ func (e TeamColor) WriteTo(w io.Writer) (int64, error)   { return pk.VarInt(e).W
 // Count is the number of constants (EnumSet[TeamColor] needs it for its bit set size).
 func (TeamColor) Count() int { return 16 }
 
+var teamColorNames = [...]string{"black", "dark_blue", "dark_green", "dark_aqua", "dark_red", "dark_purple", "gold", "gray", "dark_gray", "blue", "green", "aqua", "red", "light_purple", "yellow", "white"}
+
+// Name is the name the constant's codec writes, "" for a number out of range.
+func (e TeamColor) Name() string {
+	if e < 0 || int(e) >= len(teamColorNames) {
+		return ""
+	}
+	return teamColorNames[e]
+}
+
 // TeamVisibility is Java Team$Visibility, sent as a VarInt ordinal.
 type TeamVisibility pk.VarInt
 
@@ -951,6 +1151,16 @@ func (e TeamVisibility) WriteTo(w io.Writer) (int64, error)   { return pk.VarInt
 // Count is the number of constants (EnumSet[TeamVisibility] needs it for its bit set size).
 func (TeamVisibility) Count() int { return 4 }
 
+var teamVisibilityNames = [...]string{"always", "never", "hideForOtherTeams", "hideForOwnTeam"}
+
+// Name is the name the constant's codec writes, "" for a number out of range.
+func (e TeamVisibility) Name() string {
+	if e < 0 || int(e) >= len(teamVisibilityNames) {
+		return ""
+	}
+	return teamVisibilityNames[e]
+}
+
 // TestBlockMode is Java TestBlockMode, sent as a VarInt ordinal.
 type TestBlockMode pk.VarInt
 
@@ -966,6 +1176,16 @@ func (e TestBlockMode) WriteTo(w io.Writer) (int64, error)   { return pk.VarInt(
 
 // Count is the number of constants (EnumSet[TestBlockMode] needs it for its bit set size).
 func (TestBlockMode) Count() int { return 4 }
+
+var testBlockModeNames = [...]string{"start", "log", "fail", "accept"}
+
+// Name is the name the constant's codec writes, "" for a number out of range.
+func (e TestBlockMode) Name() string {
+	if e < 0 || int(e) >= len(testBlockModeNames) {
+		return ""
+	}
+	return testBlockModeNames[e]
+}
 
 // TestInstanceBlockActionAction is Java ServerboundTestInstanceBlockActionPacket$Action, sent as a VarInt ordinal.
 type TestInstanceBlockActionAction pk.VarInt
@@ -1008,6 +1228,16 @@ func (e TestInstanceBlockEntityStatus) WriteTo(w io.Writer) (int64, error) {
 
 // Count is the number of constants (EnumSet[TestInstanceBlockEntityStatus] needs it for its bit set size).
 func (TestInstanceBlockEntityStatus) Count() int { return 3 }
+
+var testInstanceBlockEntityStatusNames = [...]string{"cleared", "running", "finished"}
+
+// Name is the name the constant's codec writes, "" for a number out of range.
+func (e TestInstanceBlockEntityStatus) Name() string {
+	if e < 0 || int(e) >= len(testInstanceBlockEntityStatusNames) {
+		return ""
+	}
+	return testInstanceBlockEntityStatusNames[e]
+}
 
 // TrackedWaypointOperation is Java ClientboundTrackedWaypointPacket$Operation, sent as a VarInt ordinal.
 type TrackedWaypointOperation pk.VarInt
@@ -1063,6 +1293,16 @@ func (e WeatheringCopperWeatherState) WriteTo(w io.Writer) (int64, error) {
 
 // Count is the number of constants (EnumSet[WeatheringCopperWeatherState] needs it for its bit set size).
 func (WeatheringCopperWeatherState) Count() int { return 4 }
+
+var weatheringCopperWeatherStateNames = [...]string{"unaffected", "exposed", "weathered", "oxidized"}
+
+// Name is the name the constant's codec writes, "" for a number out of range.
+func (e WeatheringCopperWeatherState) Name() string {
+	if e < 0 || int(e) >= len(weatheringCopperWeatherStateNames) {
+		return ""
+	}
+	return weatheringCopperWeatherStateNames[e]
+}
 
 // FixedBits20 is FriendlyByteBuf.readFixedBitSet(20): 3 byte(s).
 type FixedBits20 [3]byte

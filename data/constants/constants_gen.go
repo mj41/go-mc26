@@ -27,6 +27,12 @@ const (
 	SectionPosZOffset           = 20
 )
 
+// ServerboundMovePlayerPacket (net.minecraft.network.protocol.game.ServerboundMovePlayerPacket)
+const (
+	MovePlayerFlagHorizontalCollision = 2
+	MovePlayerFlagOnGround            = 1
+)
+
 // LivingEntity (net.minecraft.world.entity.LivingEntity)
 const (
 	LivingEntityArmorSlotOffset                            = 100
@@ -80,6 +86,17 @@ const (
 	LivingEntityTagSleepingPos                             = "sleeping_pos"
 	LivingEntityTicksPerElytraFreeFallEvent                = 10
 	LivingEntityWaterDrag                                  = 0.8
+)
+
+// Input (net.minecraft.world.entity.player.Input)
+const (
+	InputFlagBackward = 2
+	InputFlagForward  = 1
+	InputFlagJump     = 16
+	InputFlagLeft     = 4
+	InputFlagRight    = 8
+	InputFlagShift    = 32
+	InputFlagSprint   = 64
 )
 
 // Inventory (net.minecraft.world.entity.player.Inventory)
