@@ -1882,9 +1882,9 @@ func (v ItemCost) WriteTo(w io.Writer) (int64, error) {
 
 // MerchantOffer is Java MerchantOffer.
 type MerchantOffer struct {
-	BaseCostA        ItemCost
-	Result           ItemStack
-	CostB            pk.Option[ItemCost, *ItemCost]
+	Buy              ItemCost
+	Sell             ItemStack
+	BuyB             pk.Option[ItemCost, *ItemCost]
 	IsExhausted      pk.Boolean
 	Uses             pk.Int
 	MaxUses          pk.Int
@@ -1895,11 +1895,11 @@ type MerchantOffer struct {
 }
 
 func (v *MerchantOffer) ReadFrom(r io.Reader) (int64, error) {
-	return pk.Tuple{&v.BaseCostA, &v.Result, &v.CostB, &v.IsExhausted, &v.Uses, &v.MaxUses, &v.XP, &v.SpecialPriceDiff, &v.PriceMultiplier, &v.Demand}.ReadFrom(r)
+	return pk.Tuple{&v.Buy, &v.Sell, &v.BuyB, &v.IsExhausted, &v.Uses, &v.MaxUses, &v.XP, &v.SpecialPriceDiff, &v.PriceMultiplier, &v.Demand}.ReadFrom(r)
 }
 
 func (v MerchantOffer) WriteTo(w io.Writer) (int64, error) {
-	return pk.Tuple{v.BaseCostA, v.Result, v.CostB, v.IsExhausted, v.Uses, v.MaxUses, v.XP, v.SpecialPriceDiff, v.PriceMultiplier, v.Demand}.WriteTo(w)
+	return pk.Tuple{v.Buy, v.Sell, v.BuyB, v.IsExhausted, v.Uses, v.MaxUses, v.XP, v.SpecialPriceDiff, v.PriceMultiplier, v.Demand}.WriteTo(w)
 }
 
 // NewMinecartBehaviorMinecartStep is Java NewMinecartBehavior$MinecartStep.
@@ -2177,7 +2177,7 @@ type DisplayInfo struct {
 	Title       Text
 	Description Text
 	Icon        ItemStackTemplate
-	Type        AdvancementType
+	Frame       AdvancementType
 	Flags       pk.Int
 	Background  ClientAssetResourceTexture
 	Float       pk.Float
@@ -2186,7 +2186,7 @@ type DisplayInfo struct {
 
 func (v *DisplayInfo) ReadFrom(r io.Reader) (n int64, err error) {
 	var m int64
-	m, err = pk.Tuple{&v.Title, &v.Description, &v.Icon, &v.Type, &v.Flags}.ReadFrom(r)
+	m, err = pk.Tuple{&v.Title, &v.Description, &v.Icon, &v.Frame, &v.Flags}.ReadFrom(r)
 	n += m
 	if err != nil {
 		return n, err
@@ -2208,7 +2208,7 @@ func (v *DisplayInfo) ReadFrom(r io.Reader) (n int64, err error) {
 
 func (v DisplayInfo) WriteTo(w io.Writer) (n int64, err error) {
 	var m int64
-	m, err = pk.Tuple{v.Title, v.Description, v.Icon, v.Type, v.Flags}.WriteTo(w)
+	m, err = pk.Tuple{v.Title, v.Description, v.Icon, v.Frame, v.Flags}.WriteTo(w)
 	n += m
 	if err != nil {
 		return n, err

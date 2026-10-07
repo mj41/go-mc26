@@ -14,6 +14,12 @@ type Entity struct {
 	Width       float64
 	Height      float64
 	Type        string
+	// Passengers are the points its passengers sit at, by passenger, relative
+	// to its position before its rotation (EntityAttachment.PASSENGER); a boat
+	// places its own (AbstractBoat.getPassengerAttachmentPoint).
+	Passengers [][3]float64
+	// Vehicle is the point of it that sits at a vehicle's passenger point.
+	Vehicle [3]float64
 }
 
 var (
@@ -25,6 +31,8 @@ var (
 		Width:       1.375,
 		Height:      0.5625,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0.5625, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	AcaciaChestBoat = Entity{
 		ID:          1,
@@ -34,6 +42,8 @@ var (
 		Width:       1.375,
 		Height:      0.5625,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0.5625, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Allay = Entity{
 		ID:          2,
@@ -43,6 +53,8 @@ var (
 		Width:       0.35,
 		Height:      0.6,
 		Type:        "creature",
+		Passengers:  [][3]float64{{0, 0.6, 0}},
+		Vehicle:     [3]float64{0, -0.04, 0},
 	}
 	AreaEffectCloud = Entity{
 		ID:          3,
@@ -52,6 +64,8 @@ var (
 		Width:       6,
 		Height:      0.5,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0.5, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Armadillo = Entity{
 		ID:          4,
@@ -61,6 +75,8 @@ var (
 		Width:       0.7,
 		Height:      0.65,
 		Type:        "creature",
+		Passengers:  [][3]float64{{0, 0.65, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	ArmorStand = Entity{
 		ID:          5,
@@ -70,6 +86,8 @@ var (
 		Width:       0.5,
 		Height:      1.975,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 1.975, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Arrow = Entity{
 		ID:          6,
@@ -79,6 +97,8 @@ var (
 		Width:       0.5,
 		Height:      0.5,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0.5, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Axolotl = Entity{
 		ID:          7,
@@ -88,6 +108,8 @@ var (
 		Width:       0.75,
 		Height:      0.42,
 		Type:        "axolotls",
+		Passengers:  [][3]float64{{0, 0.42, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	BambooChestRaft = Entity{
 		ID:          8,
@@ -97,6 +119,8 @@ var (
 		Width:       1.375,
 		Height:      0.5625,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0.5625, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	BambooRaft = Entity{
 		ID:          9,
@@ -106,6 +130,8 @@ var (
 		Width:       1.375,
 		Height:      0.5625,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0.5625, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Bat = Entity{
 		ID:          10,
@@ -115,6 +141,8 @@ var (
 		Width:       0.5,
 		Height:      0.9,
 		Type:        "ambient",
+		Passengers:  [][3]float64{{0, 0.9, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Bee = Entity{
 		ID:          11,
@@ -124,6 +152,8 @@ var (
 		Width:       0.55,
 		Height:      0.5,
 		Type:        "creature",
+		Passengers:  [][3]float64{{0, 0.5, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	BirchBoat = Entity{
 		ID:          12,
@@ -133,6 +163,8 @@ var (
 		Width:       1.375,
 		Height:      0.5625,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0.5625, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	BirchChestBoat = Entity{
 		ID:          13,
@@ -142,6 +174,8 @@ var (
 		Width:       1.375,
 		Height:      0.5625,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0.5625, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Blaze = Entity{
 		ID:          14,
@@ -151,6 +185,8 @@ var (
 		Width:       0.6,
 		Height:      1.8,
 		Type:        "monster",
+		Passengers:  [][3]float64{{0, 1.8, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	BlockDisplay = Entity{
 		ID:          15,
@@ -160,6 +196,8 @@ var (
 		Width:       0,
 		Height:      0,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Bogged = Entity{
 		ID:          16,
@@ -169,6 +207,8 @@ var (
 		Width:       0.6,
 		Height:      1.99,
 		Type:        "monster",
+		Passengers:  [][3]float64{{0, 1.99, 0}},
+		Vehicle:     [3]float64{0, 0.7, 0},
 	}
 	Breeze = Entity{
 		ID:          17,
@@ -178,6 +218,8 @@ var (
 		Width:       0.6,
 		Height:      1.77,
 		Type:        "monster",
+		Passengers:  [][3]float64{{0, 1.77, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	BreezeWindCharge = Entity{
 		ID:          18,
@@ -187,6 +229,8 @@ var (
 		Width:       0.3125,
 		Height:      0.3125,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0.3125, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Camel = Entity{
 		ID:          19,
@@ -196,6 +240,8 @@ var (
 		Width:       1.7,
 		Height:      2.375,
 		Type:        "creature",
+		Passengers:  [][3]float64{{0, 2.375, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	CamelHusk = Entity{
 		ID:          20,
@@ -205,6 +251,8 @@ var (
 		Width:       1.7,
 		Height:      2.375,
 		Type:        "monster",
+		Passengers:  [][3]float64{{0, 2.375, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Cat = Entity{
 		ID:          21,
@@ -214,6 +262,8 @@ var (
 		Width:       0.6,
 		Height:      0.7,
 		Type:        "creature",
+		Passengers:  [][3]float64{{0, 0.5125, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	CaveSpider = Entity{
 		ID:          22,
@@ -223,6 +273,8 @@ var (
 		Width:       0.7,
 		Height:      0.5,
 		Type:        "monster",
+		Passengers:  [][3]float64{{0, 0.5, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	CherryBoat = Entity{
 		ID:          23,
@@ -232,6 +284,8 @@ var (
 		Width:       1.375,
 		Height:      0.5625,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0.5625, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	CherryChestBoat = Entity{
 		ID:          24,
@@ -241,6 +295,8 @@ var (
 		Width:       1.375,
 		Height:      0.5625,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0.5625, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	ChestMinecart = Entity{
 		ID:          25,
@@ -250,6 +306,8 @@ var (
 		Width:       0.98,
 		Height:      0.7,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0.1875, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Chicken = Entity{
 		ID:          26,
@@ -259,6 +317,8 @@ var (
 		Width:       0.4,
 		Height:      0.7,
 		Type:        "creature",
+		Passengers:  [][3]float64{{0, 0.7, -0.1}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Cod = Entity{
 		ID:          27,
@@ -268,6 +328,8 @@ var (
 		Width:       0.5,
 		Height:      0.3,
 		Type:        "water_ambient",
+		Passengers:  [][3]float64{{0, 0.3, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	CopperGolem = Entity{
 		ID:          28,
@@ -277,6 +339,8 @@ var (
 		Width:       0.49,
 		Height:      0.98,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0.98, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	CommandBlockMinecart = Entity{
 		ID:          29,
@@ -286,6 +350,8 @@ var (
 		Width:       0.98,
 		Height:      0.7,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0.1875, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Cow = Entity{
 		ID:          30,
@@ -295,6 +361,8 @@ var (
 		Width:       0.9,
 		Height:      1.4,
 		Type:        "creature",
+		Passengers:  [][3]float64{{0, 1.36875, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Creaking = Entity{
 		ID:          31,
@@ -304,6 +372,8 @@ var (
 		Width:       0.9,
 		Height:      2.7,
 		Type:        "monster",
+		Passengers:  [][3]float64{{0, 2.7, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Creeper = Entity{
 		ID:          32,
@@ -313,6 +383,8 @@ var (
 		Width:       0.6,
 		Height:      1.7,
 		Type:        "monster",
+		Passengers:  [][3]float64{{0, 1.7, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	DarkOakBoat = Entity{
 		ID:          33,
@@ -322,6 +394,8 @@ var (
 		Width:       1.375,
 		Height:      0.5625,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0.5625, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	DarkOakChestBoat = Entity{
 		ID:          34,
@@ -331,6 +405,8 @@ var (
 		Width:       1.375,
 		Height:      0.5625,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0.5625, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Dolphin = Entity{
 		ID:          35,
@@ -340,6 +416,8 @@ var (
 		Width:       0.9,
 		Height:      0.6,
 		Type:        "water_creature",
+		Passengers:  [][3]float64{{0, 0.6, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Donkey = Entity{
 		ID:          36,
@@ -349,6 +427,8 @@ var (
 		Width:       1.396484,
 		Height:      1.5,
 		Type:        "creature",
+		Passengers:  [][3]float64{{0, 1.1125, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	DragonFireball = Entity{
 		ID:          37,
@@ -358,6 +438,8 @@ var (
 		Width:       1,
 		Height:      1,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 1, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Drowned = Entity{
 		ID:          38,
@@ -367,6 +449,8 @@ var (
 		Width:       0.6,
 		Height:      1.95,
 		Type:        "monster",
+		Passengers:  [][3]float64{{0, 2.0125, 0}},
+		Vehicle:     [3]float64{0, 0.7, 0},
 	}
 	Egg = Entity{
 		ID:          39,
@@ -376,6 +460,8 @@ var (
 		Width:       0.25,
 		Height:      0.25,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0.25, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	ElderGuardian = Entity{
 		ID:          40,
@@ -385,6 +471,8 @@ var (
 		Width:       1.9975,
 		Height:      1.9975,
 		Type:        "monster",
+		Passengers:  [][3]float64{{0, 2.350625, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Enderman = Entity{
 		ID:          41,
@@ -394,6 +482,8 @@ var (
 		Width:       0.6,
 		Height:      2.9,
 		Type:        "monster",
+		Passengers:  [][3]float64{{0, 2.80625, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Endermite = Entity{
 		ID:          42,
@@ -403,6 +493,8 @@ var (
 		Width:       0.4,
 		Height:      0.3,
 		Type:        "monster",
+		Passengers:  [][3]float64{{0, 0.2375, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	EnderDragon = Entity{
 		ID:          43,
@@ -412,6 +504,8 @@ var (
 		Width:       16,
 		Height:      8,
 		Type:        "monster",
+		Passengers:  [][3]float64{{0, 3, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	EnderPearl = Entity{
 		ID:          44,
@@ -421,6 +515,8 @@ var (
 		Width:       0.25,
 		Height:      0.25,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0.25, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	EndCrystal = Entity{
 		ID:          45,
@@ -430,6 +526,8 @@ var (
 		Width:       2,
 		Height:      2,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 2, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Evoker = Entity{
 		ID:          46,
@@ -439,6 +537,8 @@ var (
 		Width:       0.6,
 		Height:      1.95,
 		Type:        "monster",
+		Passengers:  [][3]float64{{0, 2, 0}},
+		Vehicle:     [3]float64{0, 0.6, 0},
 	}
 	EvokerFangs = Entity{
 		ID:          47,
@@ -448,6 +548,8 @@ var (
 		Width:       0.5,
 		Height:      0.8,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0.8, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	ExperienceBottle = Entity{
 		ID:          48,
@@ -457,6 +559,8 @@ var (
 		Width:       0.25,
 		Height:      0.25,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0.25, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	ExperienceOrb = Entity{
 		ID:          49,
@@ -466,6 +570,8 @@ var (
 		Width:       0.5,
 		Height:      0.5,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0.5, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	EyeOfEnder = Entity{
 		ID:          50,
@@ -475,6 +581,8 @@ var (
 		Width:       0.25,
 		Height:      0.25,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0.25, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	FallingBlock = Entity{
 		ID:          51,
@@ -484,6 +592,8 @@ var (
 		Width:       0.98,
 		Height:      0.98,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0.98, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Fireball = Entity{
 		ID:          52,
@@ -493,6 +603,8 @@ var (
 		Width:       1,
 		Height:      1,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 1, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	FireworkRocket = Entity{
 		ID:          53,
@@ -502,6 +614,8 @@ var (
 		Width:       0.25,
 		Height:      0.25,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0.25, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Fox = Entity{
 		ID:          54,
@@ -511,6 +625,8 @@ var (
 		Width:       0.6,
 		Height:      0.7,
 		Type:        "creature",
+		Passengers:  [][3]float64{{0, 0.6375, -0.25}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Frog = Entity{
 		ID:          55,
@@ -520,6 +636,8 @@ var (
 		Width:       0.5,
 		Height:      0.5,
 		Type:        "creature",
+		Passengers:  [][3]float64{{0, 0.375, -0.25}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	FurnaceMinecart = Entity{
 		ID:          56,
@@ -529,6 +647,8 @@ var (
 		Width:       0.98,
 		Height:      0.7,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0.1875, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Ghast = Entity{
 		ID:          57,
@@ -538,6 +658,8 @@ var (
 		Width:       4,
 		Height:      4,
 		Type:        "monster",
+		Passengers:  [][3]float64{{0, 4.0625, 0}},
+		Vehicle:     [3]float64{0, -0.5, 0},
 	}
 	HappyGhast = Entity{
 		ID:          58,
@@ -547,6 +669,8 @@ var (
 		Width:       4,
 		Height:      4,
 		Type:        "creature",
+		Passengers:  [][3]float64{{0, 4, 1.7}, {-1.7, 4, 0}, {0, 4, -1.7}, {1.7, 4, 0}},
+		Vehicle:     [3]float64{0, -0.5, 0},
 	}
 	Giant = Entity{
 		ID:          59,
@@ -556,6 +680,8 @@ var (
 		Width:       3.6,
 		Height:      12,
 		Type:        "monster",
+		Passengers:  [][3]float64{{0, 12, 0}},
+		Vehicle:     [3]float64{0, 3.75, 0},
 	}
 	GlowItemFrame = Entity{
 		ID:          60,
@@ -565,6 +691,8 @@ var (
 		Width:       0.5,
 		Height:      0.5,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0.5, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	GlowSquid = Entity{
 		ID:          61,
@@ -574,6 +702,8 @@ var (
 		Width:       0.8,
 		Height:      0.8,
 		Type:        "underground_water_creature",
+		Passengers:  [][3]float64{{0, 0.8, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Goat = Entity{
 		ID:          62,
@@ -583,6 +713,8 @@ var (
 		Width:       0.9,
 		Height:      1.3,
 		Type:        "creature",
+		Passengers:  [][3]float64{{0, 1.1125, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Guardian = Entity{
 		ID:          63,
@@ -592,6 +724,8 @@ var (
 		Width:       0.85,
 		Height:      0.85,
 		Type:        "monster",
+		Passengers:  [][3]float64{{0, 0.975, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Hoglin = Entity{
 		ID:          64,
@@ -601,6 +735,8 @@ var (
 		Width:       1.396484,
 		Height:      1.4,
 		Type:        "monster",
+		Passengers:  [][3]float64{{0, 1.49375, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	HopperMinecart = Entity{
 		ID:          65,
@@ -610,6 +746,8 @@ var (
 		Width:       0.98,
 		Height:      0.7,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0.1875, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Horse = Entity{
 		ID:          66,
@@ -619,6 +757,8 @@ var (
 		Width:       1.396484,
 		Height:      1.6,
 		Type:        "creature",
+		Passengers:  [][3]float64{{0, 1.44375, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Husk = Entity{
 		ID:          67,
@@ -628,6 +768,8 @@ var (
 		Width:       0.6,
 		Height:      1.95,
 		Type:        "monster",
+		Passengers:  [][3]float64{{0, 2.075, 0}},
+		Vehicle:     [3]float64{0, 0.7, 0},
 	}
 	Illusioner = Entity{
 		ID:          68,
@@ -637,6 +779,8 @@ var (
 		Width:       0.6,
 		Height:      1.95,
 		Type:        "monster",
+		Passengers:  [][3]float64{{0, 2, 0}},
+		Vehicle:     [3]float64{0, 0.6, 0},
 	}
 	Interaction = Entity{
 		ID:          69,
@@ -646,6 +790,8 @@ var (
 		Width:       0,
 		Height:      0,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	IronGolem = Entity{
 		ID:          70,
@@ -655,6 +801,8 @@ var (
 		Width:       1.4,
 		Height:      2.7,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 2.7, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Item = Entity{
 		ID:          71,
@@ -664,6 +812,8 @@ var (
 		Width:       0.25,
 		Height:      0.25,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0.25, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	ItemDisplay = Entity{
 		ID:          72,
@@ -673,6 +823,8 @@ var (
 		Width:       0,
 		Height:      0,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	ItemFrame = Entity{
 		ID:          73,
@@ -682,6 +834,8 @@ var (
 		Width:       0.5,
 		Height:      0.5,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0.5, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	JungleBoat = Entity{
 		ID:          74,
@@ -691,6 +845,8 @@ var (
 		Width:       1.375,
 		Height:      0.5625,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0.5625, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	JungleChestBoat = Entity{
 		ID:          75,
@@ -700,6 +856,8 @@ var (
 		Width:       1.375,
 		Height:      0.5625,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0.5625, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	LeashKnot = Entity{
 		ID:          76,
@@ -709,6 +867,8 @@ var (
 		Width:       0.375,
 		Height:      0.5,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0.5, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	LightningBolt = Entity{
 		ID:          77,
@@ -718,6 +878,8 @@ var (
 		Width:       0,
 		Height:      0,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Llama = Entity{
 		ID:          78,
@@ -727,6 +889,8 @@ var (
 		Width:       0.9,
 		Height:      1.87,
 		Type:        "creature",
+		Passengers:  [][3]float64{{0, 1.37, -0.3}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	LlamaSpit = Entity{
 		ID:          79,
@@ -736,6 +900,8 @@ var (
 		Width:       0.25,
 		Height:      0.25,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0.25, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	MagmaCube = Entity{
 		ID:          80,
@@ -745,6 +911,8 @@ var (
 		Width:       0.52,
 		Height:      0.52,
 		Type:        "monster",
+		Passengers:  [][3]float64{{0, 0.52, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	MangroveBoat = Entity{
 		ID:          81,
@@ -754,6 +922,8 @@ var (
 		Width:       1.375,
 		Height:      0.5625,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0.5625, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	MangroveChestBoat = Entity{
 		ID:          82,
@@ -763,6 +933,8 @@ var (
 		Width:       1.375,
 		Height:      0.5625,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0.5625, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Mannequin = Entity{
 		ID:          83,
@@ -772,6 +944,8 @@ var (
 		Width:       0.6,
 		Height:      1.8,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 1.8, 0}},
+		Vehicle:     [3]float64{0, 0.6, 0},
 	}
 	Marker = Entity{
 		ID:          84,
@@ -781,6 +955,8 @@ var (
 		Width:       0,
 		Height:      0,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Minecart = Entity{
 		ID:          85,
@@ -790,6 +966,8 @@ var (
 		Width:       0.98,
 		Height:      0.7,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0.1875, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Mooshroom = Entity{
 		ID:          86,
@@ -799,6 +977,8 @@ var (
 		Width:       0.9,
 		Height:      1.4,
 		Type:        "creature",
+		Passengers:  [][3]float64{{0, 1.36875, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Mule = Entity{
 		ID:          87,
@@ -808,6 +988,8 @@ var (
 		Width:       1.396484,
 		Height:      1.6,
 		Type:        "creature",
+		Passengers:  [][3]float64{{0, 1.2125, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Nautilus = Entity{
 		ID:          88,
@@ -817,6 +999,8 @@ var (
 		Width:       0.875,
 		Height:      0.95,
 		Type:        "water_creature",
+		Passengers:  [][3]float64{{0, 1.1375, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	OakBoat = Entity{
 		ID:          89,
@@ -826,6 +1010,8 @@ var (
 		Width:       1.375,
 		Height:      0.5625,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0.5625, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	OakChestBoat = Entity{
 		ID:          90,
@@ -835,6 +1021,8 @@ var (
 		Width:       1.375,
 		Height:      0.5625,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0.5625, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Ocelot = Entity{
 		ID:          91,
@@ -844,6 +1032,8 @@ var (
 		Width:       0.6,
 		Height:      0.7,
 		Type:        "creature",
+		Passengers:  [][3]float64{{0, 0.6375, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	OminousItemSpawner = Entity{
 		ID:          92,
@@ -853,6 +1043,8 @@ var (
 		Width:       0.25,
 		Height:      0.25,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0.25, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Painting = Entity{
 		ID:          93,
@@ -862,6 +1054,8 @@ var (
 		Width:       0.5,
 		Height:      0.5,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0.5, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	PaleOakBoat = Entity{
 		ID:          94,
@@ -871,6 +1065,8 @@ var (
 		Width:       1.375,
 		Height:      0.5625,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0.5625, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	PaleOakChestBoat = Entity{
 		ID:          95,
@@ -880,6 +1076,8 @@ var (
 		Width:       1.375,
 		Height:      0.5625,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0.5625, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Panda = Entity{
 		ID:          96,
@@ -889,6 +1087,8 @@ var (
 		Width:       1.3,
 		Height:      1.25,
 		Type:        "creature",
+		Passengers:  [][3]float64{{0, 1.25, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Parched = Entity{
 		ID:          97,
@@ -898,6 +1098,8 @@ var (
 		Width:       0.6,
 		Height:      1.99,
 		Type:        "monster",
+		Passengers:  [][3]float64{{0, 1.99, 0}},
+		Vehicle:     [3]float64{0, 0.7, 0},
 	}
 	Parrot = Entity{
 		ID:          98,
@@ -907,6 +1109,8 @@ var (
 		Width:       0.5,
 		Height:      0.9,
 		Type:        "creature",
+		Passengers:  [][3]float64{{0, 0.4625, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Phantom = Entity{
 		ID:          99,
@@ -916,6 +1120,8 @@ var (
 		Width:       0.9,
 		Height:      0.5,
 		Type:        "monster",
+		Passengers:  [][3]float64{{0, 0.3375, 0}},
+		Vehicle:     [3]float64{0, 0.125, 0},
 	}
 	Pig = Entity{
 		ID:          100,
@@ -925,6 +1131,8 @@ var (
 		Width:       0.9,
 		Height:      0.9,
 		Type:        "creature",
+		Passengers:  [][3]float64{{0, 0.86875, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Piglin = Entity{
 		ID:          101,
@@ -934,6 +1142,8 @@ var (
 		Width:       0.6,
 		Height:      1.95,
 		Type:        "monster",
+		Passengers:  [][3]float64{{0, 2.0125, 0}},
+		Vehicle:     [3]float64{0, 0.7, 0},
 	}
 	PiglinBrute = Entity{
 		ID:          102,
@@ -943,6 +1153,8 @@ var (
 		Width:       0.6,
 		Height:      1.95,
 		Type:        "monster",
+		Passengers:  [][3]float64{{0, 2.0125, 0}},
+		Vehicle:     [3]float64{0, 0.7, 0},
 	}
 	Pillager = Entity{
 		ID:          103,
@@ -952,6 +1164,8 @@ var (
 		Width:       0.6,
 		Height:      1.95,
 		Type:        "monster",
+		Passengers:  [][3]float64{{0, 2, 0}},
+		Vehicle:     [3]float64{0, 0.6, 0},
 	}
 	PolarBear = Entity{
 		ID:          104,
@@ -961,6 +1175,8 @@ var (
 		Width:       1.4,
 		Height:      1.4,
 		Type:        "creature",
+		Passengers:  [][3]float64{{0, 1.4, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	SplashPotion = Entity{
 		ID:          105,
@@ -970,6 +1186,8 @@ var (
 		Width:       0.25,
 		Height:      0.25,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0.25, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	LingeringPotion = Entity{
 		ID:          106,
@@ -979,6 +1197,8 @@ var (
 		Width:       0.25,
 		Height:      0.25,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0.25, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Pufferfish = Entity{
 		ID:          107,
@@ -988,6 +1208,8 @@ var (
 		Width:       0.7,
 		Height:      0.7,
 		Type:        "water_ambient",
+		Passengers:  [][3]float64{{0, 0.7, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Rabbit = Entity{
 		ID:          108,
@@ -997,6 +1219,8 @@ var (
 		Width:       0.49,
 		Height:      0.6,
 		Type:        "creature",
+		Passengers:  [][3]float64{{0, 0.6, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Ravager = Entity{
 		ID:          109,
@@ -1006,6 +1230,8 @@ var (
 		Width:       1.95,
 		Height:      2.2,
 		Type:        "monster",
+		Passengers:  [][3]float64{{0, 2.2625, -0.0625}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Salmon = Entity{
 		ID:          110,
@@ -1015,6 +1241,8 @@ var (
 		Width:       0.7,
 		Height:      0.4,
 		Type:        "water_ambient",
+		Passengers:  [][3]float64{{0, 0.4, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Sheep = Entity{
 		ID:          111,
@@ -1024,6 +1252,8 @@ var (
 		Width:       0.9,
 		Height:      1.3,
 		Type:        "creature",
+		Passengers:  [][3]float64{{0, 1.2375, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Shulker = Entity{
 		ID:          112,
@@ -1033,6 +1263,8 @@ var (
 		Width:       1,
 		Height:      1,
 		Type:        "monster",
+		Passengers:  [][3]float64{{0, 1, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	ShulkerBullet = Entity{
 		ID:          113,
@@ -1042,6 +1274,8 @@ var (
 		Width:       0.3125,
 		Height:      0.3125,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0.3125, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Silverfish = Entity{
 		ID:          114,
@@ -1051,6 +1285,8 @@ var (
 		Width:       0.4,
 		Height:      0.3,
 		Type:        "monster",
+		Passengers:  [][3]float64{{0, 0.2375, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Skeleton = Entity{
 		ID:          115,
@@ -1060,6 +1296,8 @@ var (
 		Width:       0.6,
 		Height:      1.99,
 		Type:        "monster",
+		Passengers:  [][3]float64{{0, 1.99, 0}},
+		Vehicle:     [3]float64{0, 0.7, 0},
 	}
 	SkeletonHorse = Entity{
 		ID:          116,
@@ -1069,6 +1307,8 @@ var (
 		Width:       1.396484,
 		Height:      1.6,
 		Type:        "creature",
+		Passengers:  [][3]float64{{0, 1.31875, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Slime = Entity{
 		ID:          117,
@@ -1078,6 +1318,8 @@ var (
 		Width:       0.52,
 		Height:      0.52,
 		Type:        "monster",
+		Passengers:  [][3]float64{{0, 0.52, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	SmallFireball = Entity{
 		ID:          118,
@@ -1087,6 +1329,8 @@ var (
 		Width:       0.3125,
 		Height:      0.3125,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0.3125, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Sniffer = Entity{
 		ID:          119,
@@ -1096,6 +1340,8 @@ var (
 		Width:       1.9,
 		Height:      1.75,
 		Type:        "creature",
+		Passengers:  [][3]float64{{0, 2.09375, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Snowball = Entity{
 		ID:          120,
@@ -1105,6 +1351,8 @@ var (
 		Width:       0.25,
 		Height:      0.25,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0.25, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	SnowGolem = Entity{
 		ID:          121,
@@ -1114,6 +1362,8 @@ var (
 		Width:       0.7,
 		Height:      1.9,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 1.9, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	SpawnerMinecart = Entity{
 		ID:          122,
@@ -1123,6 +1373,8 @@ var (
 		Width:       0.98,
 		Height:      0.7,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0.1875, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	SpectralArrow = Entity{
 		ID:          123,
@@ -1132,6 +1384,8 @@ var (
 		Width:       0.5,
 		Height:      0.5,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0.5, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Spider = Entity{
 		ID:          124,
@@ -1141,6 +1395,8 @@ var (
 		Width:       1.4,
 		Height:      0.9,
 		Type:        "monster",
+		Passengers:  [][3]float64{{0, 0.765, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	SpruceBoat = Entity{
 		ID:          125,
@@ -1150,6 +1406,8 @@ var (
 		Width:       1.375,
 		Height:      0.5625,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0.5625, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	SpruceChestBoat = Entity{
 		ID:          126,
@@ -1159,6 +1417,8 @@ var (
 		Width:       1.375,
 		Height:      0.5625,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0.5625, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Squid = Entity{
 		ID:          127,
@@ -1168,6 +1428,8 @@ var (
 		Width:       0.8,
 		Height:      0.8,
 		Type:        "water_creature",
+		Passengers:  [][3]float64{{0, 0.8, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Stray = Entity{
 		ID:          128,
@@ -1177,6 +1439,8 @@ var (
 		Width:       0.6,
 		Height:      1.99,
 		Type:        "monster",
+		Passengers:  [][3]float64{{0, 1.99, 0}},
+		Vehicle:     [3]float64{0, 0.7, 0},
 	}
 	Strider = Entity{
 		ID:          129,
@@ -1186,6 +1450,8 @@ var (
 		Width:       0.9,
 		Height:      1.7,
 		Type:        "creature",
+		Passengers:  [][3]float64{{0, 1.7, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	SulfurCube = Entity{
 		ID:          130,
@@ -1195,6 +1461,8 @@ var (
 		Width:       0.49,
 		Height:      0.49,
 		Type:        "monster",
+		Passengers:  [][3]float64{{0, 0.49, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Tadpole = Entity{
 		ID:          131,
@@ -1204,6 +1472,8 @@ var (
 		Width:       0.4,
 		Height:      0.3,
 		Type:        "creature",
+		Passengers:  [][3]float64{{0, 0.3, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	TextDisplay = Entity{
 		ID:          132,
@@ -1213,6 +1483,8 @@ var (
 		Width:       0,
 		Height:      0,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Tnt = Entity{
 		ID:          133,
@@ -1222,6 +1494,8 @@ var (
 		Width:       0.98,
 		Height:      0.98,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0.98, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	TntMinecart = Entity{
 		ID:          134,
@@ -1231,6 +1505,8 @@ var (
 		Width:       0.98,
 		Height:      0.7,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0.1875, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	TraderLlama = Entity{
 		ID:          135,
@@ -1240,6 +1516,8 @@ var (
 		Width:       0.9,
 		Height:      1.87,
 		Type:        "creature",
+		Passengers:  [][3]float64{{0, 1.37, -0.3}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Trident = Entity{
 		ID:          136,
@@ -1249,6 +1527,8 @@ var (
 		Width:       0.5,
 		Height:      0.5,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0.5, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	TropicalFish = Entity{
 		ID:          137,
@@ -1258,6 +1538,8 @@ var (
 		Width:       0.5,
 		Height:      0.4,
 		Type:        "water_ambient",
+		Passengers:  [][3]float64{{0, 0.4, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Turtle = Entity{
 		ID:          138,
@@ -1267,6 +1549,8 @@ var (
 		Width:       1.2,
 		Height:      0.4,
 		Type:        "creature",
+		Passengers:  [][3]float64{{0, 0.55625, -0.25}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Vex = Entity{
 		ID:          139,
@@ -1276,6 +1560,8 @@ var (
 		Width:       0.4,
 		Height:      0.8,
 		Type:        "monster",
+		Passengers:  [][3]float64{{0, 0.7375, 0}},
+		Vehicle:     [3]float64{0, -0.04, 0},
 	}
 	Villager = Entity{
 		ID:          140,
@@ -1285,6 +1571,8 @@ var (
 		Width:       0.6,
 		Height:      1.95,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 1.95, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Vindicator = Entity{
 		ID:          141,
@@ -1294,6 +1582,8 @@ var (
 		Width:       0.6,
 		Height:      1.95,
 		Type:        "monster",
+		Passengers:  [][3]float64{{0, 2, 0}},
+		Vehicle:     [3]float64{0, 0.6, 0},
 	}
 	WanderingTrader = Entity{
 		ID:          142,
@@ -1303,6 +1593,8 @@ var (
 		Width:       0.6,
 		Height:      1.95,
 		Type:        "creature",
+		Passengers:  [][3]float64{{0, 1.95, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Warden = Entity{
 		ID:          143,
@@ -1312,6 +1604,8 @@ var (
 		Width:       0.9,
 		Height:      2.9,
 		Type:        "monster",
+		Passengers:  [][3]float64{{0, 3.15, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	WindCharge = Entity{
 		ID:          144,
@@ -1321,6 +1615,8 @@ var (
 		Width:       0.3125,
 		Height:      0.3125,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0.3125, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Witch = Entity{
 		ID:          145,
@@ -1330,6 +1626,8 @@ var (
 		Width:       0.6,
 		Height:      1.95,
 		Type:        "monster",
+		Passengers:  [][3]float64{{0, 2.2625, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Wither = Entity{
 		ID:          146,
@@ -1339,6 +1637,8 @@ var (
 		Width:       0.9,
 		Height:      3.5,
 		Type:        "monster",
+		Passengers:  [][3]float64{{0, 3.5, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	WitherSkeleton = Entity{
 		ID:          147,
@@ -1348,6 +1648,8 @@ var (
 		Width:       0.7,
 		Height:      2.4,
 		Type:        "monster",
+		Passengers:  [][3]float64{{0, 2.4, 0}},
+		Vehicle:     [3]float64{0, 0.875, 0},
 	}
 	WitherSkull = Entity{
 		ID:          148,
@@ -1357,6 +1659,8 @@ var (
 		Width:       0.3125,
 		Height:      0.3125,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0.3125, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Wolf = Entity{
 		ID:          149,
@@ -1366,6 +1670,8 @@ var (
 		Width:       0.6,
 		Height:      0.85,
 		Type:        "creature",
+		Passengers:  [][3]float64{{0, 0.81875, -0.0625}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Zoglin = Entity{
 		ID:          150,
@@ -1375,6 +1681,8 @@ var (
 		Width:       1.396484,
 		Height:      1.4,
 		Type:        "monster",
+		Passengers:  [][3]float64{{0, 1.49375, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	Zombie = Entity{
 		ID:          151,
@@ -1384,6 +1692,8 @@ var (
 		Width:       0.6,
 		Height:      1.95,
 		Type:        "monster",
+		Passengers:  [][3]float64{{0, 2.0125, 0}},
+		Vehicle:     [3]float64{0, 0.7, 0},
 	}
 	ZombieHorse = Entity{
 		ID:          152,
@@ -1393,6 +1703,8 @@ var (
 		Width:       1.396484,
 		Height:      1.6,
 		Type:        "monster",
+		Passengers:  [][3]float64{{0, 1.31875, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	ZombieNautilus = Entity{
 		ID:          153,
@@ -1402,6 +1714,8 @@ var (
 		Width:       0.875,
 		Height:      0.95,
 		Type:        "monster",
+		Passengers:  [][3]float64{{0, 1.1375, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 	ZombieVillager = Entity{
 		ID:          154,
@@ -1411,6 +1725,8 @@ var (
 		Width:       0.6,
 		Height:      1.95,
 		Type:        "monster",
+		Passengers:  [][3]float64{{0, 2.125, 0}},
+		Vehicle:     [3]float64{0, 0.7, 0},
 	}
 	ZombifiedPiglin = Entity{
 		ID:          155,
@@ -1420,6 +1736,8 @@ var (
 		Width:       0.6,
 		Height:      1.95,
 		Type:        "monster",
+		Passengers:  [][3]float64{{0, 2, 0}},
+		Vehicle:     [3]float64{0, 0.7, 0},
 	}
 	Player = Entity{
 		ID:          156,
@@ -1429,6 +1747,8 @@ var (
 		Width:       0.6,
 		Height:      1.8,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 1.8, 0}},
+		Vehicle:     [3]float64{0, 0.6, 0},
 	}
 	FishingBobber = Entity{
 		ID:          157,
@@ -1438,8 +1758,172 @@ var (
 		Width:       0.25,
 		Height:      0.25,
 		Type:        "misc",
+		Passengers:  [][3]float64{{0, 0.25, 0}},
+		Vehicle:     [3]float64{0, 0, 0},
 	}
 )
+
+// ByName is an index of minecraft entities by their name (minecraft:cow).
+var ByName = map[string]*Entity{
+	"minecraft:acacia_boat":            &AcaciaBoat,
+	"minecraft:acacia_chest_boat":      &AcaciaChestBoat,
+	"minecraft:allay":                  &Allay,
+	"minecraft:area_effect_cloud":      &AreaEffectCloud,
+	"minecraft:armadillo":              &Armadillo,
+	"minecraft:armor_stand":            &ArmorStand,
+	"minecraft:arrow":                  &Arrow,
+	"minecraft:axolotl":                &Axolotl,
+	"minecraft:bamboo_chest_raft":      &BambooChestRaft,
+	"minecraft:bamboo_raft":            &BambooRaft,
+	"minecraft:bat":                    &Bat,
+	"minecraft:bee":                    &Bee,
+	"minecraft:birch_boat":             &BirchBoat,
+	"minecraft:birch_chest_boat":       &BirchChestBoat,
+	"minecraft:blaze":                  &Blaze,
+	"minecraft:block_display":          &BlockDisplay,
+	"minecraft:bogged":                 &Bogged,
+	"minecraft:breeze":                 &Breeze,
+	"minecraft:breeze_wind_charge":     &BreezeWindCharge,
+	"minecraft:camel":                  &Camel,
+	"minecraft:camel_husk":             &CamelHusk,
+	"minecraft:cat":                    &Cat,
+	"minecraft:cave_spider":            &CaveSpider,
+	"minecraft:cherry_boat":            &CherryBoat,
+	"minecraft:cherry_chest_boat":      &CherryChestBoat,
+	"minecraft:chest_minecart":         &ChestMinecart,
+	"minecraft:chicken":                &Chicken,
+	"minecraft:cod":                    &Cod,
+	"minecraft:copper_golem":           &CopperGolem,
+	"minecraft:command_block_minecart": &CommandBlockMinecart,
+	"minecraft:cow":                    &Cow,
+	"minecraft:creaking":               &Creaking,
+	"minecraft:creeper":                &Creeper,
+	"minecraft:dark_oak_boat":          &DarkOakBoat,
+	"minecraft:dark_oak_chest_boat":    &DarkOakChestBoat,
+	"minecraft:dolphin":                &Dolphin,
+	"minecraft:donkey":                 &Donkey,
+	"minecraft:dragon_fireball":        &DragonFireball,
+	"minecraft:drowned":                &Drowned,
+	"minecraft:egg":                    &Egg,
+	"minecraft:elder_guardian":         &ElderGuardian,
+	"minecraft:enderman":               &Enderman,
+	"minecraft:endermite":              &Endermite,
+	"minecraft:ender_dragon":           &EnderDragon,
+	"minecraft:ender_pearl":            &EnderPearl,
+	"minecraft:end_crystal":            &EndCrystal,
+	"minecraft:evoker":                 &Evoker,
+	"minecraft:evoker_fangs":           &EvokerFangs,
+	"minecraft:experience_bottle":      &ExperienceBottle,
+	"minecraft:experience_orb":         &ExperienceOrb,
+	"minecraft:eye_of_ender":           &EyeOfEnder,
+	"minecraft:falling_block":          &FallingBlock,
+	"minecraft:fireball":               &Fireball,
+	"minecraft:firework_rocket":        &FireworkRocket,
+	"minecraft:fox":                    &Fox,
+	"minecraft:frog":                   &Frog,
+	"minecraft:furnace_minecart":       &FurnaceMinecart,
+	"minecraft:ghast":                  &Ghast,
+	"minecraft:happy_ghast":            &HappyGhast,
+	"minecraft:giant":                  &Giant,
+	"minecraft:glow_item_frame":        &GlowItemFrame,
+	"minecraft:glow_squid":             &GlowSquid,
+	"minecraft:goat":                   &Goat,
+	"minecraft:guardian":               &Guardian,
+	"minecraft:hoglin":                 &Hoglin,
+	"minecraft:hopper_minecart":        &HopperMinecart,
+	"minecraft:horse":                  &Horse,
+	"minecraft:husk":                   &Husk,
+	"minecraft:illusioner":             &Illusioner,
+	"minecraft:interaction":            &Interaction,
+	"minecraft:iron_golem":             &IronGolem,
+	"minecraft:item":                   &Item,
+	"minecraft:item_display":           &ItemDisplay,
+	"minecraft:item_frame":             &ItemFrame,
+	"minecraft:jungle_boat":            &JungleBoat,
+	"minecraft:jungle_chest_boat":      &JungleChestBoat,
+	"minecraft:leash_knot":             &LeashKnot,
+	"minecraft:lightning_bolt":         &LightningBolt,
+	"minecraft:llama":                  &Llama,
+	"minecraft:llama_spit":             &LlamaSpit,
+	"minecraft:magma_cube":             &MagmaCube,
+	"minecraft:mangrove_boat":          &MangroveBoat,
+	"minecraft:mangrove_chest_boat":    &MangroveChestBoat,
+	"minecraft:mannequin":              &Mannequin,
+	"minecraft:marker":                 &Marker,
+	"minecraft:minecart":               &Minecart,
+	"minecraft:mooshroom":              &Mooshroom,
+	"minecraft:mule":                   &Mule,
+	"minecraft:nautilus":               &Nautilus,
+	"minecraft:oak_boat":               &OakBoat,
+	"minecraft:oak_chest_boat":         &OakChestBoat,
+	"minecraft:ocelot":                 &Ocelot,
+	"minecraft:ominous_item_spawner":   &OminousItemSpawner,
+	"minecraft:painting":               &Painting,
+	"minecraft:pale_oak_boat":          &PaleOakBoat,
+	"minecraft:pale_oak_chest_boat":    &PaleOakChestBoat,
+	"minecraft:panda":                  &Panda,
+	"minecraft:parched":                &Parched,
+	"minecraft:parrot":                 &Parrot,
+	"minecraft:phantom":                &Phantom,
+	"minecraft:pig":                    &Pig,
+	"minecraft:piglin":                 &Piglin,
+	"minecraft:piglin_brute":           &PiglinBrute,
+	"minecraft:pillager":               &Pillager,
+	"minecraft:polar_bear":             &PolarBear,
+	"minecraft:splash_potion":          &SplashPotion,
+	"minecraft:lingering_potion":       &LingeringPotion,
+	"minecraft:pufferfish":             &Pufferfish,
+	"minecraft:rabbit":                 &Rabbit,
+	"minecraft:ravager":                &Ravager,
+	"minecraft:salmon":                 &Salmon,
+	"minecraft:sheep":                  &Sheep,
+	"minecraft:shulker":                &Shulker,
+	"minecraft:shulker_bullet":         &ShulkerBullet,
+	"minecraft:silverfish":             &Silverfish,
+	"minecraft:skeleton":               &Skeleton,
+	"minecraft:skeleton_horse":         &SkeletonHorse,
+	"minecraft:slime":                  &Slime,
+	"minecraft:small_fireball":         &SmallFireball,
+	"minecraft:sniffer":                &Sniffer,
+	"minecraft:snowball":               &Snowball,
+	"minecraft:snow_golem":             &SnowGolem,
+	"minecraft:spawner_minecart":       &SpawnerMinecart,
+	"minecraft:spectral_arrow":         &SpectralArrow,
+	"minecraft:spider":                 &Spider,
+	"minecraft:spruce_boat":            &SpruceBoat,
+	"minecraft:spruce_chest_boat":      &SpruceChestBoat,
+	"minecraft:squid":                  &Squid,
+	"minecraft:stray":                  &Stray,
+	"minecraft:strider":                &Strider,
+	"minecraft:sulfur_cube":            &SulfurCube,
+	"minecraft:tadpole":                &Tadpole,
+	"minecraft:text_display":           &TextDisplay,
+	"minecraft:tnt":                    &Tnt,
+	"minecraft:tnt_minecart":           &TntMinecart,
+	"minecraft:trader_llama":           &TraderLlama,
+	"minecraft:trident":                &Trident,
+	"minecraft:tropical_fish":          &TropicalFish,
+	"minecraft:turtle":                 &Turtle,
+	"minecraft:vex":                    &Vex,
+	"minecraft:villager":               &Villager,
+	"minecraft:vindicator":             &Vindicator,
+	"minecraft:wandering_trader":       &WanderingTrader,
+	"minecraft:warden":                 &Warden,
+	"minecraft:wind_charge":            &WindCharge,
+	"minecraft:witch":                  &Witch,
+	"minecraft:wither":                 &Wither,
+	"minecraft:wither_skeleton":        &WitherSkeleton,
+	"minecraft:wither_skull":           &WitherSkull,
+	"minecraft:wolf":                   &Wolf,
+	"minecraft:zoglin":                 &Zoglin,
+	"minecraft:zombie":                 &Zombie,
+	"minecraft:zombie_horse":           &ZombieHorse,
+	"minecraft:zombie_nautilus":        &ZombieNautilus,
+	"minecraft:zombie_villager":        &ZombieVillager,
+	"minecraft:zombified_piglin":       &ZombifiedPiglin,
+	"minecraft:player":                 &Player,
+	"minecraft:fishing_bobber":         &FishingBobber,
+}
 
 // ByID is an index of minecraft entities by their ID.
 var ByID = map[ID]*Entity{

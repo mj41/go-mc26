@@ -28,6 +28,16 @@ func (e AttributeModifierOperation) WriteTo(w io.Writer) (int64, error) {
 // Count is the number of constants (EnumSet[AttributeModifierOperation] needs it for its bit set size).
 func (AttributeModifierOperation) Count() int { return 3 }
 
+var attributeModifierOperationNames = [...]string{"add_value", "add_multiplied_base", "add_multiplied_total"}
+
+// Name is the name the constant's codec writes, "" for a number out of range.
+func (e AttributeModifierOperation) Name() string {
+	if e < 0 || int(e) >= len(attributeModifierOperationNames) {
+		return ""
+	}
+	return attributeModifierOperationNames[e]
+}
+
 // AxolotlVariant is Java Axolotl$Variant, sent as a VarInt ordinal.
 type AxolotlVariant pk.VarInt
 
@@ -44,6 +54,16 @@ func (e AxolotlVariant) WriteTo(w io.Writer) (int64, error)   { return pk.VarInt
 
 // Count is the number of constants (EnumSet[AxolotlVariant] needs it for its bit set size).
 func (AxolotlVariant) Count() int { return 5 }
+
+var axolotlVariantNames = [...]string{"lucy", "wild", "gold", "cyan", "blue"}
+
+// Name is the name the constant's codec writes, "" for a number out of range.
+func (e AxolotlVariant) Name() string {
+	if e < 0 || int(e) >= len(axolotlVariantNames) {
+		return ""
+	}
+	return axolotlVariantNames[e]
+}
 
 // DyeColor is Java DyeColor, sent as a VarInt ordinal.
 type DyeColor pk.VarInt
@@ -72,6 +92,16 @@ func (e DyeColor) WriteTo(w io.Writer) (int64, error)   { return pk.VarInt(e).Wr
 
 // Count is the number of constants (EnumSet[DyeColor] needs it for its bit set size).
 func (DyeColor) Count() int { return 16 }
+
+var dyeColorNames = [...]string{"white", "orange", "magenta", "light_blue", "yellow", "lime", "pink", "gray", "light_gray", "cyan", "purple", "blue", "brown", "green", "red", "black"}
+
+// Name is the name the constant's codec writes, "" for a number out of range.
+func (e DyeColor) Name() string {
+	if e < 0 || int(e) >= len(dyeColorNames) {
+		return ""
+	}
+	return dyeColorNames[e]
+}
 
 // EquipmentSlot is Java EquipmentSlot, sent as a VarInt id of its own, which is not its ordinal.
 type EquipmentSlot pk.VarInt
@@ -116,6 +146,16 @@ func (e EquipmentSlotGroup) WriteTo(w io.Writer) (int64, error)   { return pk.Va
 // Count is the number of constants (EnumSet[EquipmentSlotGroup] needs it for its bit set size).
 func (EquipmentSlotGroup) Count() int { return 11 }
 
+var equipmentSlotGroupNames = [...]string{"any", "mainhand", "offhand", "hand", "feet", "legs", "chest", "head", "armor", "body", "saddle"}
+
+// Name is the name the constant's codec writes, "" for a number out of range.
+func (e EquipmentSlotGroup) Name() string {
+	if e < 0 || int(e) >= len(equipmentSlotGroupNames) {
+		return ""
+	}
+	return equipmentSlotGroupNames[e]
+}
+
 // FireworkExplosionShape is Java FireworkExplosion$Shape, sent as a VarInt ordinal.
 type FireworkExplosionShape pk.VarInt
 
@@ -135,6 +175,16 @@ func (e FireworkExplosionShape) WriteTo(w io.Writer) (int64, error) { return pk.
 // Count is the number of constants (EnumSet[FireworkExplosionShape] needs it for its bit set size).
 func (FireworkExplosionShape) Count() int { return 5 }
 
+var fireworkExplosionShapeNames = [...]string{"small_ball", "large_ball", "star", "creeper", "burst"}
+
+// Name is the name the constant's codec writes, "" for a number out of range.
+func (e FireworkExplosionShape) Name() string {
+	if e < 0 || int(e) >= len(fireworkExplosionShapeNames) {
+		return ""
+	}
+	return fireworkExplosionShapeNames[e]
+}
+
 // FoxVariant is Java Fox$Variant, sent as a VarInt ordinal.
 type FoxVariant pk.VarInt
 
@@ -148,6 +198,16 @@ func (e FoxVariant) WriteTo(w io.Writer) (int64, error)   { return pk.VarInt(e).
 
 // Count is the number of constants (EnumSet[FoxVariant] needs it for its bit set size).
 func (FoxVariant) Count() int { return 2 }
+
+var foxVariantNames = [...]string{"red", "snow"}
+
+// Name is the name the constant's codec writes, "" for a number out of range.
+func (e FoxVariant) Name() string {
+	if e < 0 || int(e) >= len(foxVariantNames) {
+		return ""
+	}
+	return foxVariantNames[e]
+}
 
 // HorseVariant is Java Variant, sent as a VarInt ordinal.
 type HorseVariant pk.VarInt
@@ -167,6 +227,16 @@ func (e HorseVariant) WriteTo(w io.Writer) (int64, error)   { return pk.VarInt(e
 
 // Count is the number of constants (EnumSet[HorseVariant] needs it for its bit set size).
 func (HorseVariant) Count() int { return 7 }
+
+var horseVariantNames = [...]string{"white", "creamy", "chestnut", "brown", "black", "gray", "dark_brown"}
+
+// Name is the name the constant's codec writes, "" for a number out of range.
+func (e HorseVariant) Name() string {
+	if e < 0 || int(e) >= len(horseVariantNames) {
+		return ""
+	}
+	return horseVariantNames[e]
+}
 
 // ItemAttributeModifiersDisplayType is Java ItemAttributeModifiers$Display$Type, sent as a VarInt ordinal.
 type ItemAttributeModifiersDisplayType pk.VarInt
@@ -211,6 +281,16 @@ func (e ItemUseAnimation) WriteTo(w io.Writer) (int64, error)   { return pk.VarI
 // Count is the number of constants (EnumSet[ItemUseAnimation] needs it for its bit set size).
 func (ItemUseAnimation) Count() int { return 12 }
 
+var itemUseAnimationNames = [...]string{"none", "eat", "drink", "block", "bow", "trident", "crossbow", "spyglass", "toot_horn", "brush", "bundle", "spear"}
+
+// Name is the name the constant's codec writes, "" for a number out of range.
+func (e ItemUseAnimation) Name() string {
+	if e < 0 || int(e) >= len(itemUseAnimationNames) {
+		return ""
+	}
+	return itemUseAnimationNames[e]
+}
+
 // LlamaVariant is Java Llama$Variant, sent as a VarInt ordinal.
 type LlamaVariant pk.VarInt
 
@@ -226,6 +306,16 @@ func (e LlamaVariant) WriteTo(w io.Writer) (int64, error)   { return pk.VarInt(e
 
 // Count is the number of constants (EnumSet[LlamaVariant] needs it for its bit set size).
 func (LlamaVariant) Count() int { return 4 }
+
+var llamaVariantNames = [...]string{"creamy", "white", "brown", "gray"}
+
+// Name is the name the constant's codec writes, "" for a number out of range.
+func (e LlamaVariant) Name() string {
+	if e < 0 || int(e) >= len(llamaVariantNames) {
+		return ""
+	}
+	return llamaVariantNames[e]
+}
 
 // MapPostProcessing is Java MapPostProcessing, sent as a VarInt ordinal.
 type MapPostProcessing pk.VarInt
@@ -255,6 +345,16 @@ func (e MooshroomVariant) WriteTo(w io.Writer) (int64, error)   { return pk.VarI
 // Count is the number of constants (EnumSet[MooshroomVariant] needs it for its bit set size).
 func (MooshroomVariant) Count() int { return 2 }
 
+var mooshroomVariantNames = [...]string{"red", "brown"}
+
+// Name is the name the constant's codec writes, "" for a number out of range.
+func (e MooshroomVariant) Name() string {
+	if e < 0 || int(e) >= len(mooshroomVariantNames) {
+		return ""
+	}
+	return mooshroomVariantNames[e]
+}
+
 // ParrotVariant is Java Parrot$Variant, sent as a VarInt ordinal.
 type ParrotVariant pk.VarInt
 
@@ -271,6 +371,16 @@ func (e ParrotVariant) WriteTo(w io.Writer) (int64, error)   { return pk.VarInt(
 
 // Count is the number of constants (EnumSet[ParrotVariant] needs it for its bit set size).
 func (ParrotVariant) Count() int { return 5 }
+
+var parrotVariantNames = [...]string{"red_blue", "blue", "green", "yellow_blue", "gray"}
+
+// Name is the name the constant's codec writes, "" for a number out of range.
+func (e ParrotVariant) Name() string {
+	if e < 0 || int(e) >= len(parrotVariantNames) {
+		return ""
+	}
+	return parrotVariantNames[e]
+}
 
 // RabbitVariant is Java Rabbit$Variant, sent as a VarInt id of its own, which is not its ordinal.
 type RabbitVariant pk.VarInt
@@ -307,6 +417,16 @@ func (e Rarity) WriteTo(w io.Writer) (int64, error)   { return pk.VarInt(e).Writ
 // Count is the number of constants (EnumSet[Rarity] needs it for its bit set size).
 func (Rarity) Count() int { return 4 }
 
+var rarityNames = [...]string{"common", "uncommon", "rare", "epic"}
+
+// Name is the name the constant's codec writes, "" for a number out of range.
+func (e Rarity) Name() string {
+	if e < 0 || int(e) >= len(rarityNames) {
+		return ""
+	}
+	return rarityNames[e]
+}
+
 // SalmonSize is Java Salmon$Variant, sent as a VarInt ordinal.
 type SalmonSize pk.VarInt
 
@@ -322,6 +442,16 @@ func (e SalmonSize) WriteTo(w io.Writer) (int64, error)   { return pk.VarInt(e).
 // Count is the number of constants (EnumSet[SalmonSize] needs it for its bit set size).
 func (SalmonSize) Count() int { return 3 }
 
+var salmonSizeNames = [...]string{"small", "medium", "large"}
+
+// Name is the name the constant's codec writes, "" for a number out of range.
+func (e SalmonSize) Name() string {
+	if e < 0 || int(e) >= len(salmonSizeNames) {
+		return ""
+	}
+	return salmonSizeNames[e]
+}
+
 // SwingAnimationType is Java SwingAnimationType, sent as a VarInt ordinal.
 type SwingAnimationType pk.VarInt
 
@@ -336,6 +466,16 @@ func (e SwingAnimationType) WriteTo(w io.Writer) (int64, error)   { return pk.Va
 
 // Count is the number of constants (EnumSet[SwingAnimationType] needs it for its bit set size).
 func (SwingAnimationType) Count() int { return 3 }
+
+var swingAnimationTypeNames = [...]string{"none", "whack", "stab"}
+
+// Name is the name the constant's codec writes, "" for a number out of range.
+func (e SwingAnimationType) Name() string {
+	if e < 0 || int(e) >= len(swingAnimationTypeNames) {
+		return ""
+	}
+	return swingAnimationTypeNames[e]
+}
 
 // TropicalFishPattern is Java TropicalFish$Pattern, sent as a VarInt id of its own, which is not its ordinal.
 type TropicalFishPattern pk.VarInt

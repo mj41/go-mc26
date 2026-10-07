@@ -5,7 +5,7 @@ A Go library for Minecraft: Java Edition 26.2 (protocol 776, data version
 Go types, generated from Mojang's unobfuscated server jar.
 
 This branch is a build: generated, templated or copied, never edited by hand.
-Generated from `mc26-data v0.262.0` by `mc26 190a89967ae4`; the same facts are in
+Generated from `mc26-data v0.262.1` by `mc26 bef5fc043745`; the same facts are in
 `data/version` (`version.Name`, `version.ProtocolVersion`, `version.DataSource`,
 `version.Generator`). The sources, generators and build live in
 [mc26](https://github.com/mj41/mc26); every Minecraft version is its own branch of this

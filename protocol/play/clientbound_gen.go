@@ -1309,7 +1309,7 @@ func (p MerchantOffers) WriteTo(w io.Writer) (int64, error) {
 
 // MoveEntityPos is clientbound/minecraft:move_entity_pos (0x35), Java ClientboundMoveEntityPacket$Pos.
 type MoveEntityPos struct {
-	ID       pk.VarInt
+	EntityID pk.VarInt
 	Xa       pk.Short
 	Ya       pk.Short
 	Za       pk.Short
@@ -1322,16 +1322,16 @@ func (MoveEntityPos) PacketID() packetid.ClientboundPacketID {
 }
 
 func (p *MoveEntityPos) ReadFrom(r io.Reader) (int64, error) {
-	return pk.Tuple{&p.ID, &p.Xa, &p.Ya, &p.Za, &p.OnGround}.ReadFrom(r)
+	return pk.Tuple{&p.EntityID, &p.Xa, &p.Ya, &p.Za, &p.OnGround}.ReadFrom(r)
 }
 
 func (p MoveEntityPos) WriteTo(w io.Writer) (int64, error) {
-	return pk.Tuple{p.ID, p.Xa, p.Ya, p.Za, p.OnGround}.WriteTo(w)
+	return pk.Tuple{p.EntityID, p.Xa, p.Ya, p.Za, p.OnGround}.WriteTo(w)
 }
 
 // MoveEntityPosRot is clientbound/minecraft:move_entity_pos_rot (0x36), Java ClientboundMoveEntityPacket$PosRot.
 type MoveEntityPosRot struct {
-	ID       pk.VarInt
+	EntityID pk.VarInt
 	Xa       pk.Short
 	Ya       pk.Short
 	Za       pk.Short
@@ -1346,11 +1346,11 @@ func (MoveEntityPosRot) PacketID() packetid.ClientboundPacketID {
 }
 
 func (p *MoveEntityPosRot) ReadFrom(r io.Reader) (int64, error) {
-	return pk.Tuple{&p.ID, &p.Xa, &p.Ya, &p.Za, &p.YRot, &p.XRot, &p.OnGround}.ReadFrom(r)
+	return pk.Tuple{&p.EntityID, &p.Xa, &p.Ya, &p.Za, &p.YRot, &p.XRot, &p.OnGround}.ReadFrom(r)
 }
 
 func (p MoveEntityPosRot) WriteTo(w io.Writer) (int64, error) {
-	return pk.Tuple{p.ID, p.Xa, p.Ya, p.Za, p.YRot, p.XRot, p.OnGround}.WriteTo(w)
+	return pk.Tuple{p.EntityID, p.Xa, p.Ya, p.Za, p.YRot, p.XRot, p.OnGround}.WriteTo(w)
 }
 
 // MoveMinecart is clientbound/minecraft:move_minecart_along_track (0x37), Java ClientboundMoveMinecartPacket.
@@ -1374,7 +1374,7 @@ func (p MoveMinecart) WriteTo(w io.Writer) (int64, error) {
 
 // MoveEntityRot is clientbound/minecraft:move_entity_rot (0x38), Java ClientboundMoveEntityPacket$Rot.
 type MoveEntityRot struct {
-	ID       pk.VarInt
+	EntityID pk.VarInt
 	YRot     pk.Byte
 	XRot     pk.Byte
 	OnGround pk.Boolean
@@ -1386,11 +1386,11 @@ func (MoveEntityRot) PacketID() packetid.ClientboundPacketID {
 }
 
 func (p *MoveEntityRot) ReadFrom(r io.Reader) (int64, error) {
-	return pk.Tuple{&p.ID, &p.YRot, &p.XRot, &p.OnGround}.ReadFrom(r)
+	return pk.Tuple{&p.EntityID, &p.YRot, &p.XRot, &p.OnGround}.ReadFrom(r)
 }
 
 func (p MoveEntityRot) WriteTo(w io.Writer) (int64, error) {
-	return pk.Tuple{p.ID, p.YRot, p.XRot, p.OnGround}.WriteTo(w)
+	return pk.Tuple{p.EntityID, p.YRot, p.XRot, p.OnGround}.WriteTo(w)
 }
 
 // ClientboundMoveVehicle is clientbound/minecraft:move_vehicle (0x39), Java ClientboundMoveVehiclePacket.

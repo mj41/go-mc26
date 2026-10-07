@@ -26,3 +26,13 @@ func (e Direction) WriteTo(w io.Writer) (int64, error)   { return pk.VarInt(e).W
 
 // Count is the number of constants (EnumSet[Direction] needs it for its bit set size).
 func (Direction) Count() int { return 6 }
+
+var directionNames = [...]string{"down", "up", "north", "south", "west", "east"}
+
+// Name is the name the constant's codec writes, "" for a number out of range.
+func (e Direction) Name() string {
+	if e < 0 || int(e) >= len(directionNames) {
+		return ""
+	}
+	return directionNames[e]
+}
