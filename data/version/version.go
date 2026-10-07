@@ -21,7 +21,7 @@ const (
 	Stable = true
 
 	// DataSource names the extracted data this build was generated from.
-	DataSource = "mc26-data v0.261.0"
+	DataSource = "mc26-data v0.261.1"
 	// Generator names the generator commit that produced this build.
-	Generator = "mc26 190a89967ae4"
+	Generator = "mc26 97c45e4f87c8"
 )
