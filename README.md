@@ -25,7 +25,7 @@ manifest in [mc26](https://github.com/mj41/mc26).
 
 | branch | Minecraft | protocol | data version | latest tag |
 |---|---|---|---|---|
-| `mc-26.3` | 26.3 | 777 | 5023 | `v0.263.0` |
+| `mc-26.3` | 26.3 | 777 | 5023 | `v0.263.1` |
 | `mc-26.2` | 26.2 | 776 | 4903 | `v0.262.0` |
 | `mc-26.1` | 26.1 | 775 | 4786 | `v0.261.1` |
 
