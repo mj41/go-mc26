@@ -2,6 +2,8 @@
 
 package registryid
 
+// WorldgenFoliagePlacerType is the minecraft:worldgen/foliage_placer_type registry: its element names in protocol-id
+// order, so the index is the id.
 var WorldgenFoliagePlacerType = []string{
 	"minecraft:blob_foliage_placer",
 	"minecraft:spruce_foliage_placer",

@@ -2,6 +2,8 @@
 
 package registryid
 
+// WorldgenRootPlacerType is the minecraft:worldgen/root_placer_type registry: its element names in protocol-id
+// order, so the index is the id.
 var WorldgenRootPlacerType = []string{
 	"minecraft:mangrove_root_placer",
 }

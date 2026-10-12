@@ -2,6 +2,8 @@
 
 package registryid
 
+// EnchantmentEffectComponentType is the minecraft:enchantment_effect_component_type registry: its element names in protocol-id
+// order, so the index is the id.
 var EnchantmentEffectComponentType = []string{
 	"minecraft:damage_protection",
 	"minecraft:damage_immunity",

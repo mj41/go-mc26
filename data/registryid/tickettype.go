@@ -2,6 +2,8 @@
 
 package registryid
 
+// TicketType is the minecraft:ticket_type registry: its element names in protocol-id
+// order, so the index is the id.
 var TicketType = []string{
 	"minecraft:player_spawn",
 	"minecraft:spawn_search",

@@ -2,6 +2,8 @@
 
 package registryid
 
+// RecipeBookCategory is the minecraft:recipe_book_category registry: its element names in protocol-id
+// order, so the index is the id.
 var RecipeBookCategory = []string{
 	"minecraft:crafting_building_blocks",
 	"minecraft:crafting_redstone",

@@ -2,6 +2,8 @@
 
 package registryid
 
+// Item is the minecraft:item registry: its element names in protocol-id
+// order, so the index is the id.
 var Item = []string{
 	"minecraft:air",
 	"minecraft:stone",

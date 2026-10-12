@@ -2,6 +2,8 @@
 
 package registryid
 
+// VillagerProfession is the minecraft:villager_profession registry: its element names in protocol-id
+// order, so the index is the id.
 var VillagerProfession = []string{
 	"minecraft:none",
 	"minecraft:armorer",

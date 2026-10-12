@@ -2,6 +2,8 @@
 
 package registryid
 
+// MemoryModuleType is the minecraft:memory_module_type registry: its element names in protocol-id
+// order, so the index is the id.
 var MemoryModuleType = []string{
 	"minecraft:dummy",
 	"minecraft:home",

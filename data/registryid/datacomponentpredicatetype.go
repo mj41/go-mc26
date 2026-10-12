@@ -2,6 +2,8 @@
 
 package registryid
 
+// DataComponentPredicateType is the minecraft:data_component_predicate_type registry: its element names in protocol-id
+// order, so the index is the id.
 var DataComponentPredicateType = []string{
 	"minecraft:damage",
 	"minecraft:enchantments",

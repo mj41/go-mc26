@@ -2,6 +2,8 @@
 
 package registryid
 
+// WorldgenFeature is the minecraft:worldgen/feature registry: its element names in protocol-id
+// order, so the index is the id.
 var WorldgenFeature = []string{
 	"minecraft:no_op",
 	"minecraft:tree",

@@ -2,6 +2,8 @@
 
 package registryid
 
+// WorldgenPoolAliasBinding is the minecraft:worldgen/pool_alias_binding registry: its element names in protocol-id
+// order, so the index is the id.
 var WorldgenPoolAliasBinding = []string{
 	"minecraft:random",
 	"minecraft:random_group",

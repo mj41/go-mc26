@@ -2,6 +2,8 @@
 
 package registryid
 
+// LootNbtProviderType is the minecraft:loot_nbt_provider_type registry: its element names in protocol-id
+// order, so the index is the id.
 var LootNbtProviderType = []string{
 	"minecraft:storage",
 	"minecraft:context",

@@ -2,6 +2,8 @@
 
 package registryid
 
+// HeightProviderType is the minecraft:height_provider_type registry: its element names in protocol-id
+// order, so the index is the id.
 var HeightProviderType = []string{
 	"minecraft:constant",
 	"minecraft:uniform",

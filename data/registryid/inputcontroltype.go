@@ -2,6 +2,8 @@
 
 package registryid
 
+// InputControlType is the minecraft:input_control_type registry: its element names in protocol-id
+// order, so the index is the id.
 var InputControlType = []string{
 	"minecraft:boolean",
 	"minecraft:number_range",

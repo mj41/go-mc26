@@ -2,6 +2,8 @@
 
 package registryid
 
+// SlotSourceType is the minecraft:slot_source_type registry: its element names in protocol-id
+// order, so the index is the id.
 var SlotSourceType = []string{
 	"minecraft:group",
 	"minecraft:filtered",

@@ -2,6 +2,8 @@
 
 package registryid
 
+// StatType is the minecraft:stat_type registry: its element names in protocol-id
+// order, so the index is the id.
 var StatType = []string{
 	"minecraft:mined",
 	"minecraft:crafted",

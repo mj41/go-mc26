@@ -2,6 +2,8 @@
 
 package registryid
 
+// ConsumeEffectType is the minecraft:consume_effect_type registry: its element names in protocol-id
+// order, so the index is the id.
 var ConsumeEffectType = []string{
 	"minecraft:apply_effects",
 	"minecraft:remove_effects",

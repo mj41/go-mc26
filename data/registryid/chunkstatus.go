@@ -2,6 +2,8 @@
 
 package registryid
 
+// ChunkStatus is the minecraft:chunk_status registry: its element names in protocol-id
+// order, so the index is the id.
 var ChunkStatus = []string{
 	"minecraft:empty",
 	"minecraft:structure_starts",

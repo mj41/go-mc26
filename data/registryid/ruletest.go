@@ -2,6 +2,8 @@
 
 package registryid
 
+// RuleTest is the minecraft:rule_test registry: its element names in protocol-id
+// order, so the index is the id.
 var RuleTest = []string{
 	"minecraft:always_true",
 	"minecraft:block_match",

@@ -2,6 +2,8 @@
 
 package registryid
 
+// Fluid is the minecraft:fluid registry: its element names in protocol-id
+// order, so the index is the id.
 var Fluid = []string{
 	"minecraft:empty",
 	"minecraft:flowing_water",

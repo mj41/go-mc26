@@ -2,6 +2,8 @@
 
 package registryid
 
+// NumberFormatType is the minecraft:number_format_type registry: its element names in protocol-id
+// order, so the index is the id.
 var NumberFormatType = []string{
 	"minecraft:blank",
 	"minecraft:styled",

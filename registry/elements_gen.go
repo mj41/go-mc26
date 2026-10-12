@@ -4,10 +4,10 @@
 // (RegistryDataLoader.SYNCHRONIZED_REGISTRIES), typed from their codecs.
 //
 // Fields the schema cannot type, kept as raw NBT:
-//
-//	minecraft:dimension_type.(monsterSettings).monster_spawn_light_level: either INT or dispatch IntProviders
-//	minecraft:sulfur_cube_archetype.contact_damage.amount: either FLOAT or dispatch FloatProviders
-//	minecraft:timeline.time_markers/val: either INT or struct Timeline$TimeMarkerInfo
+//   minecraft:dimension_type.(monsterSettings).monster_spawn_light_level: either INT or dispatch IntProviders
+//   minecraft:sulfur_cube_archetype.contact_damage.amount: either FLOAT or dispatch FloatProviders
+//   minecraft:timeline.time_markers/val: either INT or struct Timeline$TimeMarkerInfo
+
 package registry
 
 import (

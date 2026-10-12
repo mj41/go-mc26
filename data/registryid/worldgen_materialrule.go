@@ -2,6 +2,8 @@
 
 package registryid
 
+// WorldgenMaterialRule is the minecraft:worldgen/material_rule registry: its element names in protocol-id
+// order, so the index is the id.
 var WorldgenMaterialRule = []string{
 	"minecraft:bandlands",
 	"minecraft:block",

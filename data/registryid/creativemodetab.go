@@ -2,6 +2,8 @@
 
 package registryid
 
+// CreativeModeTab is the minecraft:creative_mode_tab registry: its element names in protocol-id
+// order, so the index is the id.
 var CreativeModeTab = []string{
 	"minecraft:building_blocks",
 	"minecraft:colored_blocks",

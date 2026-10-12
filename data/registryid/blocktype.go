@@ -2,6 +2,8 @@
 
 package registryid
 
+// BlockType is the minecraft:block_type registry: its element names in protocol-id
+// order, so the index is the id.
 var BlockType = []string{
 	"minecraft:block",
 	"minecraft:air",

@@ -2,6 +2,8 @@
 
 package registryid
 
+// WorldgenChunkGenerator is the minecraft:worldgen/chunk_generator registry: its element names in protocol-id
+// order, so the index is the id.
 var WorldgenChunkGenerator = []string{
 	"minecraft:noise",
 	"minecraft:flat",

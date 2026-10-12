@@ -2,6 +2,8 @@
 
 package registryid
 
+// LootScoreProviderType is the minecraft:loot_score_provider_type registry: its element names in protocol-id
+// order, so the index is the id.
 var LootScoreProviderType = []string{
 	"minecraft:fixed",
 	"minecraft:context",

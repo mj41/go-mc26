@@ -2,6 +2,8 @@
 
 package registryid
 
+// Potion is the minecraft:potion registry: its element names in protocol-id
+// order, so the index is the id.
 var Potion = []string{
 	"minecraft:water",
 	"minecraft:mundane",
