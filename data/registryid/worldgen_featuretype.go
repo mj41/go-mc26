@@ -2,6 +2,8 @@
 
 package registryid
 
+// WorldgenFeatureType is the minecraft:worldgen/feature_type registry: its element names in protocol-id
+// order, so the index is the id.
 var WorldgenFeatureType = []string{
 	"minecraft:bamboo",
 	"minecraft:block_blob",

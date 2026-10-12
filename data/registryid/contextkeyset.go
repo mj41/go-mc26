@@ -2,6 +2,8 @@
 
 package registryid
 
+// ContextKeySet is the minecraft:context_key_set registry: its element names in protocol-id
+// order, so the index is the id.
 var ContextKeySet = []string{
 	"minecraft:empty",
 	"minecraft:generic",

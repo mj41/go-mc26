@@ -2,6 +2,8 @@
 
 package registryid
 
+// IncomingRpcMethods is the minecraft:incoming_rpc_methods registry: its element names in protocol-id
+// order, so the index is the id.
 var IncomingRpcMethods = []string{
 	"minecraft:allowlist",
 	"minecraft:allowlist/set",

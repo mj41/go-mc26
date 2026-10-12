@@ -2,6 +2,8 @@
 
 package registryid
 
+// TestInstanceType is the minecraft:test_instance_type registry: its element names in protocol-id
+// order, so the index is the id.
 var TestInstanceType = []string{
 	"minecraft:block_based",
 	"minecraft:function",

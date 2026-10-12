@@ -2,6 +2,8 @@
 
 package registryid
 
+// WorldgenDensityFunctionType is the minecraft:worldgen/density_function_type registry: its element names in protocol-id
+// order, so the index is the id.
 var WorldgenDensityFunctionType = []string{
 	"minecraft:constant",
 	"minecraft:blend_alpha",

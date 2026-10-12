@@ -2,6 +2,8 @@
 
 package registryid
 
+// MobEffect is the minecraft:mob_effect registry: its element names in protocol-id
+// order, so the index is the id.
 var MobEffect = []string{
 	"minecraft:speed",
 	"minecraft:slowness",

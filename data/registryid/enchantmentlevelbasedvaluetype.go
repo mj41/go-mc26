@@ -2,6 +2,8 @@
 
 package registryid
 
+// EnchantmentLevelBasedValueType is the minecraft:enchantment_level_based_value_type registry: its element names in protocol-id
+// order, so the index is the id.
 var EnchantmentLevelBasedValueType = []string{
 	"minecraft:clamped",
 	"minecraft:fraction",

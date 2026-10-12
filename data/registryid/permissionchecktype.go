@@ -2,6 +2,8 @@
 
 package registryid
 
+// PermissionCheckType is the minecraft:permission_check_type registry: its element names in protocol-id
+// order, so the index is the id.
 var PermissionCheckType = []string{
 	"minecraft:always_pass",
 	"minecraft:require",

@@ -2,6 +2,8 @@
 
 package registryid
 
+// WorldgenCarverType is the minecraft:worldgen/carver_type registry: its element names in protocol-id
+// order, so the index is the id.
 var WorldgenCarverType = []string{
 	"minecraft:cave",
 	"minecraft:canyon",

@@ -2,6 +2,8 @@
 
 package registryid
 
+// Menu is the minecraft:menu registry: its element names in protocol-id
+// order, so the index is the id.
 var Menu = []string{
 	"minecraft:generic_9x1",
 	"minecraft:generic_9x2",

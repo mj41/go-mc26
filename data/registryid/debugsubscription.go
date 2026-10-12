@@ -2,6 +2,8 @@
 
 package registryid
 
+// DebugSubscription is the minecraft:debug_subscription registry: its element names in protocol-id
+// order, so the index is the id.
 var DebugSubscription = []string{
 	"minecraft:dedicated_server_tick_time",
 	"minecraft:bees",

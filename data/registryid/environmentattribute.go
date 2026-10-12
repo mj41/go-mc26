@@ -2,6 +2,8 @@
 
 package registryid
 
+// EnvironmentAttribute is the minecraft:environment_attribute registry: its element names in protocol-id
+// order, so the index is the id.
 var EnvironmentAttribute = []string{
 	"minecraft:visual/fog_color",
 	"minecraft:visual/fog_start_distance",

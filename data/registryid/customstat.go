@@ -2,6 +2,8 @@
 
 package registryid
 
+// CustomStat is the minecraft:custom_stat registry: its element names in protocol-id
+// order, so the index is the id.
 var CustomStat = []string{
 	"minecraft:leave_game",
 	"minecraft:play_time",

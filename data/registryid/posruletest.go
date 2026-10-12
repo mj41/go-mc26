@@ -2,6 +2,8 @@
 
 package registryid
 
+// PosRuleTest is the minecraft:pos_rule_test registry: its element names in protocol-id
+// order, so the index is the id.
 var PosRuleTest = []string{
 	"minecraft:always_true",
 	"minecraft:linear_pos",

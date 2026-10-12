@@ -2,6 +2,8 @@
 
 package registryid
 
+// WorldgenBlockStateProviderType is the minecraft:worldgen/block_state_provider_type registry: its element names in protocol-id
+// order, so the index is the id.
 var WorldgenBlockStateProviderType = []string{
 	"minecraft:copy_properties",
 	"minecraft:dual_noise",

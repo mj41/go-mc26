@@ -2,6 +2,8 @@
 
 package registryid
 
+// ParticleType is the minecraft:particle_type registry: its element names in protocol-id
+// order, so the index is the id.
 var ParticleType = []string{
 	"minecraft:angry_villager",
 	"minecraft:block",

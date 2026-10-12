@@ -2,6 +2,8 @@
 
 package registryid
 
+// RecipeSerializer is the minecraft:recipe_serializer registry: its element names in protocol-id
+// order, so the index is the id.
 var RecipeSerializer = []string{
 	"minecraft:crafting_shaped",
 	"minecraft:crafting_shapeless",

@@ -2,6 +2,8 @@
 
 package registryid
 
+// LootPoolEntryType is the minecraft:loot_pool_entry_type registry: its element names in protocol-id
+// order, so the index is the id.
 var LootPoolEntryType = []string{
 	"minecraft:empty",
 	"minecraft:item",

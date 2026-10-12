@@ -2,6 +2,8 @@
 
 package registryid
 
+// WorldgenPlacementModifierType is the minecraft:worldgen/placement_modifier_type registry: its element names in protocol-id
+// order, so the index is the id.
 var WorldgenPlacementModifierType = []string{
 	"minecraft:block_predicate_filter",
 	"minecraft:rarity_filter",

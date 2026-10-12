@@ -2,6 +2,8 @@
 
 package registryid
 
+// WorldgenBiomeSource is the minecraft:worldgen/biome_source registry: its element names in protocol-id
+// order, so the index is the id.
 var WorldgenBiomeSource = []string{
 	"minecraft:fixed",
 	"minecraft:multi_noise",

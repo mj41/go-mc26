@@ -2,6 +2,8 @@
 
 package registryid
 
+// EnchantmentValueEffectType is the minecraft:enchantment_value_effect_type registry: its element names in protocol-id
+// order, so the index is the id.
 var EnchantmentValueEffectType = []string{
 	"minecraft:add",
 	"minecraft:all_of",

@@ -2,6 +2,8 @@
 
 package registryid
 
+// OutgoingRpcMethods is the minecraft:outgoing_rpc_methods registry: its element names in protocol-id
+// order, so the index is the id.
 var OutgoingRpcMethods = []string{
 	"minecraft:notification/server/started",
 	"minecraft:notification/server/stopping",

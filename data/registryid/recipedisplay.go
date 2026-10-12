@@ -2,6 +2,8 @@
 
 package registryid
 
+// RecipeDisplay is the minecraft:recipe_display registry: its element names in protocol-id
+// order, so the index is the id.
 var RecipeDisplay = []string{
 	"minecraft:crafting_shapeless",
 	"minecraft:crafting_shaped",

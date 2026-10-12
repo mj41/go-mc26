@@ -2,6 +2,8 @@
 
 package registryid
 
+// DialogType is the minecraft:dialog_type registry: its element names in protocol-id
+// order, so the index is the id.
 var DialogType = []string{
 	"minecraft:notice",
 	"minecraft:server_links",

@@ -2,6 +2,8 @@
 
 package registryid
 
+// SpawnConditionType is the minecraft:spawn_condition_type registry: its element names in protocol-id
+// order, so the index is the id.
 var SpawnConditionType = []string{
 	"minecraft:structure",
 	"minecraft:moon_brightness",

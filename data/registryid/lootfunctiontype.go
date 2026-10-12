@@ -2,6 +2,8 @@
 
 package registryid
 
+// LootFunctionType is the minecraft:loot_function_type registry: its element names in protocol-id
+// order, so the index is the id.
 var LootFunctionType = []string{
 	"minecraft:set_count",
 	"minecraft:set_item",

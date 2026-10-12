@@ -2,6 +2,8 @@
 
 package registryid
 
+// WorldgenStructureProcessor is the minecraft:worldgen/structure_processor registry: its element names in protocol-id
+// order, so the index is the id.
 var WorldgenStructureProcessor = []string{
 	"minecraft:blackstone_replace",
 	"minecraft:block_age",

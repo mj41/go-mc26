@@ -4,12 +4,12 @@
 // (RegistryDataLoader.SYNCHRONIZED_REGISTRIES), typed from their codecs.
 //
 // Fields the schema cannot type, kept as raw NBT:
-//
-//	minecraft:block_transformer/elem.block_state_provider/type/direct: either struct BlockState or dispatch BlockStateProvider
-//	minecraft:dimension_type.(monsterSettings).monster_spawn_light_level: either INT or dispatch IntProviders
-//	minecraft:sulfur_cube_archetype.contact_damage.amount: either FLOAT or dispatch FloatProviders
-//	minecraft:timeline.time_markers/val: either INT or struct Timeline$TimeMarkerInfo
-//	minecraft:worldgen/block_state_provider: either struct BlockState or dispatch BlockStateProvider
+//   minecraft:block_transformer/elem.block_state_provider/type/direct: either struct BlockState or dispatch BlockStateProvider
+//   minecraft:dimension_type.(monsterSettings).monster_spawn_light_level: either INT or dispatch IntProviders
+//   minecraft:sulfur_cube_archetype.contact_damage.amount: either FLOAT or dispatch FloatProviders
+//   minecraft:timeline.time_markers/val: either INT or struct Timeline$TimeMarkerInfo
+//   minecraft:worldgen/block_state_provider: either struct BlockState or dispatch BlockStateProvider
+
 package registry
 
 import (

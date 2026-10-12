@@ -2,6 +2,8 @@
 
 package registryid
 
+// WorldgenTrunkPlacerType is the minecraft:worldgen/trunk_placer_type registry: its element names in protocol-id
+// order, so the index is the id.
 var WorldgenTrunkPlacerType = []string{
 	"minecraft:straight_trunk_placer",
 	"minecraft:forking_trunk_placer",

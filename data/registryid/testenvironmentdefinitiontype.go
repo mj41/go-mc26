@@ -2,6 +2,8 @@
 
 package registryid
 
+// TestEnvironmentDefinitionType is the minecraft:test_environment_definition_type registry: its element names in protocol-id
+// order, so the index is the id.
 var TestEnvironmentDefinitionType = []string{
 	"minecraft:all_of",
 	"minecraft:clock_time",

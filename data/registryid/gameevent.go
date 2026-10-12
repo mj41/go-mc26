@@ -2,6 +2,8 @@
 
 package registryid
 
+// GameEvent is the minecraft:game_event registry: its element names in protocol-id
+// order, so the index is the id.
 var GameEvent = []string{
 	"minecraft:block_activate",
 	"minecraft:block_attach",

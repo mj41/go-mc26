@@ -2,6 +2,8 @@
 
 package registryid
 
+// PointOfInterestType is the minecraft:point_of_interest_type registry: its element names in protocol-id
+// order, so the index is the id.
 var PointOfInterestType = []string{
 	"minecraft:armorer",
 	"minecraft:butcher",

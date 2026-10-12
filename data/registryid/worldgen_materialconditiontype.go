@@ -2,6 +2,8 @@
 
 package registryid
 
+// WorldgenMaterialConditionType is the minecraft:worldgen/material_condition_type registry: its element names in protocol-id
+// order, so the index is the id.
 var WorldgenMaterialConditionType = []string{
 	"minecraft:biome",
 	"minecraft:noise_threshold",

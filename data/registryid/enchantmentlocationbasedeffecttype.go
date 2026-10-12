@@ -2,6 +2,8 @@
 
 package registryid
 
+// EnchantmentLocationBasedEffectType is the minecraft:enchantment_location_based_effect_type registry: its element names in protocol-id
+// order, so the index is the id.
 var EnchantmentLocationBasedEffectType = []string{
 	"minecraft:all_of",
 	"minecraft:apply_mob_effect",

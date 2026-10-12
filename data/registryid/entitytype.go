@@ -2,6 +2,8 @@
 
 package registryid
 
+// EntityType is the minecraft:entity_type registry: its element names in protocol-id
+// order, so the index is the id.
 var EntityType = []string{
 	"minecraft:acacia_boat",
 	"minecraft:acacia_chest_boat",

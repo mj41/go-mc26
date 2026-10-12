@@ -2,6 +2,8 @@
 
 package registryid
 
+// ContextFloatProviderType is the minecraft:context_float_provider_type registry: its element names in protocol-id
+// order, so the index is the id.
 var ContextFloatProviderType = []string{
 	"minecraft:abs",
 	"minecraft:avg",

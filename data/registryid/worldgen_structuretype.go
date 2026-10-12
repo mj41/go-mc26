@@ -2,6 +2,8 @@
 
 package registryid
 
+// WorldgenStructureType is the minecraft:worldgen/structure_type registry: its element names in protocol-id
+// order, so the index is the id.
 var WorldgenStructureType = []string{
 	"minecraft:buried_treasure",
 	"minecraft:desert_pyramid",

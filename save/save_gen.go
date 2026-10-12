@@ -5,6 +5,7 @@
 // codec, so this is read from the readers themselves (data-gen/java/GenSaveSchema.java).
 //
 // Not described, kept as raw NBT: chunk.sections/elem.block_states.palette/elem: either registry or struct BlockState, entity/minecraft:acacia_boat.leash: either field or INT_ARRAY, entity/minecraft:acacia_chest_boat.leash: either field or INT_ARRAY, entity/minecraft:allay.leash: either field or INT_ARRAY, entity/minecraft:area_effect_cloud.custom_particle[minecraft:block].block_state: either registry or struct BlockState, entity/minecraft:area_effect_cloud.custom_particle[minecraft:block_marker].block_state: either registry or struct BlockState and 182 more.
+
 package save
 
 import (
