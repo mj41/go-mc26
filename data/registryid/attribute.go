@@ -2,6 +2,8 @@
 
 package registryid
 
+// Attribute is the minecraft:attribute registry: its element names in protocol-id
+// order, so the index is the id.
 var Attribute = []string{
 	"minecraft:armor",
 	"minecraft:armor_toughness",

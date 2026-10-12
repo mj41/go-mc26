@@ -2,6 +2,8 @@
 
 package registryid
 
+// Block is the minecraft:block registry: its element names in protocol-id
+// order, so the index is the id.
 var Block = []string{
 	"minecraft:air",
 	"minecraft:stone",

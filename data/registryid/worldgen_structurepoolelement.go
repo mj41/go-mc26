@@ -2,6 +2,8 @@
 
 package registryid
 
+// WorldgenStructurePoolElement is the minecraft:worldgen/structure_pool_element registry: its element names in protocol-id
+// order, so the index is the id.
 var WorldgenStructurePoolElement = []string{
 	"minecraft:single_pool_element",
 	"minecraft:list_pool_element",

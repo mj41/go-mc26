@@ -4,9 +4,9 @@
 // (RegistryDataLoader.SYNCHRONIZED_REGISTRIES), typed from their codecs.
 //
 // Fields the schema cannot type, kept as raw NBT:
-//
-//	minecraft:dimension_type.(monsterSettings).monster_spawn_light_level: either INT or dispatch IntProviders
-//	minecraft:timeline.time_markers/val: either INT or struct Timeline$TimeMarkerInfo
+//   minecraft:dimension_type.(monsterSettings).monster_spawn_light_level: either INT or dispatch IntProviders
+//   minecraft:timeline.time_markers/val: either INT or struct Timeline$TimeMarkerInfo
+
 package registry
 
 import (

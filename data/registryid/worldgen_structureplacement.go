@@ -2,6 +2,8 @@
 
 package registryid
 
+// WorldgenStructurePlacement is the minecraft:worldgen/structure_placement registry: its element names in protocol-id
+// order, so the index is the id.
 var WorldgenStructurePlacement = []string{
 	"minecraft:random_spread",
 	"minecraft:concentric_rings",

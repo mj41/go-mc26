@@ -2,6 +2,8 @@
 
 package registryid
 
+// PositionSourceType is the minecraft:position_source_type registry: its element names in protocol-id
+// order, so the index is the id.
 var PositionSourceType = []string{
 	"minecraft:block",
 	"minecraft:entity",

@@ -2,6 +2,8 @@
 
 package registryid
 
+// TriggerType is the minecraft:trigger_type registry: its element names in protocol-id
+// order, so the index is the id.
 var TriggerType = []string{
 	"minecraft:impossible",
 	"minecraft:player_killed_entity",

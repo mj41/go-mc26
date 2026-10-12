@@ -2,6 +2,8 @@
 
 package registryid
 
+// RuleBlockEntityModifier is the minecraft:rule_block_entity_modifier registry: its element names in protocol-id
+// order, so the index is the id.
 var RuleBlockEntityModifier = []string{
 	"minecraft:clear",
 	"minecraft:passthrough",

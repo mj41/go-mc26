@@ -2,6 +2,8 @@
 
 package registryid
 
+// DataComponentType is the minecraft:data_component_type registry: its element names in protocol-id
+// order, so the index is the id.
 var DataComponentType = []string{
 	"minecraft:custom_data",
 	"minecraft:max_stack_size",

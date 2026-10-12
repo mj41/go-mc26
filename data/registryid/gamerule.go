@@ -2,6 +2,8 @@
 
 package registryid
 
+// GameRule is the minecraft:game_rule registry: its element names in protocol-id
+// order, so the index is the id.
 var GameRule = []string{
 	"minecraft:advance_time",
 	"minecraft:advance_weather",

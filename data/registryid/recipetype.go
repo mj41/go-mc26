@@ -2,6 +2,8 @@
 
 package registryid
 
+// RecipeType is the minecraft:recipe_type registry: its element names in protocol-id
+// order, so the index is the id.
 var RecipeType = []string{
 	"minecraft:crafting",
 	"minecraft:smelting",

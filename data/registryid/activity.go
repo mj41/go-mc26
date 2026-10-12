@@ -2,6 +2,8 @@
 
 package registryid
 
+// Activity is the minecraft:activity registry: its element names in protocol-id
+// order, so the index is the id.
 var Activity = []string{
 	"minecraft:core",
 	"minecraft:idle",

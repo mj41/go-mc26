@@ -2,6 +2,8 @@
 
 package registryid
 
+// LootNumberProviderType is the minecraft:loot_number_provider_type registry: its element names in protocol-id
+// order, so the index is the id.
 var LootNumberProviderType = []string{
 	"minecraft:constant",
 	"minecraft:uniform",

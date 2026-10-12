@@ -3,6 +3,7 @@
 // The style of text components, click and hover events and the chat type
 // decoration, typed from their codecs; json tags for text components, nbt tags
 // for the registry data and the wire.
+
 package chat
 
 // ChatTypeDecorationParameter is Java ChatTypeDecoration$Parameter, stored as its serialized name.

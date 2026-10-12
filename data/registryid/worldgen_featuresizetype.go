@@ -2,6 +2,8 @@
 
 package registryid
 
+// WorldgenFeatureSizeType is the minecraft:worldgen/feature_size_type registry: its element names in protocol-id
+// order, so the index is the id.
 var WorldgenFeatureSizeType = []string{
 	"minecraft:two_layers_feature_size",
 	"minecraft:three_layers_feature_size",

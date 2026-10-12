@@ -2,6 +2,8 @@
 
 package registryid
 
+// WorldgenTreeDecoratorType is the minecraft:worldgen/tree_decorator_type registry: its element names in protocol-id
+// order, so the index is the id.
 var WorldgenTreeDecoratorType = []string{
 	"minecraft:trunk_vine",
 	"minecraft:leave_vine",

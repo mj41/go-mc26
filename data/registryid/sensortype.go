@@ -2,6 +2,8 @@
 
 package registryid
 
+// SensorType is the minecraft:sensor_type registry: its element names in protocol-id
+// order, so the index is the id.
 var SensorType = []string{
 	"minecraft:dummy",
 	"minecraft:nearest_items",

@@ -2,6 +2,8 @@
 
 package registryid
 
+// DecoratedPotPattern is the minecraft:decorated_pot_pattern registry: its element names in protocol-id
+// order, so the index is the id.
 var DecoratedPotPattern = []string{
 	"minecraft:angler",
 	"minecraft:archer",

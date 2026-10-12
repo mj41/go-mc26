@@ -2,6 +2,8 @@
 
 package registryid
 
+// EnchantmentEntityEffectType is the minecraft:enchantment_entity_effect_type registry: its element names in protocol-id
+// order, so the index is the id.
 var EnchantmentEntityEffectType = []string{
 	"minecraft:all_of",
 	"minecraft:apply_mob_effect",

@@ -5,22 +5,36 @@ A Go library for Minecraft: Java Edition 26.1 (protocol 775, data version
 Go types, generated from Mojang's unobfuscated server jar.
 
 This branch is a build: generated, templated or copied, never edited by hand.
-Generated from `mc26-data v0.261.1` by `mc26 97c45e4f87c8`; the same facts are in
+Generated from `mc26-data v0.261.2` by `mc26 2e62abc1347f`; the same facts are in
 `data/version` (`version.Name`, `version.ProtocolVersion`, `version.DataSource`,
 `version.Generator`). The sources, generators and build live in
 [mc26](https://github.com/mj41/mc26); every Minecraft version is its own branch of this
 repository and releases are tags (`v0.<YYN>.<patch>`).
 
 ```
-go get github.com/mj41/go-mc26@mc-26.1
+go get github.com/mj41/go-mc26@v0.261
 ```
+
+(`@v0.261` is the newest `v0.261.<patch>` tag.)
+
+A program that joins a server, a bot, does not start here: the client, the account flows and
+the examples are in [go-mc26-kit](https://github.com/mj41/go-mc26-kit), which builds against
+this module. Its README has the first program; add it next to the line above:
+
+```
+go get github.com/mj41/go-mc26-kit
+```
+
+Working with packets directly: the structs are in `protocol/<state>` (each package's doc says how
+one is decoded and sent), the framing in `net/packet`, the connection in `net`.
 
 ## Packages
 
 | package | what |
 |---|---|
 | `protocol/{handshake,status,login,configuration,play}` | one struct per packet with `PacketID`, `ReadFrom`, `WriteTo`; `protocol/types` holds the shared wire types and enums |
-| `data/packetid`, `data/registryid`, `data/item`, `data/entity`, `data/soundid`, `data/lang`, `data/version` | packet ids, every registry, items, entities, sounds, translations, version constants |
+| `data/packetid`, `data/registryid`, `data/item`, `data/entity`, `data/soundid`, `data/lang`, `data/version` | packet ids, every registry, items, entities, sounds, languages (English built in, the others registered), version constants |
+| `cmd/langget` | puts the languages a project lists (some, or all) into one of its packages, by their checksums |
 | `level`, `level/block`, `level/biome`, `level/component` | chunks and palettes, blocks and block states, biomes, item data components |
 | `nbt`, `nbt/dynbt`, `save`, `save/region` | NBT, dynamic NBT, level.dat and player data, region files |
 | `net`, `net/packet`, `net/queue` | the connection, packet framing and field types, RCON |
@@ -28,9 +42,20 @@ go get github.com/mj41/go-mc26@mc-26.1
 | `chat`, `chat/sign` | text components, translations, signed chat |
 | `yggdrasil/user` | a player's profile properties and public key, as they travel in packets |
 
-A client (the bot), a server framework, the account flows (Mojang session server, Microsoft
-login, offline uuids) and the examples are in [go-mc26-kit](https://github.com/mj41/go-mc26-kit),
-a module of its own on top of this one that builds against every supported version of it.
+Besides the client, [go-mc26-kit](https://github.com/mj41/go-mc26-kit) has a server framework,
+the account flows (Microsoft login, offline uuids, Mojang's legacy authentication server) and the
+examples; one source of it builds against every supported version of this module.
+
+## Languages
+
+English is built in. Another language is registered by the program: a module of
+[go-mc26-lang](https://github.com/mj41/go-mc26-lang) (`go get github.com/mj41/go-mc26-lang/cs-cz@v0.261`,
+then `lang.MustRegister(cs_cz.Locale, cs_cz.Data)`), or the languages a project lists in `mc26-langs`,
+put into one of its packages by `go generate` with
+`//go:generate go run github.com/mj41/go-mc26/cmd/langget`. Either way a file is taken only when its
+checksum is the one `lang.Manifest` has for this version; `chat.SetLocale("cs_cz")` renders chat in it.
+From a build before 2026-10-12: `en_us.Map` is `lang.English()`, a blank import of `data/lang/<locale>`
+is the module or langget above, `chat.SetLanguage(x.Map)` is `chat.SetLocale(locale)`.
 
 ## Notes
 

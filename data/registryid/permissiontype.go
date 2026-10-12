@@ -2,6 +2,8 @@
 
 package registryid
 
+// PermissionType is the minecraft:permission_type registry: its element names in protocol-id
+// order, so the index is the id.
 var PermissionType = []string{
 	"minecraft:atom",
 	"minecraft:command_level",

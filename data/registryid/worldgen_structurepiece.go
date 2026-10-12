@@ -2,6 +2,8 @@
 
 package registryid
 
+// WorldgenStructurePiece is the minecraft:worldgen/structure_piece registry: its element names in protocol-id
+// order, so the index is the id.
 var WorldgenStructurePiece = []string{
 	"minecraft:mscorridor",
 	"minecraft:mscrossing",

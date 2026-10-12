@@ -2,6 +2,8 @@
 
 package registryid
 
+// TestFunction is the minecraft:test_function registry: its element names in protocol-id
+// order, so the index is the id.
 var TestFunction = []string{
 	"minecraft:always_pass",
 }

@@ -2,6 +2,8 @@
 
 package registryid
 
+// SoundEvent is the minecraft:sound_event registry: its element names in protocol-id
+// order, so the index is the id.
 var SoundEvent = []string{
 	"minecraft:entity.allay.ambient_with_item",
 	"minecraft:entity.allay.ambient_without_item",

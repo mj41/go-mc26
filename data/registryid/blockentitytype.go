@@ -2,6 +2,8 @@
 
 package registryid
 
+// BlockEntityType is the minecraft:block_entity_type registry: its element names in protocol-id
+// order, so the index is the id.
 var BlockEntityType = []string{
 	"minecraft:furnace",
 	"minecraft:chest",

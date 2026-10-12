@@ -2,6 +2,8 @@
 
 package registryid
 
+// CommandArgumentType is the minecraft:command_argument_type registry: its element names in protocol-id
+// order, so the index is the id.
 var CommandArgumentType = []string{
 	"brigadier:bool",
 	"brigadier:float",

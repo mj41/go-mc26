@@ -2,6 +2,8 @@
 
 package registryid
 
+// EntitySubPredicateType is the minecraft:entity_sub_predicate_type registry: its element names in protocol-id
+// order, so the index is the id.
 var EntitySubPredicateType = []string{
 	"minecraft:lightning",
 	"minecraft:fishing_hook",

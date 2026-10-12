@@ -2,6 +2,8 @@
 
 package registryid
 
+// EnchantmentProviderType is the minecraft:enchantment_provider_type registry: its element names in protocol-id
+// order, so the index is the id.
 var EnchantmentProviderType = []string{
 	"minecraft:by_cost",
 	"minecraft:by_cost_with_difficulty",

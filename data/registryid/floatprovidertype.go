@@ -2,6 +2,8 @@
 
 package registryid
 
+// FloatProviderType is the minecraft:float_provider_type registry: its element names in protocol-id
+// order, so the index is the id.
 var FloatProviderType = []string{
 	"minecraft:constant",
 	"minecraft:uniform",

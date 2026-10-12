@@ -2,6 +2,8 @@
 
 package registryid
 
+// BlockPredicateType is the minecraft:block_predicate_type registry: its element names in protocol-id
+// order, so the index is the id.
 var BlockPredicateType = []string{
 	"minecraft:matching_blocks",
 	"minecraft:matching_block_tag",

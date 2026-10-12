@@ -5,6 +5,7 @@
 // codec, so this is read from the readers themselves (data-gen/java/GenSaveSchema.java).
 //
 // Not described, kept as raw NBT: entity/minecraft:acacia_boat.leash: either field or INT_ARRAY, entity/minecraft:acacia_chest_boat.leash: either field or INT_ARRAY, entity/minecraft:allay.leash: either field or INT_ARRAY, entity/minecraft:area_effect_cloud.custom_particle[minecraft:vibration].destination: PositionSource (dispatch on "type"), entity/minecraft:armadillo.leash: either field or INT_ARRAY, entity/minecraft:axolotl.leash: either field or INT_ARRAY and 137 more.
+
 package save
 
 import (

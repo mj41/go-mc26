@@ -2,6 +2,8 @@
 
 package registryid
 
+// SlotDisplay is the minecraft:slot_display registry: its element names in protocol-id
+// order, so the index is the id.
 var SlotDisplay = []string{
 	"minecraft:empty",
 	"minecraft:any_fuel",
